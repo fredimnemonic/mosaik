@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="actionCreate">actionCreate</string>
+    
+    <string name="app_name">Mosaic</string>
+<string name="btn_create">CREATE</string>
+<string name="btn_gallery">GALLERY</string>
+<string name="btn_settings">SETTINGS</string>
+</resources>
