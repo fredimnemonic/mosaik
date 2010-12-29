@@ -75,7 +75,7 @@ public class CreateActivity extends Activity {
       @Override
       public void onClick(View v) {
         dlg.dismiss();
-        mapPicture2(bMap);
+        mapPicture(bMap);
       }
     });
     Button other = new Button(this);
@@ -115,7 +115,28 @@ public class CreateActivity extends Activity {
     mProgressDialog.show();
   }
 
-  private void mapPicture2(final Bitmap bMap) {
+  private void mapPictureNewRandom() {
+//    RadiusRenderRandom renderTask = new RadiusRenderRandom(mapArray,
+//        images,
+//        baseImage,
+//        hTiles,
+//        vTiles,
+//        tileWidth,
+//        tileHeight,
+//        optionBox.getColorCorrectPercent(),
+//        optionBox.getTileRep(),
+//        optionBox.getMinDistNum(),
+//        optionBox.getTileOrder());
+//    formProgressBar.setValue(0); // Set up the progress bar.
+//    formProgressBar.setMaximum(renderTask.getTaskLen());
+//    formProgressBar.setStringPainted(true);
+//
+//    renderTask.go();  // Start the task.
+  }
+
+
+
+  private void mapPicture(final Bitmap bMap) {
     try {
 //      File fcreate = new File(getFilesDir(), "mapped_neuesbild.jpg");
 //      boolean create = fcreate.createNewFile();

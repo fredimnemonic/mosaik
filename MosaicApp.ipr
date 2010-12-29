@@ -42,17 +42,7 @@
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="Javac" />
     <excludeFromCompile>
-      <directory url="file://$PROJECT_DIR$/src/com/mnemonic/other" includeSubdirectories="false" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/plugins/saveTypes/BMPSaveType.java" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/plugins/saveTypePlugin.java" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/imageUtils/colorCorrect.java" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/imageUtils/imageOps.java" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/plugins/compareRender.java" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/plugins/medianEvaluator.java" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/plugins/defaultMapCreate.java" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/plugins/radiusRenderRandom.java" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/plugins/radiusRender.java" />
-      <file url="file://$PROJECT_DIR$/src/com/mnemonic/other/plugins/scalarEvaluator.java" />
+      <directory url="file://$PROJECT_DIR$/../../tests/JImageMosaic_0.2alpha_code" includeSubdirectories="true" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>
@@ -254,7 +244,17 @@
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$/.." vcs="svn" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
+  <component name="libraryTable">
+    <library name="jai">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/libs/jai_codec.jar!/" />
+        <root url="jar://$PROJECT_DIR$/libs/jai_core.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
   </component>
 </project>
 

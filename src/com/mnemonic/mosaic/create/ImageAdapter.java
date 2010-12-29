@@ -6,7 +6,10 @@ import android.graphics.Color;
 import android.os.Environment;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -43,11 +46,12 @@ public class ImageAdapter extends BaseAdapter {
         public boolean accept(File pathname) {
           String name = pathname.getName();
           return name.endsWith(".jpg") || name.endsWith(".png");
-        }});
+        }
+      });
+    }
 
-      if (mPictures == null) {
-        mPictures = new File[0];
-      }
+    if (mPictures == null) {
+      mPictures = new File[0];
     }
 
     int dispwith = mContext.getWindowManager().getDefaultDisplay().getWidth();
