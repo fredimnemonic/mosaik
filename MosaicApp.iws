@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="12c8a273-7d1c-416f-95ac-3f6ac9e9df2f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MosaicApp.iws" afterPath="$PROJECT_DIR$/MosaicApp.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageList.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryCreate.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryCreate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
@@ -97,7 +93,7 @@
       <file leaf-file-name="RadiusRenderRandom.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="21" selection-start="5552" selection-end="5552" vertical-scroll-proportion="0.7286245">
+            <state line="148" column="7" selection-start="5763" selection-end="5763" vertical-scroll-proportion="0.6347656">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,7 +122,7 @@
       <file leaf-file-name="ImageInfo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="3" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0">
+            <state line="27" column="46" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -158,10 +154,10 @@
         <option value="$PROJECT_DIR$/../../../android-source/frameworks/base/tools/layoutlib/bridge/src/android/graphics/Bitmap.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/settings/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageList.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryCreate.java" />
         <option value="$PROJECT_DIR$/../../../android-source/frameworks/base/graphics/java/android/graphics/Color.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java" />
       </list>
     </option>
@@ -690,13 +686,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/settings/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="762" selection-end="762" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_22/src.zip!/java/awt/image/RenderedImage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="1052" selection-end="1052" vertical-scroll-proportion="0.0">
@@ -795,9 +784,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="46" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="21" selection-start="5552" selection-end="5552" vertical-scroll-proportion="0.7286245">
+        <state line="148" column="7" selection-start="5763" selection-end="5763" vertical-scroll-proportion="0.6347656">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
