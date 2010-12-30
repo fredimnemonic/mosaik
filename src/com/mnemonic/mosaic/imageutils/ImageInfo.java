@@ -27,29 +27,17 @@ import java.io.Serializable;
 
 public class ImageInfo implements Serializable {
 
+  // Class variables.
+  private String mFilePath;
+  private int mColor;     // The RBG value for the image.
+
     // Constructor.
     public ImageInfo() {
     }
 
-    // Constructor -- Initializing with image's file name and RBG Value.
-    public ImageInfo(String fn, int color) {
-        this.fileName = fn;
-        this.mColor = color;
-    }
-
-    // Accessor to set the file name/path for the image.
-    public void setFileName(String fn) {
-        this.fileName = fn;
-    }
-
     // Accessor to set the RBG value for the image.
-    public void setRBGVal(int color) {
+    public void setColor(int color) {
         this.mColor = color;
-    }
-
-    // Accessor to retrieve the filename for the image.
-    public String getFileName() {
-        return this.fileName;
     }
 
     // Accessor to retrieve the RBG value for the image.
@@ -57,8 +45,11 @@ public class ImageInfo implements Serializable {
         return this.mColor;
     }
 
-    // Class variables.
-    private String fileName;  // The full path and file name for the image.
-    private int mColor;     // The RBG value for the image.
+  public String getFilePath() {
+    return mFilePath;
+  }
 
+  public void setFilePath(String filePath) {
+    mFilePath = filePath;
+  }
 }

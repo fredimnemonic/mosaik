@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
+import com.mnemonic.mosaic.imageutils.RadiusRenderRandom;
 
 public class CreateActivity extends Activity {
 
@@ -75,7 +76,7 @@ public class CreateActivity extends Activity {
       @Override
       public void onClick(View v) {
         dlg.dismiss();
-        mapPicture(bMap);
+        mapPictureNewRandom(bMap);
       }
     });
     Button other = new Button(this);
@@ -115,7 +116,12 @@ public class CreateActivity extends Activity {
     mProgressDialog.show();
   }
 
-  private void mapPictureNewRandom() {
+  private void mapPictureNewRandom(Bitmap bmap) {
+    RadiusRenderRandom r = new RadiusRenderRandom();
+    Dialog dlg = createPictureDialog(r.createMap(this, bmap));
+    dlg.show();
+
+
 //    RadiusRenderRandom renderTask = new RadiusRenderRandom(mapArray,
 //        images,
 //        baseImage,

@@ -35,6 +35,7 @@ public class LibraryCreate {
 
     List<ImageInfo> imagelib = new ArrayList<ImageInfo>();
 
+    long start = System.currentTimeMillis();
     for (int count = 0; count < mPictures.length; count++) {  // Cycle through all the images in the list...
       try {
         double[] mean = getMean(BitmapFactory.decodeFile(mPictures[count].getAbsolutePath()));
@@ -43,10 +44,10 @@ public class LibraryCreate {
         int color = Color.argb(255, (int) mean[0], (int) mean[1], (int) mean[2]);  // Make a color from it.
 //          if (c != null) {
             ImageInfo newImg = new ImageInfo();         // Set up an ImageInfo record with the data.
-            newImg.setFileName(mPictures[count].getName());
-            newImg.setRBGVal(color);
+            newImg.setFilePath(mPictures[count].getAbsolutePath());
+            newImg.setColor(color);
             imagelib.add(newImg);
-            System.out.println(mPictures[count].getName());
+            System.out.println(mPictures[count].getAbsolutePath());
 //          }
 //        } else {  // Debugging.
 //          System.out.println("Wrong Number Of Bands On Image: " + mPictures[count].getName());
@@ -57,7 +58,7 @@ public class LibraryCreate {
         e.printStackTrace();
       }
     }
-
+    System.out.println("Rendering der Lib dauert: " + (System.currentTimeMillis() - start));
     try {
       FileOutputStream fos = context.openFileOutput("mosaik.jml", Context.MODE_WORLD_WRITEABLE);
       ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -68,23 +69,8 @@ public class LibraryCreate {
 
       oos.close();
       fos.close();
-
-      FileInputStream fis = context.openFileInput("mosaik.jml");
-      ObjectInputStream ois = new ObjectInputStream(fis);
-      int numObjects = ois.readInt();
-
-      // Read all of the tiles out of the library.
-      ImageList images = new ImageList();
-      for (int count = 0; count < numObjects; count++) {
-        images.put((ImageInfo) ois.readObject());
-      }
-
-      int[][] tileArray = new int[20][20];
-      findBestFit(images, Color.RED, tileArray, 0, 0);
     } catch (IOException ioe) {
       ioe.printStackTrace();
-    } catch (ClassNotFoundException e) {
-      e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
     }
 
     System.out.println("Done!");
@@ -100,16 +86,6 @@ public class LibraryCreate {
     bMap.getPixels(pixels, 0, maxw, 0, 0, maxw, maxh);
 
     long start = System.currentTimeMillis();
-//    for (int x = 0; x < maxw; x ++) {
-//      for (int y = 0; y < maxh; y ++) {
-//        int color = bMap.getPixel(x, y);
-//        mean[0] += android.graphics.Color.red(color);
-//        mean[1] += android.graphics.Color.green(color);
-//        mean[2] += android.graphics.Color.blue(color);
-//      }
-//    }
-//    System.out.println("direkter Zugriff dauert: " + (System.currentTimeMillis()-start));
-//    start = System.currentTimeMillis();
 
     for (int x = 0; x < maxw; x ++) {
       for (int y = 0; y < maxh; y ++) {
@@ -126,25 +102,5 @@ public class LibraryCreate {
     mean[2] = mean[2] / (maxh * maxw);
 
     return mean;
-  }
-
-  private int findBestFit(ImageList tileLibrary, int c, int[][] tileArray, int x, int y) {
-    int radiusTiles = 5;  // The number of radius tiles... this WILL be user-configurable.
-    int closestSoFar = 0;  // Index of the tile that best matches the color so far.
-    int redDiff, greenDiff, blueDiff, totalDiff = 0;
-    totalDiff = (256*3);  // Initialize the total difference to the largest reasonable number.
-
-    for (int count = 0; count < tileLibrary.getSize(); count++) {  // Cycle through all of the library tiles.
-      if ( !TileChecker.checkPlacement(1, 0, tileArray, x, y, count, 20, 20) ) {//todo 20/20 ersetzen  // If this tile isn't in the box, find the difference in color.
-        redDiff = Math.abs(Color.red(c) - Color.red(tileLibrary.get(count).getColor()));
-        blueDiff = Math.abs(Color.blue(c) - Color.blue(tileLibrary.get(count).getColor()));
-        greenDiff = Math.abs(Color.green(c) - Color.green(tileLibrary.get(count).getColor()));
-        if (((redDiff + blueDiff + greenDiff) < totalDiff)) { // if this is closer than the previous closest...
-          totalDiff = redDiff + blueDiff + greenDiff;
-          closestSoFar = count;  // Keep track of this tile.
-        }
-      }
-    }
-    return closestSoFar;  // return the tile we chose.
   }
 }
