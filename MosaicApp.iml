@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="android" name="Android">
       <configuration>
-        <option name="PLATFORM_NAME" value="Android 2.2 Platform" />
+        <option name="PLATFORM_NAME" value="Android 2.3 Platform" />
         <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/gen" />
         <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/gen" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/AndroidManifest.xml" />
@@ -24,21 +24,17 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/../out/production/MosaicApp" />
+    <output-test url="file://$MODULE_DIR$/../out/test/MosaicApp" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
     </content>
-    <content url="file://$MODULE_DIR$/../../tests">
-      <sourceFolder url="file://$MODULE_DIR$/../../tests" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../tests/JImageMosaic_0.2alpha_code" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../tests/tests" isTestSource="true" />
-    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Android 2.2 Platform" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="jai" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Android 2.3 Platform" level="application" />
   </component>
 </module>
 

@@ -41,9 +41,6 @@
   </component>
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="Javac" />
-    <excludeFromCompile>
-      <directory url="file://$PROJECT_DIR$/../../tests/JImageMosaic_0.2alpha_code" includeSubdirectories="true" />
-    </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>
       <entry name="?*.properties" />
@@ -237,7 +234,7 @@
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-name="1.6.0_22" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-name="1.6.0_23" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="SvnBranchConfigurationManager">
@@ -245,16 +242,6 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-  </component>
-  <component name="libraryTable">
-    <library name="jai">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/libs/jai_codec.jar!/" />
-        <root url="jar://$PROJECT_DIR$/libs/jai_core.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
   </component>
 </project>
 
