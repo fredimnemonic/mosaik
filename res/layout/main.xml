@@ -20,4 +20,5 @@
       android:text="@string/btn_gallery"
       android:onClick="actionGallery">
   </Button>
+
 </LinearLayout>

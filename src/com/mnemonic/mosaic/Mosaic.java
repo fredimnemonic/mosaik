@@ -1,18 +1,25 @@
 package com.mnemonic.mosaic;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import com.mnemonic.mosaic.create.CreateActivity;
 import com.mnemonic.mosaic.gallery.GalleryActivity;
-import com.mnemonic.mosaic.imagelibrary.ImageLibraryActivity;
+import com.mnemonic.mosaic.imageutils.LibraryUtil;
 import com.mnemonic.mosaic.preferences.PreferencesActivity;
 
 public class Mosaic extends Activity {
+  private ProgressBar myProgressBar;
+  private int myProgress = 0;
+
   /** Called when the activity is first created. */
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -53,15 +60,12 @@ public class Mosaic extends Activity {
   public boolean onOptionsItemSelected(MenuItem item) {
 
     switch (item.getItemId()) {
-
       case R.id.menu_photolib:
-        ImageLibraryActivity imglib = new ImageLibraryActivity();
-        imglib.createImageLib(getBaseContext());
+        createImageLib();
         break;
 
       case R.id.menu_preferences:
-        Intent pref = new Intent(getBaseContext(), PreferencesActivity.class);
-        startActivity(pref);
+        startActivity(new Intent(getBaseContext(), PreferencesActivity.class));
         break;
 
       default:
@@ -69,5 +73,39 @@ public class Mosaic extends Activity {
     }
 
     return  true;
+  }
+
+  private void createImageLib() {
+    final ProgressDialog dialog = new ProgressDialog(this);
+    dialog.setCancelable(true);
+    dialog.setMessage("Loading...");
+    // set the progress to be horizontal
+    dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+    // reset the bar to the default value of 0
+    dialog.setProgress(0);
+
+    dialog.setMax(LibraryUtil.getLibraryUtil().getAvailablePictures().length);
+
+    final Handler progressHandler = new Handler() {
+      @Override
+      public void handleMessage(Message msg) {
+        dialog.incrementProgressBy(1);
+      }
+    };
+
+    // display the progressbar
+    dialog.show();
+
+    // create a thread for updating the progress bar
+    Thread background = new Thread (new Runnable() {
+      public void run() {
+        LibraryUtil.getLibraryUtil().createImageLib(getBaseContext(), progressHandler);
+        dialog.dismiss();
+      }
+    });
+
+    // start the background thread
+    background.start();
+
   }
 }

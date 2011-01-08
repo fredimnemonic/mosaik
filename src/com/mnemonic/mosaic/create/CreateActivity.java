@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
-import com.mnemonic.mosaic.imageutils.LibraryUtil;
 import com.mnemonic.mosaic.imageutils.RadiusRenderRandom;
 
 public class CreateActivity extends Activity {
@@ -23,9 +22,6 @@ public class CreateActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
-    ProgressDialog dlg = ProgressDialog.show(this, "Load Gallery", "Please wait...", true);
-    LibraryUtil.initSingleton();
 
     GridView grid = new GridView(this);
 
@@ -40,7 +36,6 @@ public class CreateActivity extends Activity {
     });
 
     setContentView(grid);
-    dlg.dismiss();
   }
 
   @Override
