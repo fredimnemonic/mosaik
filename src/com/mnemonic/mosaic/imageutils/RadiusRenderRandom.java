@@ -40,6 +40,8 @@ public class RadiusRenderRandom {
       e.printStackTrace();
     }
 
+    System.out.println();
+
     System.out.println("lib geladen in: " + (System.currentTimeMillis() - start));
     start = System.currentTimeMillis();
 
