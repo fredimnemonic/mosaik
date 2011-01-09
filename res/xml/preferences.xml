@@ -11,7 +11,7 @@
         android:title="renderer"
         android:summary="Legt den zu verwendeten Renderer fest"
         android:key="renderer"
-        android:defaultValue="RandomRenderer"
+        android:defaultValue="RadiusRenderRandom"
         android:entries="@array/listArray"
         android:entryValues="@array/listValues" />
   </PreferenceCategory>
@@ -23,12 +23,12 @@
         android:defaultValue="20"
         android:title="Anzahl Tiles"
         android:key="tilecount" />
-    <EditTextPreference
-        android:name="tilecounty"
-        android:summary="Legt die Anzahl Tiles (Kacheln) fest"
-        android:defaultValue="20"
-        android:title="Anzahl Tiles"
-        android:key="tilecount" />
+    <!--<EditTextPreference-->
+        <!--android:name="tilecounty"-->
+        <!--android:summary="Legt die Anzahl Tiles (Kacheln) fest"-->
+        <!--android:defaultValue="20"-->
+        <!--android:title="Anzahl Tiles"-->
+        <!--android:key="tilecount" />-->
     <!--<RingtonePreference-->
         <!--android:name="Ringtone Preference"-->
         <!--android:summary="Select a ringtone"-->

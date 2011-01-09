@@ -23,11 +23,11 @@ public class ImageList {
     mImageList.add(image);
   }
 
-  synchronized ImageInfo get(int index) {
+  public ImageInfo get(int index) {
     return mImageList.get(index);
   }
 
-  int size() {
+  public int size() {
     return mImageList.size();
   }
 

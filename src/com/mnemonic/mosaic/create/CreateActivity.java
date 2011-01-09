@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
-import com.mnemonic.mosaic.imageutils.renderer.RadiusRenderRandom;
+import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
+import com.mnemonic.mosaic.imageutils.renderer.RendererFactory;
+import com.mnemonic.mosaic.preferences.PreferenceReader;
 
 public class CreateActivity extends Activity {
 
@@ -102,67 +104,12 @@ public class CreateActivity extends Activity {
   }
 
   private void mapPictureNewRandom(Bitmap bmap) {
-    RadiusRenderRandom r = new RadiusRenderRandom();
-    Dialog dlg = createPictureDialog(r.createMap(this, bmap));
+    String renderername = PreferenceReader.getRendererClass(getBaseContext());
+    ImageRendererBase renderer = RendererFactory.createRenderer(renderername, getBaseContext(), bmap);
+    Bitmap neu = renderer.setUp();
+    renderer.renderImage();
+
+    Dialog dlg = createPictureDialog(neu);
     dlg.show();
-
-
-
-  }
-
-
-
-  private void mapPicture(final Bitmap bMap) {
-    try {
-//      File fcreate = new File(getFilesDir(), "mapped_neuesbild.jpg");
-//      boolean create = fcreate.createNewFile();
-
-      final Bitmap outRast = Bitmap.createBitmap(bMap.getWidth(), bMap.getHeight(), bMap.getConfig());
-
-      Dialog dlg = createPictureDialog(outRast);
-      Thread t = new Thread(new Runnable(){
-        @Override
-        public void run() {
-          long start = System.currentTimeMillis();
-          int faktor = 4;
-          for (int x=0; x<  bMap.getWidth(); x+=faktor) {
-            for (int y=0; y<bMap.getHeight(); y+=faktor) {
-              int r = 0;
-              int g = 0;
-              int b = 0;
-              int counter = 0;
-              for (int xs = 0; xs < faktor && x+xs < bMap.getWidth(); xs++) {
-                for (int ys = 0; ys < faktor && y+ys < bMap.getHeight(); ys++) {
-                  counter++;
-                  int color = bMap.getPixel(x + xs, y + ys);
-                  r += Color.red(color);
-                  g += Color.green(color);
-                  b += Color.blue(color);
-                }
-              }
-
-              r = r / counter;
-              g = g / counter;
-              b = b / counter;
-
-              for (int xs = 0; xs < faktor && x+xs < bMap.getWidth(); xs++) {
-                for (int ys = 0; ys < faktor && y+ys < bMap.getHeight(); ys++) {
-                  outRast.setPixel(x + xs, y + ys, Color.rgb(r, g, b));
-                }
-              }
-            }
-          }
-          System.out.println("ganzes rendering dauert: " + (System.currentTimeMillis() - start));
-        }
-      });
-
-      dlg.show();
-
-      t.start();
-
-    }catch (Exception e) {
-      e.printStackTrace();
-      // TODO: handle exception
-    }
   }
 }

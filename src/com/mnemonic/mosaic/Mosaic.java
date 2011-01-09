@@ -12,7 +12,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.mnemonic.mosaic.create.CreateActivity;
 import com.mnemonic.mosaic.gallery.GalleryActivity;
@@ -20,8 +19,6 @@ import com.mnemonic.mosaic.imageutils.LibraryUtil;
 import com.mnemonic.mosaic.preferences.PreferencesActivity;
 
 public class Mosaic extends Activity {
-  private ProgressBar myProgressBar;
-  private int myProgress = 0;
 
   /** Called when the activity is first created. */
   @Override
@@ -35,22 +32,12 @@ public class Mosaic extends Activity {
     GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
     layout.setBackgroundDrawable(gradientDrawable);
     layout.setPadding(0, 5, 0, 0);
-
-//    Button create = (Button) findViewById(R.id.btnCreate);
-//
   }
 
   //wird über action in AndroidManifest.xml angesprochen
   @SuppressWarnings({"UnusedDeclaration"})
   public void actionCreate(View view) {
     Intent intent = new Intent(this, CreateActivity.class);
-    startActivity(intent);
-  }
-
-  //wird über action in AndroidManifest.xml angesprochen
-  @SuppressWarnings({"UnusedDeclaration"})
-  public void actionSettings(View view) {
-    Intent intent = new Intent(this, PreferencesActivity.class);
     startActivity(intent);
   }
 

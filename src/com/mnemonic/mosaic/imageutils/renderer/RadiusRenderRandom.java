@@ -1,151 +1,91 @@
+/**
+ * Created by Fredimnemonic.
+ *
+ * User: Kollera
+ * Date: 09.01.11
+ * Time: 15:00
+ *
+ */
 package com.mnemonic.mosaic.imageutils.renderer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import com.mnemonic.mosaic.imageutils.ImageInfo;
 import com.mnemonic.mosaic.imageutils.TileChecker;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.ArrayList;
-import java.util.List;
+class RadiusRenderRandom extends ImageRendererBase {
 
+  RadiusRenderRandom(Context context, Bitmap orig) {
+    super(context, orig);
+  }
 
-public class RadiusRenderRandom {
-
-  public Bitmap createMap(Context context, Bitmap orig) {
-    int tilecount = 20;
-
-    int width = orig.getWidth();
-    int height = orig.getHeight();
-    Bitmap neu = Bitmap.createBitmap(width, height, orig.getConfig());
-
-    long start = System.currentTimeMillis();
-
-    List<ImageInfo> images = new ArrayList<ImageInfo>();
-    try {
-      FileInputStream fis = context.openFileInput("mosaik.jml");
-      ObjectInputStream ois = new ObjectInputStream(fis);
-      int numObjects = ois.readInt();
-
-      // Read all of the tiles out of the library.
-      for (int count = 0; count < numObjects; count++) {
-        images.add((ImageInfo) ois.readObject());
-      }
-    } catch (IOException ioe) {
-      ioe.printStackTrace();
-    } catch (ClassNotFoundException e) {
-      e.printStackTrace();
-    }
-
-    System.out.println();
-
-    System.out.println("lib geladen in: " + (System.currentTimeMillis() - start));
-    start = System.currentTimeMillis();
-
-    int tilex = width / tilecount;
-    int tiley = height / tilecount;
-
-    int[][] colors = new int[tilecount][tilecount];
-    int[][] tileArray = new int[tilecount][tilecount];
-
-    int[] pixels = new int[width * height];
-    orig.getPixels(pixels, 0, width, 0, 0, width, height);
+  @Override
+  void readColors() {
+    int[] pixels = new int[mWidth * mHeight];
+    mOrigBitmap.getPixels(pixels, 0, mWidth, 0, 0, mWidth, mHeight);
 
     int currenttilex = 0;
-    for (int x = 0; currenttilex < tilecount ; x += tilex, currenttilex++) {
+    double red, green, blue;
+    for (int x = 0; currenttilex < mTileCount ; x += mTileWidth, currenttilex++) {
       int currenttiley = 0;
-      for (int y = 0; currenttiley < tilecount; y += tiley, currenttiley++) {
-        double[] mean = new double[3];
-
+      for (int y = 0; currenttiley < mTileCount; y += mTileHeight, currenttiley++) {
+        red = 0;
+        green = 0;
+        blue = 0;
         int counter = 0;
-        for (int xs = 0; xs < tilex && x + xs < width; xs++) {
-          for (int ys = 0; ys < tiley && y + ys < height; ys++) {
+        for (int xs = 0; xs < mTileWidth && x + xs < mWidth; xs++) {
+          for (int ys = 0; ys < mTileHeight && y + ys < mHeight; ys++) {
             counter++;
-            int color = pixels[(y + ys) * width + (x + xs)];//umrechnung von zwei- in eindimensionale arrays
-            mean[0] += Color.red(color);
-            mean[1] += Color.green(color);
-            mean[2] += Color.blue(color);
+            int color = pixels[(y + ys) * mWidth + (x + xs)];//umrechnung von zwei- in eindimensionale arrays
+            red += Color.red(color);
+            green += Color.green(color);
+            blue += Color.blue(color);
           }
         }
 
-        mean[0] = mean[0] / counter;
-        mean[1] = mean[1] / counter;
-        mean[2] = mean[2] / counter;
-/**********************************************************************/
+        red = red / counter;
+        green = green / counter;
+        blue = blue / counter;
 
-        colors[currenttilex][currenttiley] = Color.argb(255, (int) mean[0], (int) mean[1], (int) mean[2]);
-        mean[0] = 0;
-        mean[1] = 0;
-        mean[2] = 0;
+        mColors[currenttilex][currenttiley] = Color.argb(255, (int) red, (int) green, (int) blue);
 
-        System.out.println("Color " + currenttilex + " " + currenttiley + "  -  " + colors[currenttilex][currenttiley]);
-
-//          int color = Color.argb(255, (int) mean[0], (int) mean[1], (int) mean[2]);
-//          int tileindex = findBestFit(images, color, tileArray, x, y, tilecount);
-//          Bitmap origtile = BitmapFactory.decodeFile(images.get(tileindex).getFilePath());
-//          Bitmap tile = Bitmap.createScaledBitmap(origtile, tilex, tiley, false);
-//          int[] tilepixels = new int[tilex * tiley];
-//          tile.getPixels(tilepixels, 0, tilex, 0, 0, tilex, tiley);
-//
-//          if (x + tilex < width && y + tiley < height) {
-//            neu.setPixels(tilepixels, 0, tilex, x, y, tilex, tiley);
-//          }
-
-/**********************************************************************/
-
-
-//        for (int xs = 0; xs < tilex && x + xs < width; xs++) {
-//          for (int ys = 0; ys < tiley && y + ys < height; ys++) {
-//            neu.setPixel(x + xs, y + ys, Color.argb(255, (int) mean[0], (int) mean[1], (int) mean[2]));
-//          }
-//        }
-
-/**********************************************************************/
+        System.out.println("Color " + currenttilex + " " + currenttiley + "  -  " + mColors[currenttilex][currenttiley]);
       }
     }
+  }
 
-    System.out.println("Done reading colors! Time -> " + (System.currentTimeMillis() - start));
-    start = System.currentTimeMillis();
+  @Override
+  void findTilesAndSetColors() {
+    for (int x = 0; x < mTileCount; x++) {
+      for (int y = 0; y < mTileCount; y++) {
+        int tileindex = findBestFit(mColors[x][y], x, y, mTileCount);
+        Bitmap origtile = BitmapFactory.decodeFile(mTileList.get(tileindex).getFilePath());
+        Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
+        int[] tilepixels = new int[mTileWidth * mTileHeight];
+        tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
 
-
-
-    for (int x = 0; x < tilecount; x++) {
-      for (int y = 0; y < tilecount; y++) {
-        int tileindex = findBestFit(images, colors[x][y], tileArray, x, y, tilecount);
-        Bitmap origtile = BitmapFactory.decodeFile(images.get(tileindex).getFilePath());
-        Bitmap tile = Bitmap.createScaledBitmap(origtile, tilex, tiley, false);
-        int[] tilepixels = new int[tilex * tiley];
-        tile.getPixels(tilepixels, 0, tilex, 0, 0, tilex, tiley);
-
-        if (x * tilex < width && y * tiley < height) {
-          neu.setPixels(tilepixels, 0, tilex, x*tilex, y*tiley, tilex, tiley);
+        if (x * mTileWidth < mWidth && y * mTileHeight < mHeight) {
+          mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
         }
         System.out.println("x=" + x + "   y=" + y);
       }
     }
-
-    System.out.println("Done setting colors! Time -> " + (System.currentTimeMillis() - start));
-
-    return neu;
   }
 
-  private int findBestFit(List<ImageInfo> tileLibrary, int c, int[][] tileArray, int x, int y, int tilecount) {
-    int radiusTiles = 5;  // The number of radius tiles... this WILL be user-configurable.
+  private int findBestFit(int c, int x, int y, int tilecount) {
+//    int radiusTiles = 5;  // The number of radius tiles... this WILL be user-configurable.
     int closestSoFar = 0;  // Index of the tile that best matches the color so far.
-    int redDiff, greenDiff, blueDiff, totalDiff = 0;
+    int redDiff, greenDiff, blueDiff, totalDiff;
     int red = Color.red(c);
     int green = Color.green(c);
     int blue = Color.blue(c);
     totalDiff = (256*3);  // Initialize the total difference to the largest reasonable number.
 
-    int size = tileLibrary.size();
+    int size = mTileList.size();
     for (int count = 0; count < size; count++) {  // Cycle through all of the library tiles.
-      int imagecolor = tileLibrary.get(count).getColor();
-      if ( !TileChecker.checkPlacement(1, 0, tileArray, x, y, count, tilecount, tilecount) ) {// If this tile isn't in the box, find the difference in color.
+      int imagecolor = mTileList.get(count).getColor();
+      if ( !TileChecker.checkPlacement(1, 0, mTileArray, x, y, count, tilecount, tilecount) ) {// If this tile isn't in the box, find the difference in color.
         redDiff = Math.abs(red - Color.red(imagecolor));
         blueDiff = Math.abs(blue - Color.blue(imagecolor));
         greenDiff = Math.abs(green - Color.green(imagecolor));

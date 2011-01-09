@@ -29,7 +29,7 @@ public abstract class ImageRendererBase {
   Bitmap mOrigBitmap;
   private Context mBasecontext;
 
-  protected ImageRendererBase(Context context, Bitmap orig) {
+  ImageRendererBase(Context context, Bitmap orig) {
     mOrigBitmap = orig;
     mBasecontext = context;
   }
@@ -43,17 +43,43 @@ public abstract class ImageRendererBase {
     mTileWidth = mWidth / mTileCount;
     mTileHeight = mHeight / mTileCount;
 
-    mCreatedBM = Bitmap.createBitmap(mWidth, mHeight, mOrigBitmap.getConfig());
-
-    mTileList = LibraryUtil.getLibraryUtil().getImageLib(mBasecontext);
-
     mColors = new int[mTileCount][mTileCount];
     mTileArray = new int[mTileCount][mTileCount];
+
+    mCreatedBM = Bitmap.createBitmap(mWidth, mHeight, mOrigBitmap.getConfig());
+
+    print("Start reading Imagelibrary");
+    long start = System.currentTimeMillis();
+    mTileList = LibraryUtil.getLibraryUtil().getImageLib(mBasecontext);
+    print("End reading Imagelibrary", start);
 
     return mCreatedBM;
   }
 
-  public void renderImage() {
-
+  void print(String txt, long start) {
+    System.out.println("****************** " + txt + "    time: -> " + (System.currentTimeMillis() - start));
   }
+
+  void print(String txt) {
+    System.out.println("****************** " + txt);
+  }
+
+  public void renderImage() {
+    print("Starting read Colors");
+    long start = System.currentTimeMillis();
+
+    readColors();
+
+    print("End readColors", start);
+    print("Starting findTilesAndSetColors");
+    start = System.currentTimeMillis();
+
+    findTilesAndSetColors();
+
+    print("End findTilesAndSetColors", start);
+  }
+
+  abstract void readColors();
+
+  abstract void findTilesAndSetColors();
 }
