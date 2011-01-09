@@ -2,6 +2,7 @@ package com.mnemonic.mosaic.create;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -10,9 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
-import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
-import com.mnemonic.mosaic.imageutils.renderer.RendererFactory;
-import com.mnemonic.mosaic.preferences.PreferenceReader;
+import com.mnemonic.mosaic.gallery.SingleGalleryActivity;
 
 public class CreateActivity extends Activity {
 
@@ -39,12 +38,12 @@ public class CreateActivity extends Activity {
 
   @Override
   protected Dialog onCreateDialog(int id) {
-    Bitmap bMap = BitmapFactory.decodeFile(mImageAdapter.getImageForPosition(id).getAbsolutePath());
-
-    return createPictureDialog(bMap);
+    return createPictureDialog(mImageAdapter.getImageForPosition(id).getAbsolutePath());
   }
 
-  private Dialog createPictureDialog(final Bitmap bMap) {
+  private Dialog createPictureDialog(final String bMappath) {
+    Bitmap bMap = BitmapFactory.decodeFile(bMappath);
+
     final Dialog dlg = new Dialog(this);
 
     LinearLayout top = new LinearLayout(this);
@@ -72,7 +71,10 @@ public class CreateActivity extends Activity {
       @Override
       public void onClick(View v) {
         dlg.dismiss();
-        mapPictureNewRandom(bMap);
+
+        Intent singlegal = new Intent(getBaseContext(), SingleGalleryActivity.class);
+        singlegal.putExtra("path", bMappath);
+        startActivity(singlegal);
       }
     });
 
@@ -101,15 +103,5 @@ public class CreateActivity extends Activity {
     dlg.setTitle("Auswahl akzeptieren?");
 
     return dlg;
-  }
-
-  private void mapPictureNewRandom(Bitmap bmap) {
-    String renderername = PreferenceReader.getRendererClass(getBaseContext());
-    ImageRendererBase renderer = RendererFactory.createRenderer(renderername, getBaseContext(), bmap);
-    Bitmap neu = renderer.setUp();
-    renderer.renderImage();
-
-    Dialog dlg = createPictureDialog(neu);
-    dlg.show();
   }
 }

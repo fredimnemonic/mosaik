@@ -12,6 +12,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.TileChecker;
 
 class RadiusRenderRandom extends ImageRendererBase {
@@ -56,21 +57,13 @@ class RadiusRenderRandom extends ImageRendererBase {
   }
 
   @Override
-  void findTilesAndSetColors() {
-    for (int x = 0; x < mTileCount; x++) {
-      for (int y = 0; y < mTileCount; y++) {
-        int tileindex = findBestFit(mColors[x][y], x, y, mTileCount);
-        Bitmap origtile = BitmapFactory.decodeFile(mTileList.get(tileindex).getFilePath());
-        Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
-        int[] tilepixels = new int[mTileWidth * mTileHeight];
-        tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
+  void findTilesAndSetColors(final Handler callback) {
+    int half = mTileCount / 2;
+    Thread t1 = new TileThread(callback, 0, half);
+    Thread t2 = new TileThread(callback, half, mTileCount);
 
-        if (x * mTileWidth < mWidth && y * mTileHeight < mHeight) {
-          mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
-        }
-        System.out.println("x=" + x + "   y=" + y);
-      }
-    }
+    t1.start();
+    t2.start();
   }
 
   private int findBestFit(int c, int x, int y, int tilecount) {
@@ -96,5 +89,36 @@ class RadiusRenderRandom extends ImageRendererBase {
       }
     }
     return closestSoFar;  // return the tile we chose.
+  }
+
+  private class TileThread extends Thread {
+    private Handler mCallback;
+    private int mCurrentX;
+    private int mMax;
+
+    private TileThread(Handler callback, int currentX, int max) {
+      mCallback = callback;
+      mCurrentX = currentX;
+      mMax = max;
+    }
+
+    @Override
+    public void run() {
+      for (int x = mCurrentX; x < mMax; x++) {
+        mCallback.sendEmptyMessage(0);
+        for (int y = 0; y < mTileCount; y++) {
+          int tileindex = findBestFit(mColors[x][y], x, y, mTileCount);
+          Bitmap origtile = BitmapFactory.decodeFile(mTileList.get(tileindex).getFilePath());
+          Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
+          int[] tilepixels = new int[mTileWidth * mTileHeight];
+          tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
+
+          if (x * mTileWidth < mWidth && y * mTileHeight < mHeight) {
+            mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
+          }
+          System.out.println("x=" + x + "   y=" + y);
+        }
+      }
+    }
   }
 }

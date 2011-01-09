@@ -21,6 +21,9 @@
     <activity android:label="@string/menu_preferences" android:name=".preferences.PreferencesActivity">
     </activity>
 
+    <activity android:label="@string/app_name" android:name=".gallery.SingleGalleryActivity">
+    </activity>
+
   </application>
   <uses-sdk android:minSdkVersion="8" />
 

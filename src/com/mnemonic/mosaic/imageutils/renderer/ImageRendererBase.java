@@ -10,6 +10,7 @@ package com.mnemonic.mosaic.imageutils.renderer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.ImageList;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
 import com.mnemonic.mosaic.preferences.PreferenceReader;
@@ -48,11 +49,6 @@ public abstract class ImageRendererBase {
 
     mCreatedBM = Bitmap.createBitmap(mWidth, mHeight, mOrigBitmap.getConfig());
 
-    print("Start reading Imagelibrary");
-    long start = System.currentTimeMillis();
-    mTileList = LibraryUtil.getLibraryUtil().getImageLib(mBasecontext);
-    print("End reading Imagelibrary", start);
-
     return mCreatedBM;
   }
 
@@ -64,9 +60,15 @@ public abstract class ImageRendererBase {
     System.out.println("****************** " + txt);
   }
 
-  public void renderImage() {
-    print("Starting read Colors");
+  public void renderImage(Handler callback) {
+    print("Start reading Imag£elibrary");
     long start = System.currentTimeMillis();
+
+    readImageLibrary();
+
+    print("End reading Imagelibrary", start);
+    print("Starting read Colors");
+    start = System.currentTimeMillis();
 
     readColors();
 
@@ -74,12 +76,16 @@ public abstract class ImageRendererBase {
     print("Starting findTilesAndSetColors");
     start = System.currentTimeMillis();
 
-    findTilesAndSetColors();
+    findTilesAndSetColors(callback);
 
     print("End findTilesAndSetColors", start);
   }
 
+  private void readImageLibrary() {
+    mTileList = LibraryUtil.getLibraryUtil().getImageLib(mBasecontext);
+  }
+
   abstract void readColors();
 
-  abstract void findTilesAndSetColors();
+  abstract void findTilesAndSetColors(Handler callback);
 }
