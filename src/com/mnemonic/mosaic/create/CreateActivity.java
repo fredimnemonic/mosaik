@@ -3,7 +3,6 @@ package com.mnemonic.mosaic.create;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -42,7 +41,7 @@ public class CreateActivity extends Activity {
   protected Dialog onCreateDialog(int id) {
     Bitmap bMap = BitmapFactory.decodeFile(mImageAdapter.getImageForPosition(id).getAbsolutePath());
 
-    return createPictureDialog(bMap);    //To change body of overridden methods use File | Settings | File Templates.
+    return createPictureDialog(bMap);
   }
 
   private Dialog createPictureDialog(final Bitmap bMap) {
@@ -58,11 +57,8 @@ public class CreateActivity extends Activity {
     l.setPadding(2,2,2,2);
     l.setBackgroundColor(Color.WHITE);
 
-    ImageView imageView;
-    imageView = new ImageView(this);
-//        imageView.setLayoutParams(new ViewGroup.LayoutParams(170,170));
+    ImageView imageView = new ImageView(this);
     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-
     imageView.setImageBitmap(bMap);
 
     l.addView(imageView);
@@ -71,7 +67,7 @@ public class CreateActivity extends Activity {
     top.addView(panel);
 
     Button accept = new Button(this);
-    accept.setText("accept");
+    accept.setText("Create Masaic");
     accept.setOnClickListener(new View.OnClickListener(){
       @Override
       public void onClick(View v) {
@@ -79,8 +75,9 @@ public class CreateActivity extends Activity {
         mapPictureNewRandom(bMap);
       }
     });
+
     Button other = new Button(this);
-    other.setText("other");
+    other.setText("Other");
     other.setOnClickListener(new View.OnClickListener(){
       @Override
       public void onClick(View v) {
@@ -103,17 +100,7 @@ public class CreateActivity extends Activity {
     dlg.setContentView(all);
     dlg.setTitle("Auswahl akzeptieren?");
 
-    return dlg;    //To change body of overridden methods use File | Settings | File Templates.
-  }
-
-  private void showLoader(DialogInterface.OnShowListener listener) {
-    if (mProgressDialog == null) {
-      mProgressDialog = new ProgressDialog(this);
-      mProgressDialog.setTitle("Create Mosaic");
-      mProgressDialog.setMessage("Loading, please wait...");
-      mProgressDialog.setOnShowListener(listener);
-    }
-    mProgressDialog.show();
+    return dlg;
   }
 
   private void mapPictureNewRandom(Bitmap bmap) {
@@ -122,22 +109,6 @@ public class CreateActivity extends Activity {
     dlg.show();
 
 
-//    RadiusRenderRandom renderTask = new RadiusRenderRandom(mapArray,
-//        images,
-//        baseImage,
-//        hTiles,
-//        vTiles,
-//        tileWidth,
-//        tileHeight,
-//        optionBox.getColorCorrectPercent(),
-//        optionBox.getTileRep(),
-//        optionBox.getMinDistNum(),
-//        optionBox.getTileOrder());
-//    formProgressBar.setValue(0); // Set up the progress bar.
-//    formProgressBar.setMaximum(renderTask.getTaskLen());
-//    formProgressBar.setStringPainted(true);
-//
-//    renderTask.go();  // Start the task.
 
     /*SharedPreferences prefs = PreferenceManager
                                 .getDefaultSharedPreferences(getBaseContext());

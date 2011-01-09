@@ -16,7 +16,7 @@ import java.util.List;
 public class RadiusRenderRandom {
 
   public Bitmap createMap(Context context, Bitmap orig) {
-    int tilecount = 40;
+    int tilecount = 20;
 
     int width = orig.getWidth();
     int height = orig.getHeight();
