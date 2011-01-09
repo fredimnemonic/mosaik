@@ -15,15 +15,13 @@ import android.graphics.Color;
 import android.os.Environment;
 import android.os.Handler;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class LibraryUtil {
   private static final String MOSAIC_LIBNAME = "mosaik.jml";
   private static LibraryUtil mLibraryUtil;
   private File[] mPictures;
+  private ImageList mImageLib;
 
   private static void initSingleton() {
     if (mLibraryUtil == null) {
@@ -62,12 +60,28 @@ public class LibraryUtil {
     }
   }
 
+  public ImageList getImageLib(Context context) {
+    if (mImageLib == null) {
+      mImageLib = new ImageList();
+      try {
+        FileInputStream fis = context.openFileInput("mosaik.jml");
+        mImageLib.loadFromDisc(fis);
+      } catch (IOException ioe) {
+        ioe.printStackTrace();
+      } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+      }
+    }
+
+    return mImageLib;
+  }
+
   public void createImageLib(Context context, Handler callback) {
     ImageList imagelib = new ImageList();
 
     long start = System.currentTimeMillis();
     int subcount = mPictures.length / 2;
-    int lastcount = mPictures.length % subcount + subcount;
+    int lastcount = mPictures.length % subcount + subcount * 2;
 
     MeaningThread t1 = new MeaningThread(0, subcount, imagelib, callback);
     MeaningThread t3 = new MeaningThread(subcount, lastcount, imagelib, callback);
@@ -82,7 +96,7 @@ public class LibraryUtil {
       e.printStackTrace();
     }
 
-    System.out.println("Rendering der Lib dauert: " + (System.currentTimeMillis() - start));
+    System.out.println("Rendering der Lib dauert: " + (System.currentTimeMillis() - start) + "  Anzahl bilder: " + imagelib.size());
     saveImageLib(context, imagelib);
 
     System.out.println("Done!");
@@ -103,10 +117,10 @@ public class LibraryUtil {
 
     int[] pixels = new int[maxw * maxh];
 
-    long start = System.currentTimeMillis();
+//    long start = System.currentTimeMillis();
     bMap.getPixels(pixels, 0, maxw, 0, 0, maxw, maxh);
-    System.out.println("getpixel dauert: " + (System.currentTimeMillis() - start));
-    System.out.println("Bitmapabmessung: " + bMap.getWidth() + " x " + bMap.getHeight());
+//    System.out.println("getpixel dauert: " + (System.currentTimeMillis() - start));
+//    System.out.println("Bitmapabmessung: " + bMap.getWidth() + " x " + bMap.getHeight());
 
     double red = 0, green = 0, blue = 0;
     for (int x = 0; x < maxw; x ++) {
@@ -142,17 +156,14 @@ public class LibraryUtil {
     @Override
     public void run() {
       for (int i = mStart; i < mEnd; i++) {
-        File pic = mPictures[i];
-        long substart = System.currentTimeMillis();
+        String path = mPictures[i].getAbsolutePath();
+//        long substart = System.currentTimeMillis();
+
+        mImageList.add(new ImageInfo(path, getMeanColor(BitmapFactory.decodeFile(path))));
+
+//        System.out.println(path + " -> " + (System.currentTimeMillis() - substart));
 
         mCallback.sendEmptyMessage(0);
-        int color = getMeanColor(BitmapFactory.decodeFile(pic.getAbsolutePath()));
-
-        ImageInfo newImg = new ImageInfo();         // Set up an ImageInfo record with the data.
-        newImg.setFilePath(pic.getAbsolutePath());
-        newImg.setColor(color);
-        mImageList.add(newImg);
-        System.out.println(pic.getAbsolutePath() + " dauerte -> " + (System.currentTimeMillis() - substart));
       }
     }
   }

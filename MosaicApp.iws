@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="dauert" />
     <option name="TAB_LOG_LEVEL" value="INFO" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12c8a273-7d1c-416f-95ac-3f6ac9e9df2f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/values/color.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferenceReader.java" />
+      <change type="MOVED" beforePath="C:\development\android\android-src\mosaik\src\com\mnemonic\mosaic\imageutils\RadiusRenderRandom.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MosaicApp.iws" afterPath="$PROJECT_DIR$/MosaicApp.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/xml/preferences.xml" afterPath="$PROJECT_DIR$/res/xml/preferences.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageList.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferencesActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferencesActivity.java" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,84 +79,63 @@
       <file leaf-file-name="CreateActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="21" selection-start="2567" selection-end="2567" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="21" column="0" selection-start="620" selection-end="620" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RadiusRenderRandom.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java">
+      <file leaf-file-name="GalleryActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="36" selection-start="4495" selection-end="4495" vertical-scroll-proportion="2.0194552">
+            <state line="17" column="0" selection-start="367" selection-end="688" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="photolibrary.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/photolibrary.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="ViewGroup.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/view/ViewGroup.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="286" column="11" selection-start="13829" selection-end="13829" vertical-scroll-proportion="-6.64">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/settings.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="Mosaic.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="11" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.62718445">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="R.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gen/com/mnemonic/mosaic/R.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="32" selection-start="1249" selection-end="1249" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preferences.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="32" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="LibraryUtil.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="15" selection-start="1980" selection-end="1980" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="List.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_23/src.zip!/java/util/List.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="3" selection-start="4107" selection-end="4107" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Message.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/os/Message.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="9" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Handler.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/os/Handler.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="23" selection-start="1930" selection-end="1930" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Window.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/view/Window.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="26" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Context.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/content/Context.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="26" selection-start="4584" selection-end="4584" vertical-scroll-proportion="0.0">
+            <state line="85" column="0" selection-start="2159" selection-end="2159" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -153,7 +144,16 @@
       <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="701" selection-end="701" vertical-scroll-proportion="0.0">
+            <state line="18" column="33" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="color.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/values/color.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="38" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -180,7 +180,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="26" selection-start="162" selection-end="172" vertical-scroll-proportion="0.0">
+            <state line="11" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -190,6 +190,24 @@
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="40" selection-start="688" selection-end="688" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -225,7 +243,7 @@
       <file leaf-file-name="ImageInfo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="13" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.0">
+            <state line="37" column="48" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -234,7 +252,7 @@
       <file leaf-file-name="ImageList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="22" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0">
+            <state line="30" column="29" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -260,22 +278,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/settings/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/res/menu/main.xml" />
-        <option value="$PROJECT_DIR$/res/preferences/preferences.xml" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferencesActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/array.xml" />
-        <option value="$PROJECT_DIR$/res/xml/preferences.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imagelibrary/ImageLibraryActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferenceReader.java" />
+        <option value="$PROJECT_DIR$/res/xml/preferences.xml" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferencesActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageList.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java" />
+        <option value="$PROJECT_DIR$/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java" />
+        <option value="$PROJECT_DIR$/res/values/color.xml" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" />
       </list>
     </option>
   </component>
@@ -414,6 +432,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="imageutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MosaicApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mosaik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mosaic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="renderer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -834,14 +878,14 @@
       <window_info id="Changes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32944787" sideWeight="0.6016166" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3891455" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40300232" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32944787" sideWeight="0.6709007" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290993" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24969324" sideWeight="0.6108545" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24969324" sideWeight="0.5969977" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290993" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4665127" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -866,7 +910,7 @@
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="create imagemap runs ok with threads" />
+    <option name="LAST_COMMIT_MESSAGE" value="erster durch läuft" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -884,6 +928,7 @@
     <MESSAGE value="first runnable" />
     <MESSAGE value="create imagemap runs ok" />
     <MESSAGE value="create imagemap runs ok with threads" />
+    <MESSAGE value="erster durch läuft" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -905,23 +950,32 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/view/Window.class">
+    <entry file="file://$PROJECT_DIR$/build.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="26" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/content/Context.class">
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="26" selection-start="4584" selection-end="4584" vertical-scroll-proportion="0.0">
+        <state line="55" column="29" selection-start="1306" selection-end="1306" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="701" selection-end="701" vertical-scroll-proportion="0.0">
+        <state line="11" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -933,6 +987,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferencesActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/view/ViewGroup.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="286" column="11" selection-start="13829" selection-end="13829" vertical-scroll-proportion="-6.64">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferenceReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/color.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="38" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="367" selection-end="688" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_23/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="497" column="22" selection-start="17882" selection-end="17882" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/com/mnemonic/mosaic/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="32" selection-start="1249" selection-end="1249" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="620" selection-end="620" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="41" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
@@ -940,79 +1054,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="26" selection-start="162" selection-end="172" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="40" selection-start="688" selection-end="688" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/array.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="24" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ZoomableView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="7" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/TileChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="26" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="13" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="22" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0">
+        <state line="18" column="33" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="0" selection-start="2760" selection-end="2760" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="15" selection-start="1980" selection-end="1980" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="21" selection-start="2567" selection-end="2567" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/RadiusRenderRandom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="36" selection-start="4495" selection-end="4495" vertical-scroll-proportion="2.0194552">
+        <state line="36" column="11" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.62718445">
           <folding />
         </state>
       </provider>

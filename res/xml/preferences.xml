@@ -18,7 +18,13 @@
   <PreferenceCategory
       android:title="Second Category">
     <EditTextPreference
-        android:name="tilecount"
+        android:name="tilecountx"
+        android:summary="Legt die Anzahl Tiles (Kacheln) fest"
+        android:defaultValue="20"
+        android:title="Anzahl Tiles"
+        android:key="tilecount" />
+    <EditTextPreference
+        android:name="tilecounty"
         android:summary="Legt die Anzahl Tiles (Kacheln) fest"
         android:defaultValue="20"
         android:title="Anzahl Tiles"

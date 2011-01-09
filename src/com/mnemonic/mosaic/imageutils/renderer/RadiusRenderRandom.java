@@ -1,10 +1,11 @@
-
-package com.mnemonic.mosaic.imageutils;
+package com.mnemonic.mosaic.imageutils.renderer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import com.mnemonic.mosaic.imageutils.ImageInfo;
+import com.mnemonic.mosaic.imageutils.TileChecker;
 
 import java.io.FileInputStream;
 import java.io.IOException;

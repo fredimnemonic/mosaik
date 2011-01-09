@@ -15,8 +15,8 @@ public class PreferencesActivity  extends PreferenceActivity {
     addPreferencesFromResource(R.xml.preferences);
     // Get the custom preference
     Preference customPref = findPreference("customPref");
-    customPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 
+    customPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
       public boolean onPreferenceClick(Preference preference) {
         Toast.makeText(getBaseContext(), "The custom preference has been clicked", Toast.LENGTH_LONG).show();
         SharedPreferences customSharedPreference = getSharedPreferences("myCustomSharedPrefs", Activity.MODE_PRIVATE);

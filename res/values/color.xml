@@ -1,0 +1,6 @@
+<resources>
+  <color name="background">#520000</color>
+  <color name="gradient_start">#8e080b</color>
+  <color name="gradient_end">#520000</color>
+
+</resources>

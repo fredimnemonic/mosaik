@@ -2,7 +2,6 @@ package com.mnemonic.mosaic.create;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -11,12 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
-import com.mnemonic.mosaic.imageutils.RadiusRenderRandom;
+import com.mnemonic.mosaic.imageutils.renderer.RadiusRenderRandom;
 
 public class CreateActivity extends Activity {
 
   private ImageAdapter mImageAdapter;
-  private ProgressDialog mProgressDialog;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -110,20 +108,6 @@ public class CreateActivity extends Activity {
 
 
 
-    /*SharedPreferences prefs = PreferenceManager
-                                .getDefaultSharedPreferences(getBaseContext());
-                CheckboxPreference = prefs.getBoolean("checkboxPref", true);
-                ListPreference = prefs.getString("listPref", "nr1");
-                editTextPreference = prefs.getString("editTextPref",
-                                "Nothing has been entered");
-                ringtonePreference = prefs.getString("ringtonePref",
-                                "DEFAULT_RINGTONE_URI");
-                secondEditTextPreference = prefs.getString("SecondEditTextPref",
-                                "Nothing has been entered");
-                // Get the custom preference
-                SharedPreferences mySharedPreferences = getSharedPreferences(
-                                "myCustomSharedPrefs", Activity.MODE_PRIVATE);
-                customPref = mySharedPreferences.getString("myCusomPref", "");*/
   }
 
 

@@ -3,6 +3,7 @@ package com.mnemonic.mosaic;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,7 +11,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 import com.mnemonic.mosaic.create.CreateActivity;
 import com.mnemonic.mosaic.gallery.GalleryActivity;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
@@ -25,7 +28,16 @@ public class Mosaic extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    setContentView(com.mnemonic.mosaic.R.layout.main);
+    setContentView(R.layout.main);
+
+    LinearLayout layout = (LinearLayout) findViewById(R.id.mainlayout);
+    int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
+    GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
+    layout.setBackgroundDrawable(gradientDrawable);
+    layout.setPadding(0, 5, 0, 0);
+
+//    Button create = (Button) findViewById(R.id.btnCreate);
+//
   }
 
   //wird über action in AndroidManifest.xml angesprochen
@@ -101,6 +113,7 @@ public class Mosaic extends Activity {
       public void run() {
         LibraryUtil.getLibraryUtil().createImageLib(getBaseContext(), progressHandler);
         dialog.dismiss();
+        Toast.makeText(getBaseContext(), "Imagelibrary created!", Toast.LENGTH_LONG);
       }
     });
 
