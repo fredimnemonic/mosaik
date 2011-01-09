@@ -15,9 +15,10 @@ import android.graphics.Color;
 import android.os.Environment;
 import android.os.Handler;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class LibraryUtil {
   private static final String MOSAIC_LIBNAME = "mosaik.jml";
@@ -62,38 +63,35 @@ public class LibraryUtil {
   }
 
   public void createImageLib(Context context, Handler callback) {
-    List<ImageInfo> imagelib = new ArrayList<ImageInfo>();
+    ImageList imagelib = new ImageList();
 
     long start = System.currentTimeMillis();
-    for (File pic : mPictures) {
-      long substart = System.currentTimeMillis();
+    int subcount = mPictures.length / 2;
+    int lastcount = mPictures.length % subcount + subcount;
 
-      callback.sendEmptyMessage(0);
-      int color = getMeanColor(BitmapFactory.decodeFile(pic.getAbsolutePath()));
+    MeaningThread t1 = new MeaningThread(0, subcount, imagelib, callback);
+    MeaningThread t3 = new MeaningThread(subcount, lastcount, imagelib, callback);
 
-      ImageInfo newImg = new ImageInfo();         // Set up an ImageInfo record with the data.
-      newImg.setFilePath(pic.getAbsolutePath());
-      newImg.setColor(color);
-      imagelib.add(newImg);
-      System.out.println(pic.getAbsolutePath() + " dauerte -> " + (System.currentTimeMillis() - substart));
+    t1.start();
+    t3.start();
+
+    try {
+      t1.join();
+      t3.join();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
     }
+
     System.out.println("Rendering der Lib dauert: " + (System.currentTimeMillis() - start));
     saveImageLib(context, imagelib);
 
     System.out.println("Done!");
   }
 
-  private void saveImageLib(Context context, List<ImageInfo> imagelib) {
+  private void saveImageLib(Context context, ImageList imagelib) {
     try {
       FileOutputStream fos = context.openFileOutput(MOSAIC_LIBNAME, Context.MODE_WORLD_WRITEABLE);
-      ObjectOutputStream oos = new ObjectOutputStream(fos);
-      oos.writeInt(imagelib.size());  // First, write the length of the list.
-      for (ImageInfo anImagelib : imagelib) {  // Next, cycle through each tile,
-        oos.writeObject(anImagelib);           // And write its object to the file.
-      }
-
-      oos.close();
-      fos.close();
+      imagelib.saveToDisc(fos);
     } catch (IOException ioe) {
       ioe.printStackTrace();
     }
@@ -126,5 +124,36 @@ public class LibraryUtil {
     blue = blue / max;
 
     return Color.argb(255, (int) red, (int) green, (int) blue);
+  }
+
+  private class MeaningThread extends Thread {
+    private int mStart;
+    private int mEnd;
+    private ImageList mImageList;
+    private Handler mCallback;
+
+    private MeaningThread(int start, int end, ImageList imageList, Handler callback) {
+      mStart = start;
+      mEnd = end;
+      mImageList = imageList;
+      mCallback = callback;
+    }
+
+    @Override
+    public void run() {
+      for (int i = mStart; i < mEnd; i++) {
+        File pic = mPictures[i];
+        long substart = System.currentTimeMillis();
+
+        mCallback.sendEmptyMessage(0);
+        int color = getMeanColor(BitmapFactory.decodeFile(pic.getAbsolutePath()));
+
+        ImageInfo newImg = new ImageInfo();         // Set up an ImageInfo record with the data.
+        newImg.setFilePath(pic.getAbsolutePath());
+        newImg.setColor(color);
+        mImageList.add(newImg);
+        System.out.println(pic.getAbsolutePath() + " dauerte -> " + (System.currentTimeMillis() - substart));
+      }
+    }
   }
 }
