@@ -1,12 +1,12 @@
 package com.mnemonic.mosaic.gallery;
 
-import android.app.Activity;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.R;
 
-public class GalleryActivity extends Activity {
+public class GalleryActivity extends BaseActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

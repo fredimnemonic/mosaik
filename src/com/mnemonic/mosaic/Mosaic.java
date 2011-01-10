@@ -1,6 +1,5 @@
 package com.mnemonic.mosaic;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +16,7 @@ import com.mnemonic.mosaic.gallery.GalleryActivity;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
 import com.mnemonic.mosaic.preferences.PreferencesActivity;
 
-public class Mosaic extends Activity {
+public class Mosaic extends BaseActivity {
 
   /** Called when the activity is first created. */
   @Override
@@ -105,6 +104,5 @@ public class Mosaic extends Activity {
 
     // start the background thread
     background.start();
-
   }
 }

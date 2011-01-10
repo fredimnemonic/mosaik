@@ -1,6 +1,5 @@
 package com.mnemonic.mosaic.create;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,9 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
+import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.gallery.SingleGalleryActivity;
 
-public class CreateActivity extends Activity {
+public class CreateActivity extends BaseActivity {
 
   private ImageAdapter mImageAdapter;
 
@@ -66,7 +66,7 @@ public class CreateActivity extends Activity {
     top.addView(panel);
 
     Button accept = new Button(this);
-    accept.setText("Create Masaic");
+    accept.setText("Create Mosaic");
     accept.setOnClickListener(new View.OnClickListener(){
       @Override
       public void onClick(View v) {

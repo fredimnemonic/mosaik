@@ -15,6 +15,9 @@ import com.mnemonic.mosaic.imageutils.ImageList;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
 import com.mnemonic.mosaic.preferences.PreferenceReader;
 
+import java.util.Map;
+import java.util.WeakHashMap;
+
 public abstract class ImageRendererBase {
   int mTileCount;
   int mTileWidth;
@@ -30,9 +33,12 @@ public abstract class ImageRendererBase {
   Bitmap mOrigBitmap;
   private Context mBasecontext;
 
+  Map<String, int[]> mExportedTiles;
+
   ImageRendererBase(Context context, Bitmap orig) {
     mOrigBitmap = orig;
     mBasecontext = context;
+    mExportedTiles = new WeakHashMap<String, int[]>();
   }
 
   public Bitmap setUp() {

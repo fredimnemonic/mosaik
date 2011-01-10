@@ -15,6 +15,7 @@ import android.graphics.Color;
 import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.TileChecker;
 
+
 class RadiusRenderRandom extends ImageRendererBase {
 
   RadiusRenderRandom(Context context, Bitmap orig) {
@@ -50,8 +51,6 @@ class RadiusRenderRandom extends ImageRendererBase {
         blue = blue / counter;
 
         mColors[currenttilex][currenttiley] = Color.argb(255, (int) red, (int) green, (int) blue);
-
-        System.out.println("Color " + currenttilex + " " + currenttiley + "  -  " + mColors[currenttilex][currenttiley]);
       }
     }
   }
@@ -108,17 +107,25 @@ class RadiusRenderRandom extends ImageRendererBase {
         mCallback.sendEmptyMessage(0);
         for (int y = 0; y < mTileCount; y++) {
           int tileindex = findBestFit(mColors[x][y], x, y, mTileCount);
-          Bitmap origtile = BitmapFactory.decodeFile(mTileList.get(tileindex).getFilePath());
-          Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
-          int[] tilepixels = new int[mTileWidth * mTileHeight];
-          tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
+
+          String path = mTileList.get(tileindex).getFilePath();
+          int[] tilepixels;
+          if (mExportedTiles.containsKey(path)) {
+            tilepixels = mExportedTiles.get(path);
+          } else {
+            tilepixels = new int[mTileWidth * mTileHeight];
+            Bitmap origtile = BitmapFactory.decodeFile(path);
+            Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
+            tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
+            mExportedTiles.put(path, tilepixels);
+          }
 
           if (x * mTileWidth < mWidth && y * mTileHeight < mHeight) {
             mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
           }
-          System.out.println("x=" + x + "   y=" + y);
         }
       }
+      mCallback.sendEmptyMessage(0);
     }
   }
 }

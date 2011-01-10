@@ -8,21 +8,26 @@
  */
 package com.mnemonic.mosaic.gallery;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
 import com.mnemonic.mosaic.imageutils.renderer.RendererFactory;
 import com.mnemonic.mosaic.preferences.PreferenceReader;
 
-public class SingleGalleryActivity extends Activity {
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+public class SingleGalleryActivity extends BaseActivity {
 
+
+  @Override
+  protected void onStart() {
+    super.onStart();
+
+    render();
+  }
+
+  private void render() {
     Bitmap tomasaic = BitmapFactory.decodeFile(getIntent().getStringExtra("path"));
 
     String renderername = PreferenceReader.getRendererClass(getBaseContext());
@@ -38,7 +43,6 @@ public class SingleGalleryActivity extends Activity {
         view.invalidate();
       }
     };
-
 
     renderer.renderImage(handler);
   }
