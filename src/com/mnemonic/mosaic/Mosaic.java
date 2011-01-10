@@ -3,7 +3,6 @@ package com.mnemonic.mosaic;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -28,9 +27,9 @@ public class Mosaic extends Activity {
     setContentView(R.layout.main);
 
     LinearLayout layout = (LinearLayout) findViewById(R.id.mainlayout);
-    int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
-    GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
-    layout.setBackgroundDrawable(gradientDrawable);
+//    int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
+//    GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
+//    layout.setBackgroundDrawable(gradientDrawable);
     layout.setPadding(0, 5, 0, 0);
   }
 
