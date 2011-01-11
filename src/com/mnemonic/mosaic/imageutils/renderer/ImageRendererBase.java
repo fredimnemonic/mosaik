@@ -19,6 +19,9 @@ import java.util.Map;
 import java.util.WeakHashMap;
 
 public abstract class ImageRendererBase {
+  int mTileAbstand;
+  int mTileAlgorithmus;
+
   int mTileCount;
   int mTileWidth;
   int mTileHeight;
@@ -43,6 +46,8 @@ public abstract class ImageRendererBase {
 
   public Bitmap setUp() {
     mTileCount = PreferenceReader.getTileCount(mBasecontext);
+    mTileAbstand = PreferenceReader.getTileBetween(mBasecontext);
+    mTileAlgorithmus = PreferenceReader.getTileAlgo(mBasecontext);
 
     mWidth = mOrigBitmap.getWidth();
     mHeight = mOrigBitmap.getHeight();

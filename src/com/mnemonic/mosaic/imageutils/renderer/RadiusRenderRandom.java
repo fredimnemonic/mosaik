@@ -77,7 +77,7 @@ class RadiusRenderRandom extends ImageRendererBase {
     int size = mTileList.size();
     for (int count = 0; count < size; count++) {  // Cycle through all of the library tiles.
       int imagecolor = mTileList.get(count).getColor();
-      if ( !TileChecker.checkPlacement(1, 0, mTileArray, x, y, count, tilecount, tilecount) ) {// If this tile isn't in the box, find the difference in color.
+      if ( !TileChecker.checkPlacement(mTileAlgorithmus, mTileAbstand, mTileArray, x, y, count, tilecount, tilecount) ) {// If this tile isn't in the box, find the difference in color.
         redDiff = Math.abs(red - Color.red(imagecolor));
         blueDiff = Math.abs(blue - Color.blue(imagecolor));
         greenDiff = Math.abs(green - Color.green(imagecolor));
@@ -87,6 +87,7 @@ class RadiusRenderRandom extends ImageRendererBase {
         }
       }
     }
+    mTileArray[x][y] = closestSoFar;
     return closestSoFar;  // return the tile we chose.
   }
 

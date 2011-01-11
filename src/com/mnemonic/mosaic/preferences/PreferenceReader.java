@@ -25,6 +25,28 @@ public class PreferenceReader {
     }
   }
 
+  public static int getTileBetween(Context context) {
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+    String tilecount = prefs.getString("tileabstand", "3");
+
+    try {
+      return Integer.parseInt(tilecount);
+    } catch (NumberFormatException e) {
+      return 3;
+    }
+  }
+
+  public static int getTileAlgo(Context context) {
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+    String tilecount = prefs.getString("algo", "0");
+
+    try {
+      return Integer.parseInt(tilecount);
+    } catch (NumberFormatException e) {
+      return 0;
+    }
+  }
+
   public static String getRendererClass(Context context) {
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
     return prefs.getString("renderer", "RadiusRenderRandom");

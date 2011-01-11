@@ -12,8 +12,8 @@
         android:summary="Legt den zu verwendeten Renderer fest"
         android:key="renderer"
         android:defaultValue="RadiusRenderRandom"
-        android:entries="@array/listArray"
-        android:entryValues="@array/listValues" />
+        android:entries="@array/items_renderer"
+        android:entryValues="@array/values_renderer" />
   </PreferenceCategory>
   <PreferenceCategory
       android:title="Second Category">
@@ -23,6 +23,19 @@
         android:defaultValue="20"
         android:title="Anzahl Tiles"
         android:key="tilecount" />
+    <ListPreference
+        android:title="Algorithmus"
+        android:summary="Legt den Algorithmus fest"
+        android:key="algo"
+        android:defaultValue="0"
+        android:entries="@array/items_algo"
+        android:entryValues="@array/values_algo" />
+    <EditTextPreference
+        android:name="Ausgelassene Tiles"
+        android:summary="Legt die Anzahl der ausgelassenen Tiles (Kacheln) fest"
+        android:defaultValue="2"
+        android:title="Anzahl ausgelassene Tiles"
+        android:key="tileabstand" />
     <!--<EditTextPreference-->
         <!--android:name="tilecounty"-->
         <!--android:summary="Legt die Anzahl Tiles (Kacheln) fest"-->
