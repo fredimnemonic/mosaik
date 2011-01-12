@@ -27,6 +27,9 @@
     <activity android:label="@string/app_name" android:name=".gallery.SingleGalleryActivity">
     </activity>
 
+    <activity android:label="@string/app_name" android:name=".gallery.SingleGalleryActivityDebug">
+    </activity>
+
   </application>
   <uses-sdk android:minSdkVersion="8" />
 

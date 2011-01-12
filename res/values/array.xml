@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string-array name="items_renderer">
-    <item>RadiusRenderRandom</item>
-    <item>Value 2</item>
-    <item>Value 3</item>
+    <item>Radius Random</item>
+    <item>Radius Random Threaded</item>
   </string-array>
 
   <string-array name="values_renderer">
     <item>RadiusRenderRandom</item>
-    <item>2</item>
-    <item>3</item>
+    <item>ThreadedRadiusRenderRandom</item>
   </string-array>
 
   <string-array name="items_algo">
