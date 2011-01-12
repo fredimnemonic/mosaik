@@ -69,7 +69,7 @@ public class SingleGalleryActivityDebug extends BaseActivity {
     lbmemory.setText("AV-Mem: " + availableMegs);
     lbmemory.setBackgroundColor(Color.RED);
     lbmemory.setTextColor(Color.BLUE);
-    lbtime.setBackgroundColor(Color.RED);
+    lbtime.setBackgroundColor(Color.YELLOW);
     lbtime.setTextColor(Color.BLACK);
     lbtime.setText("TH-Mem: " + trhesmem);
 
