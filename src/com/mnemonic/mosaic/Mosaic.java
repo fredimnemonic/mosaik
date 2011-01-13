@@ -29,17 +29,17 @@ public class Mosaic extends BaseActivity {
 //    int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
 //    GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
 //    layout.setBackgroundDrawable(gradientDrawable);
-    layout.setPadding(0, 5, 0, 0);
+     layout.setPadding(0, 5, 0, 0);
   }
 
-  //wird über action in AndroidManifest.xml angesprochen
+  //wird ï¿½ber action in AndroidManifest.xml angesprochen
   @SuppressWarnings({"UnusedDeclaration"})
   public void actionCreate(View view) {
     Intent intent = new Intent(this, CreateActivity.class);
     startActivity(intent);
   }
 
-  //wird über action in AndroidManifest.xml angesprochen
+  //wird ï¿½ber action in AndroidManifest.xml angesprochen
   @SuppressWarnings({"UnusedDeclaration"})
   public void actionGallery(View view) {
     Intent intent = new Intent(this, GalleryActivity.class);
@@ -98,7 +98,6 @@ public class Mosaic extends BaseActivity {
       public void run() {
         LibraryUtil.getLibraryUtil().createImageLib(getBaseContext(), progressHandler);
         dialog.dismiss();
-        Toast.makeText(getBaseContext(), "Imagelibrary created!", Toast.LENGTH_LONG);
       }
     });
 

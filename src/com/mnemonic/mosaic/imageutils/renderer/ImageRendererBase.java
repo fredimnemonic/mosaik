@@ -72,7 +72,7 @@ public abstract class ImageRendererBase {
   }
 
   public void renderImage(Handler callback) {
-    print("Start reading Imag£elibrary");
+    print("Start reading Imagelibrary");
     long start = System.currentTimeMillis();
 
     readImageLibrary();
