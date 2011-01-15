@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.mnemonic.mosaic.create.CreateActivity;
 import com.mnemonic.mosaic.gallery.GalleryActivity;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
+import com.mnemonic.mosaic.lib.MessageConst;
 import com.mnemonic.mosaic.preferences.PreferencesActivity;
 
 public class Mosaic extends BaseActivity {
@@ -84,9 +85,21 @@ public class Mosaic extends BaseActivity {
     dialog.setMax(LibraryUtil.getLibraryUtil().getAvailablePictures().length);
 
     final Handler progressHandler = new Handler() {
+      private int mFinishCount;
+      
       @Override
       public void handleMessage(Message msg) {
-        dialog.incrementProgressBy(1);
+    	long what = msg.what;
+    	if (what == MessageConst.MessageFinish) {
+    	  mFinishCount ++;
+    	  if (mFinishCount == 2) {
+    		System.out.println("FISHED");
+       	    dialog.dismiss();
+        	Toast.makeText(getBaseContext(), "Imagelib has been created", Toast.LENGTH_LONG).show();			
+      	  }
+		} else {
+          dialog.incrementProgressBy(1);			
+		}
       }
     };
 
@@ -97,7 +110,6 @@ public class Mosaic extends BaseActivity {
     Thread background = new Thread (new Runnable() {
       public void run() {
         LibraryUtil.getLibraryUtil().createImageLib(getBaseContext(), progressHandler);
-        dialog.dismiss();
       }
     });
 

@@ -17,6 +17,8 @@ import android.os.Handler;
 
 import java.io.*;
 
+import com.mnemonic.mosaic.lib.MessageConst;
+
 public class LibraryUtil {
   private static final String MOSAIC_LIBNAME = "mosaik.jml";
   private static LibraryUtil mLibraryUtil;
@@ -165,6 +167,7 @@ public class LibraryUtil {
 
         mCallback.sendEmptyMessage(0);
       }
+      mCallback.sendEmptyMessage(MessageConst.MessageFinish);
     }
   }
 }
