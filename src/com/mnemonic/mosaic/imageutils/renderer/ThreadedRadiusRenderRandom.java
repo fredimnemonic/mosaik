@@ -24,8 +24,8 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
 
   @Override
   void readColors() {
-    int[] pixels = new int[mWidth * mHeight];
-    mOrigBitmap.getPixels(pixels, 0, mWidth, 0, 0, mWidth, mHeight);
+    int[] pixels = new int[mOrigWidth * mOrigHeight];
+    mOrigBitmap.getPixels(pixels, 0, mOrigWidth, 0, 0, mOrigWidth, mOrigHeight);
 
     int currenttilex = 0;
     double red, green, blue;
@@ -36,10 +36,10 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
         green = 0;
         blue = 0;
         int counter = 0;
-        for (int xs = 0; xs < mTileWidth && x + xs < mWidth; xs++) {
-          for (int ys = 0; ys < mTileHeight && y + ys < mHeight; ys++) {
+        for (int xs = 0; xs < mTileWidth && x + xs < mOrigWidth; xs++) {
+          for (int ys = 0; ys < mTileHeight && y + ys < mOrigHeight; ys++) {
             counter++;
-            int color = pixels[(y + ys) * mWidth + (x + xs)];//umrechnung von zwei- in eindimensionale arrays
+            int color = pixels[(y + ys) * mOrigWidth + (x + xs)];//umrechnung von zwei- in eindimensionale arrays
             red += Color.red(color);
             green += Color.green(color);
             blue += Color.blue(color);
@@ -121,9 +121,7 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
             mExportedTiles.put(path, tilepixels);
           }
 
-          if (x * mTileWidth < mWidth && y * mTileHeight < mHeight) {
-            mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
-          }
+          mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
         }
       }
       mCallback.sendEmptyMessage(0);

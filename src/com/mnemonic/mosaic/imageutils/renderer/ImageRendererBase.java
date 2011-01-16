@@ -25,8 +25,8 @@ public abstract class ImageRendererBase {
   int mTileCount;
   int mTileWidth;
   int mTileHeight;
-  int mWidth;
-  int mHeight;
+  int mOrigWidth;
+  int mOrigHeight;
   ImageList mTileList;
   int[][] mColors;
   int[][] mTileArray;
@@ -49,16 +49,16 @@ public abstract class ImageRendererBase {
     mTileAbstand = PreferenceReader.getTileBetween(mBasecontext);
     mTileAlgorithmus = PreferenceReader.getTileAlgo(mBasecontext);
 
-    mWidth = mOrigBitmap.getWidth();
-    mHeight = mOrigBitmap.getHeight();
+    mOrigWidth = mOrigBitmap.getWidth();
+    mOrigHeight = mOrigBitmap.getHeight();
 
-    mTileWidth = mWidth / mTileCount;
-    mTileHeight = mHeight / mTileCount;
+    mTileWidth = mOrigWidth / mTileCount;
+    mTileHeight = mOrigHeight / mTileCount;
 
     mColors = new int[mTileCount][mTileCount];
     mTileArray = new int[mTileCount][mTileCount];
 
-    mCreatedBM = Bitmap.createBitmap(mWidth, mHeight, mOrigBitmap.getConfig());
+    mCreatedBM = Bitmap.createBitmap(mTileWidth * mTileCount, mTileHeight * mTileCount, mOrigBitmap.getConfig());
 
     return mCreatedBM;
   }

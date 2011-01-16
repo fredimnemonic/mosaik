@@ -6,8 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12c8a273-7d1c-416f-95ac-3f6ac9e9df2f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MosaicApp.ipr" afterPath="$PROJECT_DIR$/MosaicApp.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MosaicApp.iws" afterPath="$PROJECT_DIR$/MosaicApp.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivityDebug.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivityDebug.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +27,21 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java" line="61" class="com.mnemonic.mosaic.imageutils.renderer.ThreadedRadiusRenderRandom" package="com.mnemonic.mosaic.imageutils.renderer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -64,55 +82,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SingleGalleryActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="965" selection-end="965" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingleGalleryActivityDebug.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SingleGalleryActivityDebug.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivityDebug.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="21" selection-start="2061" selection-end="2061" vertical-scroll-proportion="0.38513514">
+            <state line="35" column="28" selection-start="935" selection-end="935" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextView.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/widget/TextView.class">
+      <file leaf-file-name="RadiusRenderRandom.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="184" column="20" selection-start="7499" selection-end="7499" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Context.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/content/Context.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="39" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityManager.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/app/ActivityManager.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="22" selection-start="4171" selection-end="4171" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="R.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gen/com/mnemonic/mosaic/R.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="32" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
+            <state line="82" column="0" selection-start="2650" selection-end="2650" vertical-scroll-proportion="1.215733">
               <folding />
             </state>
           </provider>
@@ -163,33 +145,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RelativeLayout.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/widget/RelativeLayout.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="71" selection-start="2617" selection-end="2617" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewGroup.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/view/ViewGroup.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="14" selection-start="5996" selection-end="5996" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContextWrapper.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/content/ContextWrapper.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="33" selection-start="899" selection-end="899" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GalleryActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -211,7 +166,16 @@
       <file leaf-file-name="ImageRendererBase.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="4" selection-start="1389" selection-end="1389" vertical-scroll-proportion="0.0">
+            <state line="56" column="0" selection-start="1361" selection-end="1361" vertical-scroll-proportion="-4.28">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThreadedRadiusRenderRandom.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="9" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -221,24 +185,6 @@
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferenceReader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="32" column="9" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntBuffer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_23/src.zip!/java/nio/IntBuffer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="239" column="0" selection-start="2440" selection-end="2440" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Buffer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_23/src.zip!/java/nio/Buffer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="0" selection-start="5620" selection-end="5620" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -268,18 +214,18 @@
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java" />
         <option value="$PROJECT_DIR$/res/xml/preferences.xml" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferenceReader.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/BaseActivity.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/TileChecker.java" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java" />
         <option value="$PROJECT_DIR$/res/values/array.xml" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivityDebug.java" />
         <option value="$PROJECT_DIR$/res/layout/singlemosaic.xml" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivityDebug.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java" />
       </list>
     </option>
   </component>
@@ -289,6 +235,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_INTERNAL" />
   </component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
@@ -339,7 +288,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -354,7 +303,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mosaik" />
+              <option name="myItemId" value="mosaic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -364,11 +313,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mosaik" />
+              <option name="myItemId" value="mosaic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mosaic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -378,21 +331,73 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mosaik" />
+              <option name="myItemId" value="mosaic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
+              <option name="myItemId" value="mosaic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MosaicApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mosaic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mosaic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imageutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="renderer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MosaicApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mosaic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mosaic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gallery" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -404,8 +409,8 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
-    <property name="project.structure.side.proportion" value="0.09829868" />
+    <property name="options.lastSelected" value="preferences.editor" />
+    <property name="project.structure.side.proportion" value="0.2835648" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
@@ -603,7 +608,7 @@
       <option name="MODE" value="specific_activity" />
       <option name="DEPLOY" value="true" />
       <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
-      <option name="PREFERRED_AVD" value="MosaicAppAVDmoreRam" />
+      <option name="PREFERRED_AVD" value="BigFrameRam" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
       <option name="DISABLE_BOOT_ANIMATION" value="false" />
@@ -617,8 +622,8 @@
       <method />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Application.MosaicCreator" />
-      <item index="1" class="java.lang.String" itemvalue="Android Application.idea" />
+      <item index="0" class="java.lang.String" itemvalue="Android Application.idea" />
+      <item index="1" class="java.lang.String" itemvalue="Application.MosaicCreator" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -639,7 +644,7 @@
     <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <configuration useDefault="true">C:\Users\kollera.ABACUS\AppData\Roaming\Subversion</configuration>
+    <configuration useDefault="true">$USER_HOME$/.subversion_IDEA</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
   </component>
@@ -652,26 +657,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-1" y="24" width="1682" height="1003" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32944787" sideWeight="0.6016166" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38641685" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4699769" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46830985" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32944787" sideWeight="0.6709007" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290993" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32760736" sideWeight="0.5300231" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19190681" sideWeight="0.61358315" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290993" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4665127" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38657406" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290993" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.6006944" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -723,14 +728,6 @@
     <history />
     <find-history />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MosaicApp" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-      </PATH_ELEMENT>
-    </PATH>
-  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
@@ -738,9 +735,24 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/gen/com/mnemonic/mosaic/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="32" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
+        <state line="19" column="32" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="965" selection-end="965" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivityDebug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="28" selection-start="935" selection-end="935" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/singlemosaic.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java">
@@ -755,91 +767,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="31" selection-start="690" selection-end="690" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="20" column="31" selection-start="690" selection-end="690" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ZoomableView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/widget/RelativeLayout.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="71" selection-start="2617" selection-end="2617" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/view/ViewGroup.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="14" selection-start="5996" selection-end="5996" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../android-sdk-windows/platforms/android-9/android.jar!/android/content/ContextWrapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="33" selection-start="899" selection-end="899" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="23" column="0" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="0" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="18" selection-start="1926" selection-end="1926" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="4" selection-start="1389" selection-end="1389" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="75" column="18" selection-start="1926" selection-end="1926" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferenceReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="9" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0">
+        <state line="32" column="9" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="1361" selection-end="1361" vertical-scroll-proportion="-4.28">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_23/src.zip!/java/nio/IntBuffer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="0" selection-start="2440" selection-end="2440" vertical-scroll-proportion="0.0">
+        <state line="37" column="9" selection-start="995" selection-end="995" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_23/src.zip!/java/nio/Buffer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="0" selection-start="5620" selection-end="5620" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/singlemosaic.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivityDebug.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="21" selection-start="2061" selection-end="2061" vertical-scroll-proportion="0.38513514">
+        <state line="82" column="0" selection-start="2650" selection-end="2650" vertical-scroll-proportion="1.215733">
           <folding />
         </state>
       </provider>
@@ -847,73 +814,17 @@
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
+      <state key="Copyright.UI">
         <settings>
-          <artifact-editor />
+          <splitter-proportions />
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Android</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Android 2.3 Platform</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.6.0_23</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>MosaicApp</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.09829868" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>android_apps</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.09829868" />
               </list>
             </option>
           </splitter-proportions>
