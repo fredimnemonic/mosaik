@@ -13,6 +13,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.FrameLayout;
@@ -55,23 +56,11 @@ public class SingleGalleryActivityDebug extends BaseActivity {
     zoomlayout.setBackgroundColor(getResources().getColor(R.color.background));
     zoomlayout.addView(view);
 
-    final ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
-    final ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-    activityManager.getMemoryInfo(mi);
 
-
-//    Debug.MemoryInfo mi = new Debug.MemoryInfo();
-//    Debug.getMemoryInfo(mi);
-    long availableMegs = mi.availMem / 1048576L;
-    long trhesmem = mi.threshold / 1048576L;
-
-
-    lbmemory.setText("AV-Mem: " + availableMegs);
     lbmemory.setBackgroundColor(Color.RED);
     lbmemory.setTextColor(Color.BLUE);
     lbtime.setBackgroundColor(Color.YELLOW);
     lbtime.setTextColor(Color.BLACK);
-    lbtime.setText("TH-Mem: " + trhesmem);
 
     zoomlayout.invalidate();
 
@@ -82,12 +71,30 @@ public class SingleGalleryActivityDebug extends BaseActivity {
 //        if (message != null && !message.isEmpty()) {
 //          //todo
 //        }
-        activityManager.getMemoryInfo(mi);
-        long availableMegs = mi.availMem / 1048576L;
-        long trhesmem = mi.threshold / 1048576L;
+    	ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+    	Debug.MemoryInfo dmi = new Debug.MemoryInfo();
+        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
 
-        lbmemory.setText("AV-Mem: " + availableMegs + " \nAV-Mem: " + availableMegs);
-        lbtime.setText("TH-Mem: " + trhesmem);
+    	activityManager.getMemoryInfo(mi);
+
+//        lbmemory.setText(
+//        		"available: " + mi.availMem + "\n" +
+//        		"schwelle : " + mi.threshold + "\n" + 
+//        		"lowmemory: " + mi.lowMemory);
+
+        Debug.getMemoryInfo(dmi);
+        lbtime.setText(
+        		"dalvikPrivateDirty	: " + dmi.dalvikPrivateDirty/1024 + "\n" +
+        		"nativePrivateDirty	: " + dmi.nativePrivateDirty/1024 + "\n" + 
+        		"nativePss 			: " + dmi.nativePss/1024 + "\n" + 
+        		"nativeSharedDirty  : " + dmi.nativeSharedDirty/1024 + "\n" + 
+        		"otherPrivateDirty	: " + dmi.otherPrivateDirty/1024 + "\n" + 
+        		"otherPss 			: " + dmi.otherPss/1024 + "\n" + 
+        		"getTotalPrivateDirty: " + dmi.getTotalPrivateDirty()/1024 + "\n" + 
+        		"getTotalPss		: " + dmi.getTotalPss()/1024 + "\n" + 
+        		"getTotalSharedDirty: " + dmi.getTotalSharedDirty()/1024 + "\n" + 
+        		"dalvikSharedDirty 	: " + dmi.otherSharedDirty/1024);
+        
 
         view.invalidate();
       }
