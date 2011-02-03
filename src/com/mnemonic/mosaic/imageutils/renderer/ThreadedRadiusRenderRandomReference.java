@@ -17,9 +17,9 @@ import com.mnemonic.mosaic.imageutils.TileChecker;
 import com.mnemonic.mosaic.lib.MessageConst;
 
 
-class ThreadedRadiusRenderRandom extends ImageRendererBase {
+public class ThreadedRadiusRenderRandomReference extends ImageRendererBase {
 
-  ThreadedRadiusRenderRandom(Context context, Bitmap orig) {
+  ThreadedRadiusRenderRandomReference(Context context, Bitmap orig) {
     super(context, orig);
   }
 
@@ -67,7 +67,6 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
   }
 
   private int findBestFit(int c, int x, int y, int tilecount) {
-//    int radiusTiles = 5;  // The number of radius tiles... this WILL be user-configurable.
     int closestSoFar = 0;  // Index of the tile that best matches the color so far.
     int redDiff, greenDiff, blueDiff, totalDiff;
     int red = Color.red(c);
@@ -110,22 +109,26 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
         for (int y = 0; y < mTileCount; y++) {
           int tileindex = findBestFit(mColors[x][y], x, y, mTileCount);
 
-          String path = mTileList.get(tileindex).getFilePath();
-          int[] tilepixels;
-          if (mExportedTiles.containsKey(path)) {
-            tilepixels = mExportedTiles.get(path);
-          } else {
-        	  tilepixels = new int[mTileWidth * mTileHeight];
-              Bitmap origtile = BitmapFactory.decodeFile(path);
-              Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
-              tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
-              mExportedTiles.put(path, tilepixels);
-          }
+//          String path = mTileList.get(tileindex).getFilePath();
+//          int[] tilepixels;
+//          if (mExportedTiles.containsKey(path)) {
+//            tilepixels = mExportedTiles.get(path);
+//          } else {
+//        	  tilepixels = new int[mTileWidth * mTileHeight];
+//              Bitmap origtile = BitmapFactory.decodeFile(path);
+//              Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
+//              tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
+//              mExportedTiles.put(path, tilepixels);
+//          }
 
-          mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
+//          mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
         }
       }
       mCallback.sendEmptyMessage(MessageConst.MessageFinish);
     }
+  }
+  
+  public int[][] getTileArray() {
+	  return mTileArray;
   }
 }

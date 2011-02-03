@@ -10,13 +10,21 @@ package com.mnemonic.mosaic.imageutils;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.WeakHashMap;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 public class ImageList {
+  private Map<String, Bitmap> mBitmaps;
   private List<ImageInfo> mImageList;
 
   public ImageList() {
     mImageList = new ArrayList<ImageInfo>();
+    mBitmaps = new WeakHashMap<String, Bitmap>();
   }
 
   synchronized void add(ImageInfo image) {
@@ -50,5 +58,17 @@ public class ImageList {
     for (int count = 0; count < numObjects; count++) {
       mImageList.add((ImageInfo) ois.readObject());
     }
+  }
+  
+  public synchronized Bitmap getBitmap(int index) {
+	if (!mBitmaps.containsKey(get(index).getFilePath())) {
+	  BitmapFactory.Options o = new BitmapFactory.Options();
+	  o.inPurgeable = true;
+	  
+	  Bitmap m = BitmapFactory.decodeFile(get(index).getFilePath(), o);
+
+	  mBitmaps.put(get(index).getFilePath(), m);
+	}
+    return mBitmaps.get(get(index).getFilePath());
   }
 }

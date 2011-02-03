@@ -58,7 +58,9 @@ public class ImageAdapter extends BaseAdapter {
     if (mLoadedPictures.containsKey(path)) {
       bMap = mLoadedPictures.get(path);
     } else {
-      bMap = Bitmap.createScaledBitmap(BitmapFactory.decodeFile(path), mSize.width, mSize.height, false);
+      BitmapFactory.Options o = new BitmapFactory.Options();
+      o.inPurgeable = true;
+      bMap = Bitmap.createScaledBitmap(BitmapFactory.decodeFile(path, o), mSize.width, mSize.height, false);
       mLoadedPictures.put(path, bMap);
     }
 
