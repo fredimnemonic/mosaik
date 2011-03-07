@@ -11,6 +11,7 @@ package com.mnemonic.mosaic.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import com.mnemonic.mosaic.imageutils.TileAlgorithmus;
 
 public class PreferenceReader {
 
@@ -36,14 +37,14 @@ public class PreferenceReader {
     }
   }
 
-  public static int getTileAlgo(Context context) {
+  public static TileAlgorithmus getTileAlgo(Context context) {
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
     String tilecount = prefs.getString("algo", "0");
 
     try {
-      return Integer.parseInt(tilecount);
+      return TileAlgorithmus.values()[Integer.parseInt(tilecount)];
     } catch (NumberFormatException e) {
-      return 0;
+      return TileAlgorithmus.SINGLE;
     }
   }
 

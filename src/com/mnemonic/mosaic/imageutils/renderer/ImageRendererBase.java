@@ -13,6 +13,7 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.ImageList;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
+import com.mnemonic.mosaic.imageutils.TileAlgorithmus;
 import com.mnemonic.mosaic.preferences.PreferenceReader;
 
 import java.util.Map;
@@ -20,7 +21,7 @@ import java.util.WeakHashMap;
 
 public abstract class ImageRendererBase {
   int mTileAbstand;
-  int mTileAlgorithmus;
+  TileAlgorithmus mTileAlgorithmus;
 
   int mTileCount;
   int mTileWidth;

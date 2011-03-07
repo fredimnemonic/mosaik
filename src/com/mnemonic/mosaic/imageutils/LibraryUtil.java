@@ -14,10 +14,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Environment;
 import android.os.Handler;
+import android.widget.Toast;
+import com.mnemonic.mosaic.lib.MessageConst;
 
 import java.io.*;
-
-import com.mnemonic.mosaic.lib.MessageConst;
 
 public class LibraryUtil {
   private static final String MOSAIC_LIBNAME = "mosaik.jml";
@@ -69,8 +69,10 @@ public class LibraryUtil {
         FileInputStream fis = context.openFileInput("mosaik.jml");
         mImageLib.loadFromDisc(fis);
       } catch (IOException ioe) {
+        Toast.makeText(context, "Fehler beim lesen der Library", Toast.LENGTH_LONG);
         ioe.printStackTrace();
       } catch (ClassNotFoundException e) {
+        Toast.makeText(context, "Fehler beim lesen der Library", Toast.LENGTH_LONG);
         e.printStackTrace();
       }
     }

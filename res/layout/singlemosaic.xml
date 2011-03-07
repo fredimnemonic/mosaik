@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:gravity="center_vertical"
-            android:textSize="3pt">
+            android:textSize="5pt">
   </TextView>
 
   <TextView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:gravity="bottom"
-            android:textSize="3pt">
+            android:textSize="5pt">
   </TextView>
 
 </LinearLayout>

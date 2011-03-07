@@ -20,7 +20,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.R;
 import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
@@ -97,8 +96,8 @@ public class SingleGalleryActivityDebug extends BaseActivity {
     	activityManager.getMemoryInfo(mi);
 
         lbmemory.setText(
-        		"available: " + mi.availMem + "\n" +
-        		"schwelle : " + mi.threshold + "\n" + 
+        		"available: " + mi.availMem/1024/1024 + "\n" +
+        		"schwelle : " + mi.threshold/1024/1024 + "\n" +
         		"lowmemory: " + mi.lowMemory);
 
 //        Debug.getMemoryInfo(dmi);

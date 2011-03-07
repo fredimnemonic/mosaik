@@ -10,7 +10,6 @@ package com.mnemonic.mosaic.imageutils.renderer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.TileChecker;
@@ -75,7 +74,7 @@ public class ThreadedRadiusRenderRandomReference extends ImageRendererBase {
     totalDiff = (256*3);  // Initialize the total difference to the largest reasonable number.
 
     int size = mTileList.size();
-    for (int count = 0; count < size; count++) {  // Cycle through all of the library tiles.
+    for (int count = 1; count < size; count++) {  // Cycle through all of the library tiles.
       int imagecolor = mTileList.get(count).getColor();
       if ( !TileChecker.checkPlacement(mTileAlgorithmus, mTileAbstand, mTileArray, x, y, count, tilecount, tilecount) ) {// If this tile isn't in the box, find the difference in color.
         redDiff = Math.abs(red - Color.red(imagecolor));
