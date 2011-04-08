@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="android" name="Android">
       <configuration>
-        <option name="PLATFORM_NAME" value="Android 2.3 Platform" />
+        <option name="PLATFORM_NAME" value="Android 3.0 Platform" />
         <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/gen" />
         <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/gen" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/AndroidManifest.xml" />
@@ -32,9 +32,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Android 2.3 Platform" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="Android 3.0 Platform" level="application" />
   </component>
 </module>
 

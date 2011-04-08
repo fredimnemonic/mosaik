@@ -20,6 +20,7 @@ import com.mnemonic.mosaic.lib.MessageConst;
 import java.io.*;
 
 public class LibraryUtil {
+  public static final int THREADCOUNT = 4;
   private static final String MOSAIC_LIBNAME = "mosaik.jml";
   private static LibraryUtil mLibraryUtil;
   private File[] mPictures;
@@ -46,15 +47,34 @@ public class LibraryUtil {
   private void openPictureDir() {
     String state = Environment.getExternalStorageState();
 
+    FileFilter filter = new FileFilter(){
+      @Override
+      public boolean accept(File pathname) {
+        String name = pathname.getName();
+        return name.endsWith(".jpg") || name.endsWith(".png");
+      }
+    };
+
+    File[] ext = null;
     if (Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
       File picdir2 = Environment.getExternalStorageDirectory();
-      mPictures = picdir2.listFiles(new FileFilter(){
-        @Override
-        public boolean accept(File pathname) {
-          String name = pathname.getName();
-          return name.endsWith(".jpg") || name.endsWith(".png");
-        }
-      });
+      ext = picdir2.listFiles(filter);
+    }
+
+    File[] pics = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).listFiles(filter);
+
+    if (pics != null && pics.length > 0) {
+      mPictures = pics;
+    }
+
+    if (ext != null && ext.length > 0) {
+      if (pics != null) {
+        mPictures = new File[mPictures.length + ext.length];
+        System.arraycopy(ext, 0, mPictures, 0, ext.length);
+        System.arraycopy(pics, 0, mPictures, ext.length, pics.length);
+      } else {
+        mPictures = ext;
+      }
     }
 
     if (mPictures == null) {
@@ -84,21 +104,46 @@ public class LibraryUtil {
     ImageList imagelib = new ImageList();
 
     long start = System.currentTimeMillis();
-    int subcount = mPictures.length / 2;
-    int lastcount = mPictures.length % subcount + subcount * 2;
+    int subcount = mPictures.length / THREADCOUNT;
+    int lastcount = mPictures.length % subcount + subcount * THREADCOUNT;
 
-    MeaningThread t1 = new MeaningThread(0, subcount, imagelib, callback);
-    MeaningThread t3 = new MeaningThread(subcount, lastcount, imagelib, callback);
+    MeaningThread[] th = new MeaningThread[THREADCOUNT];
+    for (int i = 0; i < THREADCOUNT; i++) {
+      int tstart = i*subcount;
+      if (i == THREADCOUNT - 1) {
+        th[i] = new MeaningThread(tstart, lastcount, imagelib, callback);
+      } else {
+        th[i] = new MeaningThread(tstart, tstart + subcount, imagelib, callback);
+      }
+    }
 
-    t1.start();
-    t3.start();
+    for (MeaningThread t : th) {
+      t.start();
+    }
 
     try {
-      t1.join();
-      t3.join();
+      for (MeaningThread t : th) {
+        t.join();
+      }
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
+
+//    int subcount = mPictures.length / 2;
+//    int lastcount = mPictures.length % subcount + subcount * 2;
+//
+//    MeaningThread t1 = new MeaningThread(0, subcount, imagelib, callback);
+//    MeaningThread t3 = new MeaningThread(subcount, lastcount, imagelib, callback);
+//
+//    t1.start();
+//    t3.start();
+//
+//    try {
+//      t1.join();
+//      t3.join();
+//    } catch (InterruptedException e) {
+//      e.printStackTrace();
+//    }
 
     System.out.println("Rendering der Lib dauert: " + (System.currentTimeMillis() - start) + "  Anzahl bilder: " + imagelib.size());
     saveImageLib(context, imagelib);
@@ -163,7 +208,18 @@ public class LibraryUtil {
         String path = mPictures[i].getAbsolutePath();
 //        long substart = System.currentTimeMillis();
 
-        mImageList.add(new ImageInfo(path, getMeanColor(BitmapFactory.decodeFile(path))));
+        if (mPictures[i].exists()) {
+          BitmapFactory.Options options = new BitmapFactory.Options();
+          options.inPreferQualityOverSpeed = false;
+          options.inPurgeable = true;
+          Bitmap b = BitmapFactory.decodeFile(path, options);
+          if (b != null) {
+            mImageList.add(new ImageInfo(path, getMeanColor(b)));
+            b.recycle();
+          } else {
+            System.out.println("File ist null-> " + path);
+          }
+        }
 
 //        System.out.println(path + " -> " + (System.currentTimeMillis() - substart));
 

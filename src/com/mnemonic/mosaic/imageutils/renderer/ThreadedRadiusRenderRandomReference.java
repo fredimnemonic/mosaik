@@ -10,6 +10,7 @@ package com.mnemonic.mosaic.imageutils.renderer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.TileChecker;
@@ -108,19 +109,19 @@ public class ThreadedRadiusRenderRandomReference extends ImageRendererBase {
         for (int y = 0; y < mTileCount; y++) {
           int tileindex = findBestFit(mColors[x][y], x, y, mTileCount);
 
-//          String path = mTileList.get(tileindex).getFilePath();
-//          int[] tilepixels;
-//          if (mExportedTiles.containsKey(path)) {
-//            tilepixels = mExportedTiles.get(path);
-//          } else {
-//        	  tilepixels = new int[mTileWidth * mTileHeight];
-//              Bitmap origtile = BitmapFactory.decodeFile(path);
-//              Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
-//              tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
-//              mExportedTiles.put(path, tilepixels);
-//          }
+          String path = mTileList.get(tileindex).getFilePath();
+          int[] tilepixels;
+          if (mExportedTiles.containsKey(path)) {
+            tilepixels = mExportedTiles.get(path);
+          } else {
+        	  tilepixels = new int[mTileWidth * mTileHeight];
+              Bitmap origtile = BitmapFactory.decodeFile(path);
+              Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
+              tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
+              mExportedTiles.put(path, tilepixels);
+          }
 
-//          mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
+          mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
         }
       }
       mCallback.sendEmptyMessage(MessageConst.MessageFinish);

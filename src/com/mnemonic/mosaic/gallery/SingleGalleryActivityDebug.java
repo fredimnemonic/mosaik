@@ -53,11 +53,11 @@ public class SingleGalleryActivityDebug extends BaseActivity {
 
     View v;
     if (renderer instanceof ThreadedRadiusRenderRandomReference) {
-    	ThreadedRadiusRenderRandomReference r = (ThreadedRadiusRenderRandomReference) renderer;
-		v = new ZoomableViewLacy(getBaseContext(), neu, r.getTileArray());
-	} else {
-		v = new ZoomableView(getBaseContext(), neu);
-	}
+      ThreadedRadiusRenderRandomReference r = (ThreadedRadiusRenderRandomReference) renderer;
+      v = new ZoomableViewLacy(getBaseContext(), neu, r.getTileArray());
+    } else {
+      v = new ZoomableView(getBaseContext(), neu);
+    }
     final View view = v;
     FrameLayout zoomlayout = (FrameLayout) findViewById(R.id.layout_single_zoom);
     final TextView lbmemory = (TextView) findViewById(R.id.layout_single_memory);
@@ -76,29 +76,30 @@ public class SingleGalleryActivityDebug extends BaseActivity {
 
     Handler handler = new Handler(){
       private int mCounter = 0;
-      
+
       @Override
       public void handleMessage(Message msg) {
-    	  if (msg.what == MessageConst.MessageFinish) {
-    		mCounter ++;  			
-		  }
-    	  if (mCounter == 2) {
-    		Toast.makeText(getBaseContext(), "Mosaik ist fertig", Toast.LENGTH_LONG).show();  
-		  }
+        if (msg.what == MessageConst.MessageFinish) {
+          mCounter ++;
+        }
+        if (mCounter == 2) {
+          Toast.makeText(getBaseContext(), "Mosaik ist fertig", Toast.LENGTH_LONG).show();
+          view.invalidate();
+        }
 //        String message = msg.getData().getString("time");
 //        if (message != null && !message.isEmpty()) {
 //          //todo
 //        }
-    	ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
-    	Debug.MemoryInfo dmi = new Debug.MemoryInfo();
+        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+        Debug.MemoryInfo dmi = new Debug.MemoryInfo();
         ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
 
-    	activityManager.getMemoryInfo(mi);
+        activityManager.getMemoryInfo(mi);
 
         lbmemory.setText(
-        		"available: " + mi.availMem/1024/1024 + "\n" +
-        		"schwelle : " + mi.threshold/1024/1024 + "\n" +
-        		"lowmemory: " + mi.lowMemory);
+            "available: " + mi.availMem/1024/1024 + "\n" +
+                "schwelle : " + mi.threshold/1024/1024 + "\n" +
+                "lowmemory: " + mi.lowMemory);
 
 //        Debug.getMemoryInfo(dmi);
 //        lbtime.setText(
@@ -112,7 +113,7 @@ public class SingleGalleryActivityDebug extends BaseActivity {
 //        		"getTotalPss		: " + dmi.getTotalPss()/1024 + "\n" + 
 //        		"getTotalSharedDirty: " + dmi.getTotalSharedDirty()/1024 + "\n" + 
 //        		"dalvikSharedDirty 	: " + dmi.otherSharedDirty/1024);
-        
+
 
         view.invalidate();
       }

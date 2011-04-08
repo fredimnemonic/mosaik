@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import com.mnemonic.mosaic.BaseActivity;
-import com.mnemonic.mosaic.gallery.SingleGalleryActivityDebug;
+import com.mnemonic.mosaic.gallery.SingleGalleryActivity;
 
 public class CreateActivity extends BaseActivity {
 
@@ -23,7 +23,7 @@ public class CreateActivity extends BaseActivity {
 
     GridView grid = new GridView(this);
 
-    grid.setNumColumns(3);
+    grid.setNumColumns(10);
     mImageAdapter = new ImageAdapter(this);
     grid.setAdapter(mImageAdapter);
 
@@ -72,7 +72,7 @@ public class CreateActivity extends BaseActivity {
       public void onClick(View v) {
         dlg.dismiss();
 
-        Intent singlegal = new Intent(getBaseContext(), SingleGalleryActivityDebug.class);
+        Intent singlegal = new Intent(getBaseContext(), SingleGalleryActivity.class);
         singlegal.putExtra("path", bMappath);
         startActivity(singlegal);
       }

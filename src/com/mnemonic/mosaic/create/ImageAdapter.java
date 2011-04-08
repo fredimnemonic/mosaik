@@ -26,7 +26,7 @@ public class ImageAdapter extends BaseAdapter {
     mContext = c;
 
     int dispwith = mContext.getWindowManager().getDefaultDisplay().getWidth();
-    int picwith = dispwith / 3;
+    int picwith = dispwith / 10;
     mSize = new GridView.LayoutParams(picwith, picwith);
 
     mPictures = LibraryUtil.getLibraryUtil().getAvailablePictures();

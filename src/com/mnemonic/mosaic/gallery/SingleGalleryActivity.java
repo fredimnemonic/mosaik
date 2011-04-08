@@ -12,6 +12,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
 import com.mnemonic.mosaic.imageutils.renderer.RendererFactory;
@@ -32,10 +36,37 @@ public class SingleGalleryActivity extends BaseActivity {
 
     String renderername = PreferenceReader.getRendererClass(getBaseContext());
     final ImageRendererBase renderer = RendererFactory.createRenderer(renderername, getBaseContext(), tomasaic);
-    Bitmap neu = renderer.setUp();
+    final Bitmap neu = renderer.setUp();
+
+    LinearLayout layout = new LinearLayout(getBaseContext());
 
     final ZoomableView view = new ZoomableView(getBaseContext(), neu);
-    setContentView(view);
+
+    Button b = new Button(getBaseContext());
+    b.setText("Speichern");
+    b.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        try {
+          MediaStore.Images.Media.insertImage(getContentResolver(), neu, "mosaik_" + System.currentTimeMillis() + ".jpg", "");
+
+//          File pics = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+//          File loc = new File(pics, "mosaik_" + System.currentTimeMillis() + ".jpg");
+//          if (loc.exists() || loc.createNewFile()) {
+//            FileOutputStream out = new FileOutputStream(loc);
+//            neu.compress(Bitmap.CompressFormat.JPEG, 100, out);
+//            out.flush();
+//            out.close();
+//          }
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
+    layout.addView(b);
+    layout.addView(view);
+
+    setContentView(layout);
 
     Handler handler = new Handler(){
       @Override

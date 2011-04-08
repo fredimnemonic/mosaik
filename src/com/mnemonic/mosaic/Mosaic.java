@@ -30,7 +30,7 @@ public class Mosaic extends BaseActivity {
 //    int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
 //    GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
 //    layout.setBackgroundDrawable(gradientDrawable);
-     layout.setPadding(0, 5, 0, 0);
+    layout.setPadding(0, 5, 0, 0);
   }
 
   //wird �ber action in AndroidManifest.xml angesprochen
@@ -83,28 +83,28 @@ public class Mosaic extends BaseActivity {
     dialog.setProgress(0);
 
     dialog.setMax(LibraryUtil.getLibraryUtil().getAvailablePictures().length);
+    // display the progressbar
+    dialog.show();
 
     final Handler progressHandler = new Handler() {
       private int mFinishCount;
-      
+
       @Override
       public void handleMessage(Message msg) {
-    	long what = msg.what;
-    	if (what == MessageConst.MessageFinish) {
-    	  mFinishCount ++;
-    	  if (mFinishCount == 2) {
-    		System.out.println("FISHED");
-       	    dialog.dismiss();
-        	Toast.makeText(getBaseContext(), "Imagelib has been created", Toast.LENGTH_LONG).show();			
-      	  }
-		} else {
-          dialog.incrementProgressBy(1);			
-		}
+        long what = msg.what;
+        if (what == MessageConst.MessageFinish) {
+          mFinishCount ++;
+          if (mFinishCount == LibraryUtil.THREADCOUNT) {
+            System.out.println("FISHED");
+            dialog.dismiss();
+            Toast.makeText(getBaseContext(), "Imagelib has been created", Toast.LENGTH_LONG).show();
+          }
+        } else {
+          dialog.incrementProgressBy(1);
+        }
       }
     };
 
-    // display the progressbar
-    dialog.show();
 
     // create a thread for updating the progress bar
     Thread background = new Thread (new Runnable() {
