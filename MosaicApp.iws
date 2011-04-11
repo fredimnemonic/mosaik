@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c72882b-bc1f-46d6-b115-8899c68ed40b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ImageZoomView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SimpleZoomListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/TutorialZoomActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ZoomState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MosaicApp.iws" afterPath="$PROJECT_DIR$/MosaicApp.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleGalleryActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandomReference.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandomReference.java" />
     </list>
     <ignored path="MosaicApp.iws" />
     <ignored path=".idea/workspace.xml" />
