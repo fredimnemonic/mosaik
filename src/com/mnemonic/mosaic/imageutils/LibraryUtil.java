@@ -209,15 +209,49 @@ public class LibraryUtil {
 //        long substart = System.currentTimeMillis();
 
         if (mPictures[i].exists()) {
-          BitmapFactory.Options options = new BitmapFactory.Options();
-          options.inPreferQualityOverSpeed = false;
-          options.inPurgeable = true;
-          Bitmap b = BitmapFactory.decodeFile(path, options);
-          if (b != null) {
-            mImageList.add(new ImageInfo(path, getMeanColor(b)));
-            b.recycle();
-          } else {
-            System.out.println("File ist null-> " + path);
+          //Decode image size
+          BitmapFactory.Options o = new BitmapFactory.Options();
+          o.inJustDecodeBounds = true;
+          try {
+            BitmapFactory.decodeStream(new FileInputStream(mPictures[i]),null,o);
+
+
+            //The new size we want to scale to
+            final int REQUIRED_SIZE=70;
+
+            Bitmap b;
+            if (o.outHeight > REQUIRED_SIZE || o.outWidth > REQUIRED_SIZE) {
+              //Find the correct scale value. It should be the power of 2.
+              int width_tmp=o.outWidth, height_tmp=o.outHeight;
+              int scale=1;
+              while(true){
+                if(width_tmp/2<REQUIRED_SIZE || height_tmp/2<REQUIRED_SIZE)
+                  break;
+                width_tmp/=2;
+                height_tmp/=2;
+                scale*=2;
+              }
+
+              //Decode with inSampleSize
+              BitmapFactory.Options o2 = new BitmapFactory.Options();
+              o2.inSampleSize=scale;
+              o2.inPurgeable = true;
+              b = BitmapFactory.decodeStream(new FileInputStream(mPictures[i]), null, o2);
+            } else {
+              BitmapFactory.Options options = new BitmapFactory.Options();
+              options.inPreferQualityOverSpeed = false;
+              options.inPurgeable = true;
+              b = BitmapFactory.decodeFile(path, options);
+            }
+
+            if (b != null) {
+              mImageList.add(new ImageInfo(path, getMeanColor(b)));
+              b.recycle();
+            } else {
+              System.out.println("File ist null-> " + path);
+            }
+          } catch (FileNotFoundException e) {
+            e.printStackTrace();
           }
         }
 

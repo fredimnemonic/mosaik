@@ -64,6 +64,13 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
 
     t1.start();
     t2.start();
+
+    try {
+      t1.join();
+      t2.join();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   private int findBestFit(int c, int x, int y, int tilecount) {
@@ -115,11 +122,11 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
           if (mExportedTiles.containsKey(path)) {
             tilepixels = mExportedTiles.get(path);
           } else {
-        	  tilepixels = new int[mTileWidth * mTileHeight];
-              Bitmap origtile = BitmapFactory.decodeFile(path);
-              Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
-              tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
-              mExportedTiles.put(path, tilepixels);
+            tilepixels = new int[mTileWidth * mTileHeight];
+            Bitmap origtile = BitmapFactory.decodeFile(path);
+            Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
+            tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
+            mExportedTiles.put(path, tilepixels);
           }
 
           mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);

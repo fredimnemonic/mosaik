@@ -64,6 +64,13 @@ public class ThreadedRadiusRenderRandomReference extends ImageRendererBase {
 
     t1.start();
     t2.start();
+
+    try {
+      t1.join();
+      t2.join();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   private int findBestFit(int c, int x, int y, int tilecount) {

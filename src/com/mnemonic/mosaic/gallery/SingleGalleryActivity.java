@@ -16,9 +16,11 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
 import com.mnemonic.mosaic.imageutils.renderer.RendererFactory;
+import com.mnemonic.mosaic.lib.MessageConst;
 import com.mnemonic.mosaic.preferences.PreferenceReader;
 
 public class SingleGalleryActivity extends BaseActivity {
@@ -40,7 +42,7 @@ public class SingleGalleryActivity extends BaseActivity {
 
     LinearLayout layout = new LinearLayout(getBaseContext());
 
-    final ZoomableView view = new ZoomableView(getBaseContext(), neu);
+    final ZoomableView zoomView = new ZoomableView(getBaseContext(), neu);
 
     Button b = new Button(getBaseContext());
     b.setText("Speichern");
@@ -64,14 +66,36 @@ public class SingleGalleryActivity extends BaseActivity {
       }
     });
     layout.addView(b);
-    layout.addView(view);
+    b = new Button(getBaseContext());
+    b.setText("Aktualisieren");
+    b.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        try {
+          zoomView.invalidate();
+          zoomView.refreshDrawableState();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
+    layout.addView(b);
+    layout.addView(zoomView);
 
     setContentView(layout);
 
     Handler handler = new Handler(){
+      int mCounter = 0;
       @Override
       public void handleMessage(Message msg) {
-        view.invalidate();
+        zoomView.invalidate();
+        if (msg.what == MessageConst.MessageFinish) {
+          mCounter ++;
+        }
+        if (mCounter == 2) {
+          Toast.makeText(getBaseContext(), "Mosaik ist fertig", Toast.LENGTH_LONG).show();
+        }
+
       }
     };
 
