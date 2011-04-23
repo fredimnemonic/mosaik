@@ -37,7 +37,7 @@ public abstract class ImageRendererBase {
   Bitmap mOrigBitmap;
   private Context mBasecontext;
 
-  Map<String, int[]> mExportedTiles;
+  final Map<String, int[]> mExportedTiles;
 
   ImageRendererBase(Context context, Bitmap orig) {
     mOrigBitmap = orig;

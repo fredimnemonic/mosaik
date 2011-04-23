@@ -1,7 +1,6 @@
 package com.mnemonic.mosaic.create;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +11,14 @@ import android.widget.LinearLayout;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
 
 import java.io.File;
-import java.util.Map;
-import java.util.WeakHashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ImageAdapter extends BaseAdapter {
   private CreateActivity mContext;
-  private GridView.LayoutParams mSize;
+  GridView.LayoutParams mSize;
   private File[] mPictures;
 
-  private Map<String, Bitmap> mLoadedPictures;
+  ConcurrentHashMap<String, Bitmap> mLoadedPictures;
 
   public ImageAdapter(CreateActivity c) {
     mContext = c;
@@ -30,7 +28,7 @@ public class ImageAdapter extends BaseAdapter {
     mSize = new GridView.LayoutParams(picwith, picwith);
 
     mPictures = LibraryUtil.getLibraryUtil().getAvailablePictures();
-    mLoadedPictures = new WeakHashMap<String, Bitmap>();
+    mLoadedPictures = new ConcurrentHashMap<String, Bitmap>();
   }
 
   public int getCount() {
@@ -53,27 +51,26 @@ public class ImageAdapter extends BaseAdapter {
   public View getView(int position, View convertView, ViewGroup parent) {
 
     LinearLayout panel;
-    Bitmap bMap;
+//    Bitmap bMap = null;
     String path = mPictures[position].getAbsolutePath();
-    if (mLoadedPictures.containsKey(path)) {
-      bMap = mLoadedPictures.get(path);
-    } else {
-      BitmapFactory.Options o = new BitmapFactory.Options();
-      o.inPurgeable = true;
-      bMap = Bitmap.createScaledBitmap(BitmapFactory.decodeFile(path, o), mSize.width, mSize.height, false);
-      mLoadedPictures.put(path, bMap);
-    }
+//    if (mLoadedPictures.containsKey(path)) {
+//      bMap = mLoadedPictures.get(path);
+//    } else {
+//      BitmapFactory.Options o = new BitmapFactory.Options();
+//      o.inPurgeable = true;
+//      bMap = Bitmap.createScaledBitmap(BitmapFactory.decodeFile(path, o), mSize.width, mSize.height, false);
+//      mLoadedPictures.put(path, bMap);
+//    }
 
+    LazyImageView imageView;
     if (convertView == null) {  // if it's not recycled, initialize some attributes
       panel = new LinearLayout(mContext);
       panel.setPadding(3,3,3,3);
       panel.setBackgroundColor(Color.BLACK);
 
-      ImageView imageView;
-      imageView = new ImageView(mContext);
+      imageView = new LazyImageView(mContext, this);
       imageView.setLayoutParams(mSize);
       imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-      imageView.setImageBitmap(bMap);
 
       LinearLayout l = new LinearLayout(mContext);
       l.setPadding(2,2,2,2);
@@ -83,11 +80,15 @@ public class ImageAdapter extends BaseAdapter {
       panel.addView(l);
     } else {
       panel = (LinearLayout) convertView;
-      ImageView view = (ImageView) panel.getTag();
-      assert view != null;
-      view.setImageBitmap(bMap);
-    }
+      imageView = (LazyImageView) panel.getTag();
+      assert imageView != null;
 
+      //das geht nicht
+//      BitmapDrawable d = (BitmapDrawable) imageView.getDrawable();
+//      d.getBitmap().recycle();
+    }
+    
+    imageView.drawTheBitmap(path);
     return panel;
   }
 }

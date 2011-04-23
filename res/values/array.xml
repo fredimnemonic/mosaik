@@ -3,13 +3,11 @@
   <string-array name="items_renderer">
     <item>Radius Random</item>
     <item>Radius Random Threaded</item>
-  <item>Radius Threaded Ref</item>
 </string-array>
 
   <string-array name="values_renderer">
     <item>RadiusRenderRandom</item>
     <item>ThreadedRadiusRenderRandom</item>
-  <item>ThreadedRadiusRenderRandomReference</item>
 </string-array>
 
   <string-array name="items_algo">

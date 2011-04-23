@@ -35,6 +35,9 @@
     <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Android 3.0 Platform" level="application" />
+    <javadoc-paths>
+      <root url="file://$MODULE_DIR$/../../android-sdk-windows 2/docs" />
+    </javadoc-paths>
   </component>
 </module>
 

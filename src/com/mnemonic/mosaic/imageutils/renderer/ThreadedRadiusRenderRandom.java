@@ -10,13 +10,12 @@ package com.mnemonic.mosaic.imageutils.renderer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.TileChecker;
-import com.mnemonic.mosaic.lib.MessageConst;
 
 
+@SuppressWarnings({"UnusedDeclaration"})
 class ThreadedRadiusRenderRandom extends ImageRendererBase {
 
   ThreadedRadiusRenderRandom(Context context, Bitmap orig) {
@@ -59,8 +58,8 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
   @Override
   void findTilesAndSetColors(final Handler callback) {
     int half = mTileCount / 2;
-    Thread t1 = new TileThread(callback, 0, half);
-    Thread t2 = new TileThread(callback, half, mTileCount);
+    Thread t1 = new TileThread(this, callback, 0, half);
+    Thread t2 = new TileThread(this, callback, half, mTileCount);
 
     t1.start();
     t2.start();
@@ -73,8 +72,7 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
     }
   }
 
-  private int findBestFit(int c, int x, int y, int tilecount) {
-//    int radiusTiles = 5;  // The number of radius tiles... this WILL be user-configurable.
+  int findBestFit(int c, int x, int y, int tilecount) {
     int closestSoFar = 0;  // Index of the tile that best matches the color so far.
     int redDiff, greenDiff, blueDiff, totalDiff;
     int red = Color.red(c);
@@ -85,7 +83,8 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
     int size = mTileList.size();
     for (int count = 0; count < size; count++) {  // Cycle through all of the library tiles.
       int imagecolor = mTileList.get(count).getColor();
-      if ( !TileChecker.checkPlacement(mTileAlgorithmus, mTileAbstand, mTileArray, x, y, count, tilecount, tilecount) ) {// If this tile isn't in the box, find the difference in color.
+      // If this tile isn't in the box, find the difference in color.
+      if ( !TileChecker.checkPlacement(mTileAlgorithmus, mTileAbstand, mTileArray, x, y, count, tilecount, tilecount) ) {
         redDiff = Math.abs(red - Color.red(imagecolor));
         blueDiff = Math.abs(blue - Color.blue(imagecolor));
         greenDiff = Math.abs(green - Color.green(imagecolor));
@@ -99,40 +98,7 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
     return closestSoFar;  // return the tile we chose.
   }
 
-  private class TileThread extends Thread {
-    private Handler mCallback;
-    private int mCurrentX;
-    private int mMax;
-
-    private TileThread(Handler callback, int currentX, int max) {
-      mCallback = callback;
-      mCurrentX = currentX;
-      mMax = max;
-    }
-
-    @Override
-    public void run() {
-      for (int x = mCurrentX; x < mMax; x++) {
-        mCallback.sendEmptyMessage(0);
-        for (int y = 0; y < mTileCount; y++) {
-          int tileindex = findBestFit(mColors[x][y], x, y, mTileCount);
-
-          String path = mTileList.get(tileindex).getFilePath();
-          int[] tilepixels;
-          if (mExportedTiles.containsKey(path)) {
-            tilepixels = mExportedTiles.get(path);
-          } else {
-            tilepixels = new int[mTileWidth * mTileHeight];
-            Bitmap origtile = BitmapFactory.decodeFile(path);
-            Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
-            tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
-            mExportedTiles.put(path, tilepixels);
-          }
-
-          mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
-        }
-      }
-      mCallback.sendEmptyMessage(MessageConst.MessageFinish);
-    }
+  synchronized void setPixels(int[] tilepixels, int x, int y) {
+    mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
   }
 }
