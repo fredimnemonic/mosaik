@@ -10,7 +10,6 @@ package com.mnemonic.mosaic.imageutils.renderer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.ImageList;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
 import com.mnemonic.mosaic.imageutils.TileAlgorithmus;
@@ -72,7 +71,7 @@ public abstract class ImageRendererBase {
     System.out.println("****************** " + txt);
   }
 
-  public void renderImage(Handler callback) {
+  public void renderImage(Runnable runnable) {
     print("Start reading Imagelibrary");
     long start = System.currentTimeMillis();
 
@@ -88,7 +87,7 @@ public abstract class ImageRendererBase {
     print("Starting findTilesAndSetColors");
     start = System.currentTimeMillis();
 
-    findTilesAndSetColors(callback);
+    findTilesAndSetColors(runnable);
 
     print("End findTilesAndSetColors", start);
   }
@@ -99,5 +98,5 @@ public abstract class ImageRendererBase {
 
   abstract void readColors();
 
-  abstract void findTilesAndSetColors(Handler callback);
+  abstract void findTilesAndSetColors(Runnable runnable);
 }

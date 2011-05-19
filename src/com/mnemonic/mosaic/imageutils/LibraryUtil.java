@@ -246,7 +246,7 @@ public class LibraryUtil {
 
             if (b != null) {
               mImageList.add(new ImageInfo(path, getMeanColor(b)));
-              b.recycle();
+//              b.recycle();
             } else {
               System.out.println("File ist null-> " + path);
             }

@@ -17,12 +17,14 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.view.View;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class ImageZoomView extends View implements Observer {
+public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolder.Callback {
 
   /** Paint object used when drawing bitmap. */
   private final Paint mPaint = new Paint(Paint.FILTER_BITMAP_FLAG);
@@ -42,10 +44,15 @@ public class ImageZoomView extends View implements Observer {
   /** State of the zoom. */
   private ZoomState mState;
 
+//  private TutorialThread _thread;
+  private ImageRendererBase mRenderer;
   // Public methods
 
-  public ImageZoomView(Context context) {
+  public ImageZoomView(Context context, ImageRendererBase renderer) {
     super(context);
+//    getHolder().addCallback(this);
+//    _thread = new TutorialThread(getHolder(), this);
+    mRenderer = renderer;
   }
 
   /**
@@ -146,4 +153,83 @@ public class ImageZoomView extends View implements Observer {
     invalidate();
   }
 
+  @Override
+  public void surfaceCreated(SurfaceHolder surfaceHolder) {
+    mRenderer.renderImage(new Runnable() {
+      @Override
+      public void run() {
+        Canvas c = null;
+        try {
+          c = getHolder().lockCanvas(null);
+          synchronized (getHolder()) {
+            onDraw(c);
+          }
+        } finally {
+          if (c != null) {
+            getHolder().unlockCanvasAndPost(c);
+          }
+        }
+      }
+    });
+
+
+
+//    _thread.setRunning(true);
+//    _thread.start();
+  }
+
+  @Override
+  public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
+
+  }
+
+  @Override
+  public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+// simply copied from sample application LunarLander:
+    // we have to tell thread to shut down & wait for it to finish, or else
+    // it might touch the Surface after we return and explode
+//    boolean retry = true;
+//    _thread.setRunning(false);
+//    while (retry) {
+//      try {
+//        _thread.join();
+//        retry = false;
+//      } catch (InterruptedException e) {
+//        // we will try it again and again...
+//      }
+//    }
+  }
+
+//  class TutorialThread extends Thread {
+//    private final SurfaceHolder _surfaceHolder;
+//    private ImageZoomView _panel;
+//
+//    public TutorialThread(SurfaceHolder surfaceHolder, ImageZoomView panel) {
+//      _surfaceHolder = surfaceHolder;
+//      _panel = panel;
+//    }
+//
+//    public void setRunning(boolean run) {
+//    }
+//
+//    @Override
+//    public void run() {
+//      mRenderer.renderImage(new Runnable() {
+//        @Override
+//        public void run() {
+//          Canvas c = null;
+//          try {
+//            c = _surfaceHolder.lockCanvas(null);
+//            synchronized (_surfaceHolder) {
+//              _panel.onDraw(c);
+//            }
+//          } finally {
+//            if (c != null) {
+//              _surfaceHolder.unlockCanvasAndPost(c);
+//            }
+//          }
+//        }
+//      });
+//    }
+//  }
 }

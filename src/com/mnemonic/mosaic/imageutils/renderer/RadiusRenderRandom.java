@@ -12,7 +12,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.TileChecker;
 
 
@@ -56,9 +55,9 @@ class RadiusRenderRandom extends ImageRendererBase {
   }
 
   @Override
-  void findTilesAndSetColors(final Handler callback) {
+  void findTilesAndSetColors(final Runnable runnable) {
     for (int x = 0; x < mTileCount; x++) {
-      callback.sendEmptyMessage(0);
+//      callback.sendEmptyMessage(0);
       for (int y = 0; y < mTileCount; y++) {
         int tileindex = findBestFit(mColors[x][y], x, y, mTileCount);
 

@@ -11,7 +11,6 @@ package com.mnemonic.mosaic.imageutils.renderer;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.os.Handler;
 import com.mnemonic.mosaic.imageutils.TileChecker;
 
 
@@ -56,10 +55,12 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
   }
 
   @Override
-  void findTilesAndSetColors(final Handler callback) {
+  void findTilesAndSetColors(final Runnable runnable) {
     int half = mTileCount / 2;
-    Thread t1 = new TileThread(this, callback, 0, half);
-    Thread t2 = new TileThread(this, callback, half, mTileCount);
+    Thread t1 = new TileThread(this, runnable, 0, half);
+    Thread t2 = new TileThread(this, runnable, half, mTileCount);
+
+//    Thread t1 = new TileThread(this, runnable, 0, mTileCount);
 
     t1.start();
     t2.start();

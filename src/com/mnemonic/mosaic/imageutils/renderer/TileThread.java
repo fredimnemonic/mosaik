@@ -14,17 +14,15 @@ package com.mnemonic.mosaic.imageutils.renderer;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Handler;
-import com.mnemonic.mosaic.lib.MessageConst;
 
 public class TileThread extends Thread {
-  private Handler mCallback;
+  private Runnable mCallback;
   private int mCurrentX;
   private int mMax;
   private ThreadedRadiusRenderRandom mRenderer;
 
-  TileThread(ThreadedRadiusRenderRandom renderer, Handler callback, int currentX, int max) {
-    mCallback = callback;
+  TileThread(ThreadedRadiusRenderRandom renderer, Runnable runnable, int currentX, int max) {
+    mCallback = runnable;
     mCurrentX = currentX;
     mMax = max;
     mRenderer = renderer;
@@ -33,7 +31,7 @@ public class TileThread extends Thread {
   @Override
   public void run() {
     for (int x = mCurrentX; x < mMax; x++) {
-      mCallback.sendEmptyMessage(0);
+//      mCallback.run();
       for (int y = 0; y < mRenderer.mTileCount; y++) {
         int tileindex = mRenderer.findBestFit(mRenderer.mColors[x][y], x, y, mRenderer.mTileCount);
 
@@ -50,7 +48,7 @@ public class TileThread extends Thread {
             continue;
           }
           Bitmap tile = Bitmap.createScaledBitmap(origtile, mRenderer.mTileWidth, mRenderer.mTileHeight, false);
-          origtile.recycle();
+//          origtile.recycle();
           tile.getPixels(tilepixels, 0, mRenderer.mTileWidth, 0, 0, mRenderer.mTileWidth, mRenderer.mTileHeight);
           mRenderer.mExportedTiles.put(path, tilepixels);
         }
@@ -59,6 +57,6 @@ public class TileThread extends Thread {
         mRenderer.setPixels(tilepixels, x, y);
       }
     }
-    mCallback.sendEmptyMessage(MessageConst.MessageFinish);
+//    mCallback.run();
   }
 }

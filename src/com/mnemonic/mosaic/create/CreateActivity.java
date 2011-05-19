@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import com.mnemonic.mosaic.BaseActivity;
-import com.mnemonic.mosaic.gallery.TutorialZoomActivity;
+import com.mnemonic.mosaic.gallery.SingleZoomActivity;
 
 public class CreateActivity extends BaseActivity {
 
@@ -72,7 +72,7 @@ public class CreateActivity extends BaseActivity {
       public void onClick(View v) {
         dlg.dismiss();
 
-        Intent singlegal = new Intent(getBaseContext(), TutorialZoomActivity.class);
+        Intent singlegal = new Intent(getBaseContext(), SingleZoomActivity.class);
 //        Intent singlegal = new Intent(getBaseContext(), SingleGalleryActivity.class);
         singlegal.putExtra("path", bMappath);
         startActivity(singlegal);
