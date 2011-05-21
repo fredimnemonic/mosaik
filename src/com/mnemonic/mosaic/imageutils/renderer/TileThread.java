@@ -31,7 +31,7 @@ public class TileThread extends Thread {
   @Override
   public void run() {
     for (int x = mCurrentX; x < mMax; x++) {
-//      mCallback.run();
+      mCallback.run();
       for (int y = 0; y < mRenderer.mTileCount; y++) {
         int tileindex = mRenderer.findBestFit(mRenderer.mColors[x][y], x, y, mRenderer.mTileCount);
 
@@ -57,6 +57,6 @@ public class TileThread extends Thread {
         mRenderer.setPixels(tilepixels, x, y);
       }
     }
-//    mCallback.run();
+    mCallback.run();
   }
 }

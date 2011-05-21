@@ -21,19 +21,24 @@ public class CreateActivity extends BaseActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    GridView grid = new GridView(this);
+    try {
+      GridView grid = new GridView(this);
 
-    grid.setNumColumns(10);
-    mImageAdapter = new ImageAdapter(this);
-    grid.setAdapter(mImageAdapter);
+      grid.setNumColumns(10);
+      mImageAdapter = new ImageAdapter(this);
+      grid.setAdapter(mImageAdapter);
 
-    grid.setOnItemClickListener(new OnItemClickListener() {
-      public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-        showDialog(position);
-      }
-    });
+      grid.setOnItemClickListener(new OnItemClickListener() {
+        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+          showDialog(position);
+        }
+      });
 
-    setContentView(grid);
+      setContentView(grid);
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   @Override

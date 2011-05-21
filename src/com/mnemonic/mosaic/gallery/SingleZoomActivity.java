@@ -34,7 +34,6 @@ package com.mnemonic.mosaic.gallery;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import com.mnemonic.mosaic.BaseActivity;
@@ -81,7 +80,7 @@ public class SingleZoomActivity extends BaseActivity {
     LinearLayout layout = new LinearLayout(getBaseContext());
 
     mZoomView = new ImageZoomView(getBaseContext(), renderer);
-    mZoomView.setBackgroundColor(Color.GREEN);
+//    mZoomView.setBackgroundColor(Color.RED);
 
 
 
@@ -148,10 +147,10 @@ public class SingleZoomActivity extends BaseActivity {
 
     mZoomListener = new SimpleZoomListener();
     mZoomListener.setZoomState(mZoomState);
+
+    mZoomView.setOnTouchListener(mZoomListener);
     mZoomView.setZoomState(mZoomState);
     mZoomView.setImage(neu);
-
-    this.mZoomView.setOnTouchListener(mZoomListener);
 
     resetZoomState();
 

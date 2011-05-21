@@ -50,7 +50,7 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
 
   public ImageZoomView(Context context, ImageRendererBase renderer) {
     super(context);
-//    getHolder().addCallback(this);
+    getHolder().addCallback(this);
 //    _thread = new TutorialThread(getHolder(), this);
     mRenderer = renderer;
   }
@@ -98,7 +98,6 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
   @Override
   protected void onDraw(Canvas canvas) {
     if (mBitmap != null && mState != null) {
-      
       final int viewWidth = getWidth();
       final int viewHeight = getHeight();
       final int bitmapWidth = mBitmap.getWidth();
@@ -155,22 +154,33 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
 
   @Override
   public void surfaceCreated(SurfaceHolder surfaceHolder) {
-    mRenderer.renderImage(new Runnable() {
+    new Thread(){
       @Override
       public void run() {
-        Canvas c = null;
-        try {
-          c = getHolder().lockCanvas(null);
-          synchronized (getHolder()) {
-            onDraw(c);
+        mRenderer.renderImage(new Runnable() {
+          @Override
+          public void run() {
+//            try {
+//              Thread.sleep(100);
+//            } catch (InterruptedException e) {
+//              e.printStackTrace();
+//            }
+            Canvas c = null;
+            try {
+
+              c = getHolder().lockCanvas(null);
+              synchronized (getHolder()) {
+                onDraw(c);
+              }
+            } finally {
+              if (c != null) {
+                getHolder().unlockCanvasAndPost(c);
+              }
+            }
           }
-        } finally {
-          if (c != null) {
-            getHolder().unlockCanvasAndPost(c);
-          }
-        }
+        });
       }
-    });
+    }.start();
 
 
 
