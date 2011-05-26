@@ -11,14 +11,14 @@ import android.widget.LinearLayout;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
 
 import java.io.File;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.WeakHashMap;
 
 public class ImageAdapter extends BaseAdapter {
   private CreateActivity mContext;
   GridView.LayoutParams mSize;
   private File[] mPictures;
 
-  ConcurrentHashMap<String, Bitmap> mLoadedPictures;
+  final WeakHashMap<String, Bitmap> mLoadedPictures;
 
   public ImageAdapter(CreateActivity c) {
     mContext = c;
@@ -28,7 +28,7 @@ public class ImageAdapter extends BaseAdapter {
     mSize = new GridView.LayoutParams(picwith, picwith);
 
     mPictures = LibraryUtil.getLibraryUtil().getAvailablePictures();
-    mLoadedPictures = new ConcurrentHashMap<String, Bitmap>();
+    mLoadedPictures = new WeakHashMap<String, Bitmap>();
   }
 
   public int getCount() {
