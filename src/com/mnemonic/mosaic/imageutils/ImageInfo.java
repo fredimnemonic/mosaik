@@ -30,6 +30,7 @@ public class ImageInfo implements Serializable {
   // Class variables.
   private String mFilePath;
   private int mColor;     // The RBG value for the image.
+  private boolean mInternal;
 
   // Constructor.
   public ImageInfo() {
@@ -40,9 +41,10 @@ public class ImageInfo implements Serializable {
     mColor = color;
   }
 
-  // Accessor to set the RBG value for the image.
-  public void setColor(int color) {
-    this.mColor = color;
+  public ImageInfo(int id, int color) {
+    mFilePath = String.valueOf(id);
+    mInternal = true;
+    mColor = color;
   }
 
   // Accessor to retrieve the RBG value for the image.
@@ -54,7 +56,7 @@ public class ImageInfo implements Serializable {
     return mFilePath;
   }
 
-  public void setFilePath(String filePath) {
-    mFilePath = filePath;
+  public boolean isInternal() {
+    return mInternal;
   }
 }

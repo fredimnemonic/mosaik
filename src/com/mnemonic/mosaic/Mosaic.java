@@ -120,6 +120,8 @@ public class Mosaic extends BaseActivity {
     // create a thread for updating the progress bar
     Thread background = new Thread (new Runnable() {
       public void run() {
+        //        InternalLibraryUtil2 internal = new InternalLibraryUtil2();
+
         LibraryUtil.getLibraryUtil().createImageLib(getBaseContext(), progressHandler);
       }
     });

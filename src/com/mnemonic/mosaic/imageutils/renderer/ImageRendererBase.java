@@ -34,7 +34,7 @@ public abstract class ImageRendererBase {
   Bitmap mCreatedBM;
 
   Bitmap mOrigBitmap;
-  private Context mBasecontext;
+  protected Context mBasecontext;
 
   final Map<String, int[]> mExportedTiles;
 

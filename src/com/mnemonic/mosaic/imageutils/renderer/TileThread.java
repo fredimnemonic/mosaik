@@ -42,7 +42,13 @@ public class TileThread extends Thread {
           tilepixels = mRenderer.mExportedTiles.get(path);
         } else {
           tilepixels = new int[mRenderer.mTileWidth * mRenderer.mTileHeight];
-          Bitmap origtile = BitmapFactory.decodeFile(path);
+          Bitmap origtile;
+          if (mRenderer.mTileList.get(tileindex).isInternal()) {
+            origtile = BitmapFactory.decodeResource(mRenderer.mBasecontext.getResources(), Integer.parseInt(path));
+          } else {
+            origtile = BitmapFactory.decodeFile(path);
+          }
+
           if (origtile == null) {
             System.out.println("Bild nicht vorhanden: " + path);
             continue;

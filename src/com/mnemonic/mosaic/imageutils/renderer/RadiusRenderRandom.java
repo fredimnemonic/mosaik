@@ -67,7 +67,13 @@ class RadiusRenderRandom extends ImageRendererBase {
           tilepixels = mExportedTiles.get(path);
         } else {
           tilepixels = new int[mTileWidth * mTileHeight];
-          Bitmap origtile = BitmapFactory.decodeFile(path);
+
+          Bitmap origtile;
+          if (mTileList.get(tileindex).isInternal()) {
+            origtile = BitmapFactory.decodeResource(mBasecontext.getResources(), Integer.parseInt(path));
+          } else {
+            origtile = BitmapFactory.decodeFile(path);
+          }
           Bitmap tile = Bitmap.createScaledBitmap(origtile, mTileWidth, mTileHeight, false);
           tile.getPixels(tilepixels, 0, mTileWidth, 0, 0, mTileWidth, mTileHeight);
           mExportedTiles.put(path, tilepixels);

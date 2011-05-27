@@ -15,6 +15,7 @@ import android.graphics.Color;
 import android.os.Environment;
 import android.os.Handler;
 import android.widget.Toast;
+import com.mnemonic.mosaic.imageutils.internal.InternalLibraryUtil;
 import com.mnemonic.mosaic.lib.MessageConst;
 
 import java.io.*;
@@ -84,7 +85,10 @@ public class LibraryUtil {
 
   public ImageList getImageLib(Context context) {
     if (mImageLib == null) {
-      mImageLib = new ImageList();
+      long start = System.currentTimeMillis();
+      InternalLibraryUtil.createImageLib();
+      System.out.println("dauer: " + (System.currentTimeMillis()-start));
+      mImageLib = InternalLibraryUtil.createImageLib();
       try {
         FileInputStream fis = context.openFileInput("mosaik.jml");
         mImageLib.loadFromDisc(fis);
