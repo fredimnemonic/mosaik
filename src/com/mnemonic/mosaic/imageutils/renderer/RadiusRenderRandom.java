@@ -28,9 +28,9 @@ class RadiusRenderRandom extends ImageRendererBase {
 
     int currenttilex = 0;
     double red, green, blue;
-    for (int x = 0; currenttilex < mTileCount ; x += mTileWidth, currenttilex++) {
+    for (int x = 0; currenttilex < mTileCountX ; x += mTileWidth, currenttilex++) {
       int currenttiley = 0;
-      for (int y = 0; currenttiley < mTileCount; y += mTileHeight, currenttiley++) {
+      for (int y = 0; currenttiley < mTileCountY; y += mTileHeight, currenttiley++) {
         red = 0;
         green = 0;
         blue = 0;
@@ -56,10 +56,10 @@ class RadiusRenderRandom extends ImageRendererBase {
 
   @Override
   void findTilesAndSetColors(final Runnable runnable) {
-    for (int x = 0; x < mTileCount; x++) {
+    for (int x = 0; x < mTileCountX; x++) {
 //      callback.sendEmptyMessage(0);
-      for (int y = 0; y < mTileCount; y++) {
-        int tileindex = findBestFit(mColors[x][y], x, y, mTileCount);
+      for (int y = 0; y < mTileCountY; y++) {
+        int tileindex = findBestFit(mColors[x][y], x, y, mTileCountX, mTileCountY);
 
         String path = mTileList.get(tileindex).getFilePath();
         int[] tilepixels;
@@ -84,7 +84,7 @@ class RadiusRenderRandom extends ImageRendererBase {
     }
   }
 
-  private int findBestFit(int c, int x, int y, int tilecount) {
+  private int findBestFit(int c, int x, int y, int tilecountx, int tilecounty) {
     int closestSoFar = 0;  // Index of the tile that best matches the color so far.
     int redDiff, greenDiff, blueDiff, totalDiff;
     int red = Color.red(c);
@@ -95,7 +95,7 @@ class RadiusRenderRandom extends ImageRendererBase {
     int size = mTileList.size();
     for (int count = 0; count < size; count++) {  // Cycle through all of the library tiles.
       int imagecolor = mTileList.get(count).getColor();
-      if ( !TileChecker.checkPlacement(mTileAlgorithmus, mTileAbstand, mTileArray, x, y, count, tilecount, tilecount) ) {// If this tile isn't in the box, find the difference in color.
+      if ( !TileChecker.checkPlacement(mTileAlgorithmus, mTileAbstand, mTileArray, x, y, count, tilecountx, tilecounty) ) {// If this tile isn't in the box, find the difference in color.
         redDiff = Math.abs(red - Color.red(imagecolor));
         blueDiff = Math.abs(blue - Color.blue(imagecolor));
         greenDiff = Math.abs(green - Color.green(imagecolor));

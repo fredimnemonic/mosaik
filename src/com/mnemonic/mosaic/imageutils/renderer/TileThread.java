@@ -32,8 +32,8 @@ public class TileThread extends Thread {
   public void run() {
     for (int x = mCurrentX; x < mMax; x++) {
       mCallback.run();
-      for (int y = 0; y < mRenderer.mTileCount; y++) {
-        int tileindex = mRenderer.findBestFit(mRenderer.mColors[x][y], x, y, mRenderer.mTileCount);
+      for (int y = 0; y < mRenderer.mTileCountY; y++) {
+        int tileindex = mRenderer.findBestFit(mRenderer.mColors[x][y], x, y, mRenderer.mTileCountX, mRenderer.mTileCountY);
 
         String path = mRenderer.mTileList.get(tileindex).getFilePath();
         int[] tilepixels;

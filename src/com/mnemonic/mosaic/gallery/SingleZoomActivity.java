@@ -72,10 +72,11 @@ public class SingleZoomActivity extends BaseActivity {
     super.onCreate(savedInstanceState);
 
     Bitmap tomasaic = BitmapFactory.decodeFile(getIntent().getStringExtra("path"));
-
+    System.out.println("SingeZoomActivity-> with: " + tomasaic.getWidth() + "  height: " + tomasaic.getHeight());
     String renderername = PreferenceReader.getRendererClass(getBaseContext());
     final ImageRendererBase renderer = RendererFactory.createRenderer(renderername, getBaseContext(), tomasaic);
     final Bitmap neu = renderer.setUp();
+    System.out.println("SingeZoomActivity-> with: " + neu.getWidth() + "  height: " + neu.getHeight());
 
     LinearLayout layout = new LinearLayout(getBaseContext());
 

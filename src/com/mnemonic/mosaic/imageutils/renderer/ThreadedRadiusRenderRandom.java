@@ -28,9 +28,9 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
 
     int currenttilex = 0;
     double red, green, blue;
-    for (int x = 0; currenttilex < mTileCount ; x += mTileWidth, currenttilex++) {
+    for (int x = 0; currenttilex < mTileCountX ; x += mTileWidth, currenttilex++) {
       int currenttiley = 0;
-      for (int y = 0; currenttiley < mTileCount; y += mTileHeight, currenttiley++) {
+      for (int y = 0; currenttiley < mTileCountY; y += mTileHeight, currenttiley++) {
         red = 0;
         green = 0;
         blue = 0;
@@ -56,9 +56,9 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
 
   @Override
   void findTilesAndSetColors(final Runnable runnable) {
-    int half = mTileCount / 2;
+    int half = mTileCountX / 2;
     Thread t1 = new TileThread(this, runnable, 0, half);
-    Thread t2 = new TileThread(this, runnable, half, mTileCount);
+    Thread t2 = new TileThread(this, runnable, half, mTileCountX);
 
 //    Thread t1 = new TileThread(this, runnable, 0, mTileCount);
 
@@ -73,7 +73,7 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
     }
   }
 
-  int findBestFit(int c, int x, int y, int tilecount) {
+  int findBestFit(int c, int x, int y, int tilecountx, int tilecounty) {
     int closestSoFar = 0;  // Index of the tile that best matches the color so far.
     int redDiff, greenDiff, blueDiff, totalDiff;
     int red = Color.red(c);
@@ -85,7 +85,7 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
     for (int count = 0; count < size; count++) {  // Cycle through all of the library tiles.
       int imagecolor = mTileList.get(count).getColor();
       // If this tile isn't in the box, find the difference in color.
-      if ( !TileChecker.checkPlacement(mTileAlgorithmus, mTileAbstand, mTileArray, x, y, count, tilecount, tilecount) ) {
+      if ( !TileChecker.checkPlacement(mTileAlgorithmus, mTileAbstand, mTileArray, x, y, count, tilecountx, tilecounty) ) {
         redDiff = Math.abs(red - Color.red(imagecolor));
         blueDiff = Math.abs(blue - Color.blue(imagecolor));
         greenDiff = Math.abs(green - Color.green(imagecolor));
@@ -100,6 +100,14 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
   }
 
   synchronized void setPixels(int[] tilepixels, int x, int y) {
-    mCreatedBM.setPixels(tilepixels, 0, mTileWidth, x * mTileWidth, y * mTileHeight, mTileWidth, mTileHeight);
+    int startx = x * mTileWidth;
+    if (startx > mOrigWidth) {
+      return;
+    }
+    int starty = y*mTileHeight;
+    if (starty > mOrigHeight) {
+      return;
+    }
+    mCreatedBM.setPixels(tilepixels, 0, mTileWidth, startx, starty, mTileWidth, mTileHeight);
   }
 }

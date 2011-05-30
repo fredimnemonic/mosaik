@@ -22,11 +22,12 @@ public abstract class ImageRendererBase {
   int mTileAbstand;
   TileAlgorithmus mTileAlgorithmus;
 
-  int mTileCount;
+  int mTileCountX;
+  int mTileCountY;
   int mTileWidth;
   int mTileHeight;
-  int mOrigWidth;
-  int mOrigHeight;
+  public int mOrigWidth;
+  public int mOrigHeight;
   ImageList mTileList;
   int[][] mColors;
   int[][] mTileArray;
@@ -45,20 +46,40 @@ public abstract class ImageRendererBase {
   }
 
   public Bitmap setUp() {
-    mTileCount = PreferenceReader.getTileCount(mBasecontext);
+    mTileCountX = mTileCountY = PreferenceReader.getTileCount(mBasecontext);
     mTileAbstand = PreferenceReader.getTileBetween(mBasecontext);
     mTileAlgorithmus = PreferenceReader.getTileAlgo(mBasecontext);
 
     mOrigWidth = mOrigBitmap.getWidth();
     mOrigHeight = mOrigBitmap.getHeight();
 
-    mTileWidth = mOrigWidth / mTileCount;
-    mTileHeight = mOrigHeight / mTileCount;
+    mTileWidth = mOrigWidth / mTileCountX;
+    mTileHeight = mOrigHeight / mTileCountY;
 
-    mColors = new int[mTileCount][mTileCount];
-    mTileArray = new int[mTileCount][mTileCount];
+    int restwith = mOrigWidth - (mTileWidth * mTileCountX);
+    int restheigt = mOrigHeight - (mTileHeight * mTileCountY);
 
-    mCreatedBM = Bitmap.createBitmap(mTileWidth * mTileCount, mTileHeight * mTileCount, mOrigBitmap.getConfig());
+    print("########## restwith = " + restwith);
+    print("########## restheigt = " + restheigt);
+
+    int result = restwith/mTileWidth;
+    mTileCountX = mTileCountX + result;
+    result = restheigt/mTileHeight;
+    mTileCountY = mTileCountY + result;
+
+    restwith = mOrigWidth - (mTileWidth * mTileCountX);
+    restheigt = mOrigHeight - (mTileHeight * mTileCountY);
+
+    print("########## restwith-nachher = " + restwith);
+    print("########## restheigt-nachher = " + restheigt);
+
+
+
+
+    mColors = new int[mTileCountX][mTileCountY];
+    mTileArray = new int[mTileCountX][mTileCountY];
+
+    mCreatedBM = Bitmap.createBitmap(mTileWidth * mTileCountX, mTileHeight * mTileCountY, mOrigBitmap.getConfig());
 
     return mCreatedBM;
   }
