@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import com.mnemonic.mosaic.BaseActivity;
+import com.mnemonic.mosaic.R;
 import com.mnemonic.mosaic.gallery.SingleZoomActivity;
 
 public class CreateActivity extends BaseActivity {
@@ -35,6 +37,12 @@ public class CreateActivity extends BaseActivity {
       });
 
       setContentView(grid);
+
+      int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
+      GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
+      grid.setBackgroundDrawable(gradientDrawable);
+      grid.setPadding(0, 5, 0, 0);
+
 
     } catch (Exception e) {
       e.printStackTrace();

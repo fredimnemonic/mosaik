@@ -80,6 +80,7 @@ public class SingleZoomActivity extends BaseActivity {
     LinearLayout layout = new LinearLayout(getBaseContext());
 
     mZoomView = new ImageZoomView(getBaseContext(), renderer);
+
 //    mZoomView.setBackgroundColor(Color.RED);
 
 

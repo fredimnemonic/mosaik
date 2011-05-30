@@ -13,10 +13,7 @@
 package com.mnemonic.mosaic.gallery;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.*;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
@@ -97,7 +94,7 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
 
   @Override
   protected void onDraw(Canvas canvas) {
-    if (mBitmap != null && mState != null) {
+    if (mBitmap != null && mState != null && canvas!=null) {
       final int viewWidth = getWidth();
       final int viewHeight = getHeight();
       final int bitmapWidth = mBitmap.getWidth();
@@ -117,6 +114,10 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
       mRectDst.top = getTop();
       mRectDst.right = getRight();
       mRectDst.bottom = getBottom();
+
+      Paint p = new Paint();
+      p.setColor(Color.rgb(10, 1, 45));
+      canvas.drawRect(mRectDst, p);
 
       // Adjust source rectangle so that it fits within the source image.
       if (mRectSrc.left < 0) {
@@ -149,7 +150,7 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
 
   // implements Observer
   public void update(Observable observable, Object data) {
-    invalidate();
+    repaint();
   }
 
   @Override
@@ -160,32 +161,26 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
         mRenderer.renderImage(new Runnable() {
           @Override
           public void run() {
-//            try {
-//              Thread.sleep(100);
-//            } catch (InterruptedException e) {
-//              e.printStackTrace();
-//            }
-            Canvas c = null;
-            try {
-
-              c = getHolder().lockCanvas(null);
-              synchronized (getHolder()) {
-                onDraw(c);
-              }
-            } finally {
-              if (c != null) {
-                getHolder().unlockCanvasAndPost(c);
-              }
-            }
+            repaint();
           }
         });
       }
     }.start();
+  }
 
+  private void repaint() {
+    Canvas c = null;
+    try {
 
-
-//    _thread.setRunning(true);
-//    _thread.start();
+      c = getHolder().lockCanvas(null);
+      synchronized (getHolder()) {
+        onDraw(c);
+      }
+    } finally {
+      if (c != null) {
+        getHolder().unlockCanvasAndPost(c);
+      }
+    }
   }
 
   @Override
