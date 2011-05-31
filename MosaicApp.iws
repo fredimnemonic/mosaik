@@ -6,13 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c72882b-bc1f-46d6-b115-8899c68ed40b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MosaicApp.iws" afterPath="$PROJECT_DIR$/MosaicApp.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/ImageAdapter.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/ImageAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/LazyImageView.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/LazyImageView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ImageZoomView.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ImageZoomView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java" />
     </list>
     <ignored path="MosaicApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -739,7 +733,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tag: Next&#10;-x und y verschieden&#10;-bild wird vollständig dargestellt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tag: Next&#10;-Bilder bei auswahl richtig darstellen.&#10;-keine probleme mit grossen bildern" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -755,6 +749,7 @@
     <MESSAGE value="Tag: Next" />
     <MESSAGE value="Tag: Next&#10;interne imglib" />
     <MESSAGE value="Tag: Next&#10;-x und y verschieden&#10;-bild wird vollständig dargestellt" />
+    <MESSAGE value="Tag: Next&#10;-Bilder bei auswahl richtig darstellen.&#10;-keine probleme mit grossen bildern" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
