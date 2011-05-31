@@ -18,21 +18,25 @@ import android.graphics.BitmapFactory;
 public class TileThread extends Thread {
   private Runnable mCallback;
   private int mCurrentX;
-  private int mMax;
+  private int mMaxX;
+  private int mCurrentY;
+  private int mMaxY;
   private ThreadedRadiusRenderRandom mRenderer;
 
-  TileThread(ThreadedRadiusRenderRandom renderer, Runnable runnable, int currentX, int max) {
+  TileThread(ThreadedRadiusRenderRandom renderer, Runnable runnable, int currentX, int maxX, int currentY, int maxY) {
     mCallback = runnable;
     mCurrentX = currentX;
-    mMax = max;
+    mMaxX = maxX;
+    mCurrentY = currentY;
+    mMaxY = maxY;
     mRenderer = renderer;
   }
 
   @Override
   public void run() {
-    for (int x = mCurrentX; x < mMax; x++) {
+    for (int x = mCurrentX; x < mMaxX; x++) {
       mCallback.run();
-      for (int y = 0; y < mRenderer.mTileCountY; y++) {
+      for (int y = mCurrentY; y < mMaxY; y++) {
         int tileindex = mRenderer.findBestFit(mRenderer.mColors[x][y], x, y, mRenderer.mTileCountX, mRenderer.mTileCountY);
 
         String path = mRenderer.mTileList.get(tileindex).getFilePath();

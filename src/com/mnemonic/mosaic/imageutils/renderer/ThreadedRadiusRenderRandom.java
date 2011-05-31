@@ -57,17 +57,26 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
   @Override
   void findTilesAndSetColors(final Runnable runnable) {
     int half = mTileCountX / 2;
-    Thread t1 = new TileThread(this, runnable, 0, half);
-    Thread t2 = new TileThread(this, runnable, half, mTileCountX);
+    int halfy = mTileCountY / 2;
+
+
+    Thread t1 = new TileThread(this, runnable, 0, half, 0, halfy);
+    Thread t3 = new TileThread(this, runnable, 0, half, halfy, mTileCountY);
+    Thread t2 = new TileThread(this, runnable, half, mTileCountX, 0, halfy);
+    Thread t4 = new TileThread(this, runnable, half, mTileCountX, halfy, mTileCountY);
 
 //    Thread t1 = new TileThread(this, runnable, 0, mTileCount);
 
     t1.start();
     t2.start();
+    t3.start();
+    t4.start();
 
     try {
       t1.join();
       t2.join();
+      t3.join();
+      t4.join();
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
