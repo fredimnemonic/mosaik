@@ -51,16 +51,7 @@ public class ImageAdapter extends BaseAdapter {
   public View getView(int position, View convertView, ViewGroup parent) {
 
     LinearLayout panel;
-//    Bitmap bMap = null;
     String path = mPictures[position].getAbsolutePath();
-//    if (mLoadedPictures.containsKey(path)) {
-//      bMap = mLoadedPictures.get(path);
-//    } else {
-//      BitmapFactory.Options o = new BitmapFactory.Options();
-//      o.inPurgeable = true;
-//      bMap = Bitmap.createScaledBitmap(BitmapFactory.decodeFile(path, o), mSize.width, mSize.height, false);
-//      mLoadedPictures.put(path, bMap);
-//    }
 
     LazyImageView imageView;
     if (convertView == null) {  // if it's not recycled, initialize some attributes
@@ -82,10 +73,6 @@ public class ImageAdapter extends BaseAdapter {
       panel = (LinearLayout) convertView;
       imageView = (LazyImageView) panel.getTag();
       assert imageView != null;
-
-      //das geht nicht
-//      BitmapDrawable d = (BitmapDrawable) imageView.getDrawable();
-//      d.getBitmap().recycle();
     }
     
     imageView.drawTheBitmap(path);

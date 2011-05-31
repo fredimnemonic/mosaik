@@ -14,6 +14,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.R;
 import com.mnemonic.mosaic.gallery.SingleZoomActivity;
+import com.mnemonic.mosaic.imageutils.ImageUtil;
 
 public class CreateActivity extends BaseActivity {
 
@@ -43,7 +44,6 @@ public class CreateActivity extends BaseActivity {
       grid.setBackgroundDrawable(gradientDrawable);
       grid.setPadding(0, 5, 0, 0);
 
-
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -55,7 +55,9 @@ public class CreateActivity extends BaseActivity {
   }
 
   private Dialog createPictureDialog(final String bMappath) {
-    Bitmap bMap = BitmapFactory.decodeFile(bMappath);
+    BitmapFactory.Options o = new BitmapFactory.Options();
+    o.inSampleSize = ImageUtil.getScalingFactor(bMappath, 200, 400);
+    Bitmap bMap = BitmapFactory.decodeFile(bMappath, o);
 
     final Dialog dlg = new Dialog(this);
 
@@ -66,7 +68,7 @@ public class CreateActivity extends BaseActivity {
     panel.setPadding(5, 5, 5, 5);
 
     LinearLayout l = new LinearLayout(this);
-    l.setPadding(2,2,2,2);
+    l.setPadding(2, 2, 2, 2);
     l.setBackgroundColor(Color.WHITE);
 
     ImageView imageView = new ImageView(this);
@@ -80,7 +82,7 @@ public class CreateActivity extends BaseActivity {
 
     Button accept = new Button(this);
     accept.setText("Create Mosaic");
-    accept.setOnClickListener(new View.OnClickListener(){
+    accept.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         dlg.dismiss();
@@ -94,7 +96,7 @@ public class CreateActivity extends BaseActivity {
 
     Button other = new Button(this);
     other.setText("Other");
-    other.setOnClickListener(new View.OnClickListener(){
+    other.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         dlg.dismiss();

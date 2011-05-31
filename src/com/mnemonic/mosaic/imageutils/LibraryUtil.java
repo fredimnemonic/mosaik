@@ -78,6 +78,18 @@ public class LibraryUtil {
       }
     }
 
+    pics = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), "Camera").listFiles(filter);
+    if (pics != null && pics.length > 0) {
+      if (mPictures == null) {
+        mPictures = pics;
+      } else {
+        File[] neu = new File[mPictures.length + pics.length];
+        System.arraycopy(pics, 0, neu, 0, pics.length);
+        System.arraycopy(mPictures, 0, neu, pics.length, mPictures.length);
+        mPictures = neu;
+      }
+    }
+
     if (mPictures == null) {
       mPictures = new File[0];
     }
@@ -133,23 +145,8 @@ public class LibraryUtil {
       e.printStackTrace();
     }
 
-//    int subcount = mPictures.length / 2;
-//    int lastcount = mPictures.length % subcount + subcount * 2;
-//
-//    MeaningThread t1 = new MeaningThread(0, subcount, imagelib, callback);
-//    MeaningThread t3 = new MeaningThread(subcount, lastcount, imagelib, callback);
-//
-//    t1.start();
-//    t3.start();
-//
-//    try {
-//      t1.join();
-//      t3.join();
-//    } catch (InterruptedException e) {
-//      e.printStackTrace();
-//    }
-
     System.out.println("Rendering der Lib dauert: " + (System.currentTimeMillis() - start) + "  Anzahl bilder: " + imagelib.size());
+
     saveImageLib(context, imagelib);
 
     System.out.println("Done!");
@@ -213,44 +210,15 @@ public class LibraryUtil {
 //        long substart = System.currentTimeMillis();
 
         if (mPictures[i].exists()) {
-          //Decode image size
-          BitmapFactory.Options o = new BitmapFactory.Options();
-          o.inJustDecodeBounds = true;
           try {
-            BitmapFactory.decodeStream(new FileInputStream(mPictures[i]),null,o);
-
-
-            //The new size we want to scale to
-            final int REQUIRED_SIZE=70;
-
-            Bitmap b;
-            if (o.outHeight > REQUIRED_SIZE || o.outWidth > REQUIRED_SIZE) {
-              //Find the correct scale value. It should be the power of 2.
-              int width_tmp=o.outWidth, height_tmp=o.outHeight;
-              int scale=1;
-              while(true){
-                if(width_tmp/2<REQUIRED_SIZE || height_tmp/2<REQUIRED_SIZE)
-                  break;
-                width_tmp/=2;
-                height_tmp/=2;
-                scale*=2;
-              }
-
-              //Decode with inSampleSize
-              BitmapFactory.Options o2 = new BitmapFactory.Options();
-              o2.inSampleSize=scale;
-              o2.inPurgeable = true;
-              b = BitmapFactory.decodeStream(new FileInputStream(mPictures[i]), null, o2);
-            } else {
-              BitmapFactory.Options options = new BitmapFactory.Options();
-              options.inPreferQualityOverSpeed = false;
-              options.inPurgeable = true;
-              b = BitmapFactory.decodeFile(path, options);
-            }
+            BitmapFactory.Options o2 = new BitmapFactory.Options();
+            o2.inSampleSize=ImageUtil.getScalingFactor(path, 100, 100);
+            o2.inPurgeable = true;
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(mPictures[i]), null, o2);
 
             if (b != null) {
               mImageList.add(new ImageInfo(path, getMeanColor(b)));
-//              b.recycle();
+              b.recycle();
             } else {
               System.out.println("File ist null-> " + path);
             }

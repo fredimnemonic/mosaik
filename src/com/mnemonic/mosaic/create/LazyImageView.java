@@ -20,6 +20,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.ImageView;
+import com.mnemonic.mosaic.imageutils.ImageUtil;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class LazyImageView extends ImageView {
 
@@ -48,18 +52,32 @@ public class LazyImageView extends ImageView {
     Thread thread = new Thread() {
       @Override
       public void run() {
-        Bitmap bMap;
+        Bitmap bMap = null;
         if (mAdapter.mLoadedPictures.containsKey(path)) {
           bMap = mAdapter.mLoadedPictures.get(path);
         } else {
-          BitmapFactory.Options o = new BitmapFactory.Options();
-          o.inPurgeable = true;
-          bMap = Bitmap.createScaledBitmap(BitmapFactory.decodeFile(path, o), mAdapter.mSize.width, mAdapter.mSize.height, false);
-          mAdapter.mLoadedPictures.put(path, bMap);
-        }
+          try {
+            int scale = ImageUtil.getScalingFactor(path, mAdapter.mSize.height, mAdapter.mSize.width);
+            BitmapFactory.Options o2 = new BitmapFactory.Options();
+            o2.inSampleSize = scale;
+            o2.inPurgeable = true;
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(path), null, o2);
 
-        Message message = handler.obtainMessage(1, new BitmapDrawable(bMap));
-        handler.sendMessage(message);
+            if (b != null) {
+              bMap = Bitmap.createScaledBitmap(b, mAdapter.mSize.width, mAdapter.mSize.height, false);
+              b.recycle();
+              mAdapter.mLoadedPictures.put(path, bMap);
+            } else {
+              System.out.println("File ist null-> " + path);
+            }
+          } catch (FileNotFoundException e) {
+            e.printStackTrace();
+          }
+        }
+        if (bMap != null) {
+          Message message = handler.obtainMessage(1, new BitmapDrawable(bMap));
+          handler.sendMessage(message);
+        }
       }
     };
     thread.start();

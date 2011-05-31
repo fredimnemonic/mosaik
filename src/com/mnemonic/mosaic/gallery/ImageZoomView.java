@@ -120,10 +120,10 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
       canvas.drawRect(mRectDst, p);
 
 
-      Rect r = new Rect(getWidth()/2 - mRenderer.mOrigWidth / 2, getHeight()/2 - mRenderer.mOrigHeight / 2, getWidth()/2 + mRenderer.mOrigWidth / 2, getHeight()/2 + mRenderer.mOrigHeight / 2);
-      new Paint();
-      p.setColor(Color.YELLOW);
-      canvas.drawRect(r, p);
+//      Rect r = new Rect(getWidth()/2 - mRenderer.mOrigWidth / 2, getHeight()/2 - mRenderer.mOrigHeight / 2, getWidth()/2 + mRenderer.mOrigWidth / 2, getHeight()/2 + mRenderer.mOrigHeight / 2);
+//      new Paint();
+//      p.setColor(Color.YELLOW);
+//      canvas.drawRect(r, p);
 
       // Adjust source rectangle so that it fits within the source image.
       if (mRectSrc.left < 0) {
