@@ -59,13 +59,10 @@ class ThreadedRadiusRenderRandom extends ImageRendererBase {
     int half = mTileCountX / 2;
     int halfy = mTileCountY / 2;
 
-
     Thread t1 = new TileThread(this, runnable, 0, half, 0, halfy);
     Thread t3 = new TileThread(this, runnable, 0, half, halfy, mTileCountY);
     Thread t2 = new TileThread(this, runnable, half, mTileCountX, 0, halfy);
     Thread t4 = new TileThread(this, runnable, half, mTileCountX, halfy, mTileCountY);
-
-//    Thread t1 = new TileThread(this, runnable, 0, mTileCount);
 
     t1.start();
     t2.start();

@@ -35,11 +35,18 @@ package com.mnemonic.mosaic.gallery;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
 import com.mnemonic.mosaic.imageutils.renderer.RendererFactory;
 import com.mnemonic.mosaic.preferences.PreferenceReader;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 /**
  * Activity for zoom tutorial 1
@@ -82,71 +89,35 @@ public class SingleZoomActivity extends BaseActivity {
 
     mZoomView = new ImageZoomView(getBaseContext(), renderer);
 
-//    mZoomView.setBackgroundColor(Color.RED);
 
+    Button b = new Button(getBaseContext());
+    b.setText("Speichern");
+    b.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        try {
 
+          File loc = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "mosaik_" + System.currentTimeMillis() + ".jpg");
+          if (loc.exists() || loc.createNewFile()) {
+            FileOutputStream out = new FileOutputStream(loc);
+            neu.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.flush();
+            out.close();
+          }
 
-//    Button b = new Button(getBaseContext());
-//    b.setText("Speichern");
-//    b.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        try {
-//          MediaStore.Images.Media.insertImage(getContentResolver(), neu, "mosaik_" + System.currentTimeMillis() + ".jpg", "");
-//
-////          File pics = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-////          File loc = new File(pics, "mosaik_" + System.currentTimeMillis() + ".jpg");
-////          if (loc.exists() || loc.createNewFile()) {
-////            FileOutputStream out = new FileOutputStream(loc);
-////            neu.compress(Bitmap.CompressFormat.JPEG, 100, out);
-////            out.flush();
-////            out.close();
-////          }
-//        } catch (Exception e) {
-//          e.printStackTrace();
-//        }
-//      }
-//    });
-//    layout.addView(b);
-//    b = new Button(getBaseContext());
-//    b.setText("Aktualisieren");
-//    b.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        try {
-//          mZoomView.invalidate();
-//        } catch (Exception e) {
-//          e.printStackTrace();
-//        }
-//      }
-//    });
-//    layout.addView(b);
+          MediaStore.Images.Media.insertImage(getContentResolver(), neu, "MOSAIK", "MOSAIK_DESC");
+
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
+    layout.addView(b);
     layout.addView(mZoomView);
 
     setContentView(layout);
 
-//    Handler handler = new Handler(){
-//      int mCounter = 0;
-//      @Override
-//      public void handleMessage(Message msg) {
-//        mZoomView.invalidate();
-//        if (msg.what == MessageConst.MessageFinish) {
-//          mCounter ++;
-//        }
-//        if (mCounter == 2) {
-//          Toast.makeText(getBaseContext(), "Mosaik ist fertig", Toast.LENGTH_LONG).show();
-//        }
-//
-//      }
-//    };
-
-
-
-
     mZoomState = new ZoomState();
-
-//    mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.image800x600);
-
     mZoomListener = new SimpleZoomListener();
     mZoomListener.setZoomState(mZoomState);
 
@@ -155,9 +126,6 @@ public class SingleZoomActivity extends BaseActivity {
     mZoomView.setImage(neu);
 
     resetZoomState();
-
-
-//    renderer.renderImage(handler);
   }
 
   @Override
@@ -168,33 +136,6 @@ public class SingleZoomActivity extends BaseActivity {
     mZoomView.setOnTouchListener(null);
     mZoomState.deleteObservers();
   }
-
-//  @Override
-//  public boolean onCreateOptionsMenu(Menu menu) {
-//    menu.add(Menu.NONE, MENU_ID_ZOOM, 0, R.string.menu_zoom);
-//    menu.add(Menu.NONE, MENU_ID_PAN, 1, R.string.menu_pan);
-//    menu.add(Menu.NONE, MENU_ID_RESET, 2, R.string.menu_reset);
-//    return super.onCreateOptionsMenu(menu);
-//  }
-
-//  @Override
-//  public boolean onOptionsItemSelected(MenuItem item) {
-//    switch (item.getItemId()) {
-//      case MENU_ID_ZOOM:
-//        mZoomListener.setControlType(SimpleZoomListener.ControlType.ZOOM);
-//        break;
-//
-//      case MENU_ID_PAN:
-//        mZoomListener.setControlType(SimpleZoomListener.ControlType.PAN);
-//        break;
-//
-//      case MENU_ID_RESET:
-//        resetZoomState();
-//        break;
-//    }
-//
-//    return super.onOptionsItemSelected(item);
-//  }
 
   /**
    * Reset zoom state and notify observers
