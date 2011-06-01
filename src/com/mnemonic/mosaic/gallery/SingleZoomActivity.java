@@ -35,7 +35,6 @@ package com.mnemonic.mosaic.gallery;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -44,9 +43,6 @@ import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
 import com.mnemonic.mosaic.imageutils.renderer.RendererFactory;
 import com.mnemonic.mosaic.preferences.PreferenceReader;
-
-import java.io.File;
-import java.io.FileOutputStream;
 
 /**
  * Activity for zoom tutorial 1
@@ -95,21 +91,7 @@ public class SingleZoomActivity extends BaseActivity {
     b.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        try {
-
-          File loc = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "mosaik_" + System.currentTimeMillis() + ".jpg");
-          if (loc.exists() || loc.createNewFile()) {
-            FileOutputStream out = new FileOutputStream(loc);
-            neu.compress(Bitmap.CompressFormat.JPEG, 100, out);
-            out.flush();
-            out.close();
-          }
-
-          MediaStore.Images.Media.insertImage(getContentResolver(), neu, "MOSAIK", "MOSAIK_DESC");
-
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
+        MediaStore.Images.Media.insertImage(getContentResolver(), neu, "MOSAIK", "MOSAIK_DESC");
       }
     });
     layout.addView(b);
