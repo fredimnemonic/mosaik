@@ -32,8 +32,10 @@ package com.mnemonic.mosaic.gallery;
 //import com.sonyericsson.zoom.ZoomState;
 //import com.sonyericsson.zoom.SimpleZoomListener.ControlType;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -49,26 +51,16 @@ import com.mnemonic.mosaic.preferences.PreferenceReader;
  */
 public class SingleZoomActivity extends BaseActivity {
 
-  /** Constant used as menu item id for setting zoom control type */
-  private static final int MENU_ID_ZOOM = 0;
-
-  /** Constant used as menu item id for setting pan control type */
-  private static final int MENU_ID_PAN = 1;
-
-  /** Constant used as menu item id for resetting zoom state */
-  private static final int MENU_ID_RESET = 2;
-
   /** Image zoom view */
   private ImageZoomView mZoomView;
 
   /** Zoom state */
   private ZoomState mZoomState;
 
-  /** Decoded bitmap image */
-  private Bitmap mBitmap;
-
   /** On touch listener for zoom view */
   private SimpleZoomListener mZoomListener;
+
+  private Uri mLastUri;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -82,9 +74,12 @@ public class SingleZoomActivity extends BaseActivity {
     System.out.println("SingeZoomActivity-> with: " + neu.getWidth() + "  height: " + neu.getHeight());
 
     LinearLayout layout = new LinearLayout(getBaseContext());
+    layout.setOrientation(LinearLayout.VERTICAL);
+
+    LinearLayout buttons = new LinearLayout(getBaseContext());
+    buttons.setOrientation(LinearLayout.HORIZONTAL);
 
     mZoomView = new ImageZoomView(getBaseContext(), renderer);
-
 
     Button b = new Button(getBaseContext());
     b.setText("Speichern");
@@ -94,8 +89,30 @@ public class SingleZoomActivity extends BaseActivity {
         MediaStore.Images.Media.insertImage(getContentResolver(), neu, "MOSAIK", "MOSAIK_DESC");
       }
     });
-    layout.addView(b);
+    buttons.addView(b);
+
+    b = new Button(getBaseContext());
+    b.setText("Senden an");
+    b.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        String url = MediaStore.Images.Media.insertImage(getContentResolver(), neu, "MOSAIK", "MOSAIK_DESC");
+        if (url != null && !url.isEmpty()) {
+          mLastUri = Uri.parse(url);
+          Intent sendIntent = new Intent(Intent.ACTION_SEND);
+          sendIntent.setType("image/jpg");
+          sendIntent.putExtra(Intent.EXTRA_STREAM, mLastUri);
+          sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Mosiak");
+          sendIntent.putExtra(Intent.EXTRA_TEXT, "Send Mosiak-Created Picture!");
+          startActivityForResult(Intent.createChooser(sendIntent, "Mail senden mit:"), 0);
+        }
+      }
+    });
+    buttons.addView(b);
+
+    layout.addView(buttons);
     layout.addView(mZoomView);
+
 
     setContentView(layout);
 
@@ -108,6 +125,18 @@ public class SingleZoomActivity extends BaseActivity {
     mZoomView.setImage(neu);
 
     resetZoomState();
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (mLastUri != null) {
+      int delrows = getContentResolver().delete(mLastUri, "", new String[0]);
+      if (delrows == 0) {
+        System.out.println("bild konnte nicht gelöscht werden");
+      }
+    }
+
+    super.onActivityResult(requestCode, resultCode, data);
   }
 
   @Override
