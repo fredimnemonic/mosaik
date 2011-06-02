@@ -50,6 +50,7 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
     getHolder().addCallback(this);
 //    _thread = new TutorialThread(getHolder(), this);
     mRenderer = renderer;
+    mPaint.setColor(Color.parseColor("#241d67"));
   }
 
   /**
@@ -111,15 +112,13 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
       mRectSrc.right = (int)(mRectSrc.left + viewWidth / zoomX);
       mRectSrc.bottom = (int)(mRectSrc.top + viewHeight / zoomY);
       mRectDst.left = getLeft();
-      mRectDst.top = getTop();
+      mRectDst.top = 0;
       mRectDst.right = getRight();
       mRectDst.bottom = getBottom();
 
-      Paint p = new Paint();
-      p.setColor(Color.rgb(10, 1, 45));
-      canvas.drawRect(mRectDst, p);
+      canvas.drawRect(new Rect(0, 0, getWidth(), getHeight()), mPaint);
 
-
+      //Oiginaalgrösse zeichnen
 //      Rect r = new Rect(getWidth()/2 - mRenderer.mOrigWidth / 2, getHeight()/2 - mRenderer.mOrigHeight / 2, getWidth()/2 + mRenderer.mOrigWidth / 2, getHeight()/2 + mRenderer.mOrigHeight / 2);
 //      new Paint();
 //      p.setColor(Color.YELLOW);

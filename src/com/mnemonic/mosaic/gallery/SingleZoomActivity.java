@@ -35,9 +35,11 @@ package com.mnemonic.mosaic.gallery;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -82,6 +84,7 @@ public class SingleZoomActivity extends BaseActivity {
     mZoomView = new ImageZoomView(getBaseContext(), renderer);
 
     Button b = new Button(getBaseContext());
+    b.setWidth(200);
     b.setText("Speichern");
     b.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -92,6 +95,7 @@ public class SingleZoomActivity extends BaseActivity {
     buttons.addView(b);
 
     b = new Button(getBaseContext());
+    b.setWidth(200);
     b.setText("Senden an");
     b.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -104,14 +108,20 @@ public class SingleZoomActivity extends BaseActivity {
           sendIntent.putExtra(Intent.EXTRA_STREAM, mLastUri);
           sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Mosiak");
           sendIntent.putExtra(Intent.EXTRA_TEXT, "Send Mosiak-Created Picture!");
-          startActivityForResult(Intent.createChooser(sendIntent, "Mail senden mit:"), 0);
+          startActivityForResult(Intent.createChooser(sendIntent, "Aktion auswählen:"), 0);
         }
       }
     });
     buttons.addView(b);
+    buttons.setHorizontalGravity(Gravity.CENTER);
+    buttons.setVerticalGravity(Gravity.CENTER);
 
     layout.addView(buttons);
+
     layout.addView(mZoomView);
+    buttons.setBackgroundColor(Color.parseColor("#241d67"));
+
+    layout.setBackgroundColor(Color.parseColor("#241d67"));
 
 
     setContentView(layout);
