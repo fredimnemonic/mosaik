@@ -5,16 +5,16 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import com.mnemonic.mosaic.BaseActivity;
-import com.mnemonic.mosaic.R;
 import com.mnemonic.mosaic.gallery.SingleZoomActivity;
 import com.mnemonic.mosaic.imageutils.ImageUtil;
+
+import java.util.List;
 
 public class CreateActivity extends BaseActivity {
 
@@ -27,7 +27,7 @@ public class CreateActivity extends BaseActivity {
     try {
       GridView grid = new GridView(this);
 
-      grid.setNumColumns(10);
+      grid.setNumColumns(ImageAdapter.COLCOUNT);
       mImageAdapter = new ImageAdapter(this);
       grid.setAdapter(mImageAdapter);
 
@@ -37,16 +37,16 @@ public class CreateActivity extends BaseActivity {
         }
       });
 
-      setContentView(grid);
-
-      int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
-      GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
-      grid.setBackgroundDrawable(gradientDrawable);
-      grid.setPadding(0, 5, 0, 0);
+      mMainPanel.addView(grid);
 
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  @Override
+  protected List<Button> getMenuButtons() {
+    return null;
   }
 
   @Override
@@ -61,27 +61,21 @@ public class CreateActivity extends BaseActivity {
 
     final Dialog dlg = new Dialog(this);
 
-    LinearLayout top = new LinearLayout(this);
+    LinearLayout all = new LinearLayout(getBaseContext());
+    all.setOrientation(LinearLayout.HORIZONTAL);
 
-    LinearLayout panel;
-    panel = new LinearLayout(this);
-    panel.setPadding(5, 5, 5, 5);
-
-    LinearLayout l = new LinearLayout(this);
-    l.setPadding(2, 2, 2, 2);
-    l.setBackgroundColor(Color.WHITE);
-
-    ImageView imageView = new ImageView(this);
-    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-    imageView.setImageBitmap(bMap);
-
-    l.addView(imageView);
-    panel.addView(l);
-
-    top.addView(panel);
+    LinearLayout menupanel = new LinearLayout(getBaseContext());
+    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(180, ViewGroup.LayoutParams.MATCH_PARENT);
+    menupanel.setLayoutParams(params);
+    menupanel.setBackgroundColor(Color.BLACK);
+    menupanel.setOrientation(LinearLayout.VERTICAL);
+    menupanel.setPadding(0, 0, 10, 0);
 
     Button accept = new Button(this);
     accept.setText("Create Mosaic");
+    accept.setWidth(150);
+    accept.setHeight(150);
+    menupanel.addView(accept);
     accept.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -95,7 +89,10 @@ public class CreateActivity extends BaseActivity {
     });
 
     Button other = new Button(this);
+    other.setWidth(150);
+    other.setHeight(150);
     other.setText("Other");
+    menupanel.addView(other);
     other.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -103,18 +100,23 @@ public class CreateActivity extends BaseActivity {
       }
     });
 
-    LinearLayout but = new LinearLayout(this);
-    but.setOrientation(LinearLayout.HORIZONTAL);
-    but.addView(accept);
-    but.addView(other);
 
-    LinearLayout all = new LinearLayout(this);
-    all.setOrientation(LinearLayout.VERTICAL);
-    all.addView(but);
-    all.addView(top);
 
-    ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(170, 170);
-    all.setLayoutParams(params);
+    all.addView(menupanel);
+
+    LinearLayout mainpanel = new LinearLayout(getBaseContext());
+
+    all.addView(mainpanel);
+    all.setPadding(10, 10, 10, 10);
+
+    ImageView imageView = new ImageView(this);
+    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+    imageView.setImageBitmap(bMap);
+
+    mainpanel.addView(imageView);
+
+//    ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(170, 170);
+//    all.setLayoutParams(params);
     dlg.setContentView(all);
     dlg.setTitle("Auswahl akzeptieren?");
 

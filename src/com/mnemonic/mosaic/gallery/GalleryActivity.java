@@ -2,9 +2,12 @@ package com.mnemonic.mosaic.gallery;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.R;
+
+import java.util.List;
 
 public class GalleryActivity extends BaseActivity {
   @Override
@@ -17,5 +20,10 @@ public class GalleryActivity extends BaseActivity {
     layout.setBackgroundDrawable(d);
 
     setContentView(layout);
+  }
+
+  @Override
+  protected List<Button> getMenuButtons() {
+    return null;
   }
 }

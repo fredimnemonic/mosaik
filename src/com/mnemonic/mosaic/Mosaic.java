@@ -6,15 +6,17 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.*;
+import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.mnemonic.mosaic.create.CreateActivity;
 import com.mnemonic.mosaic.gallery.GalleryActivity;
 import com.mnemonic.mosaic.imageutils.LibraryUtil;
 import com.mnemonic.mosaic.lib.MessageConst;
 import com.mnemonic.mosaic.preferences.PreferencesActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Mosaic extends BaseActivity {
 
@@ -23,62 +25,67 @@ public class Mosaic extends BaseActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    setContentView(R.layout.main);
-
-    RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainlayout);
-
-    Button b = (Button) findViewById(R.id.btnCreate);
-    b.setHeight(150);
-    b.setWidth(150);
-
-    b = (Button) findViewById(R.id.btnGallery);
-    b.setHeight(150);
-    b.setWidth(150);
-
     int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
     GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
-    layout.setBackgroundDrawable(gradientDrawable);
-    layout.setPadding(0, 5, 0, 0);
+    mMainPanel.setBackgroundDrawable(gradientDrawable);
+    mMainPanel.setPadding(0, 5, 0, 0);
   }
 
-  //wird �ber action in AndroidManifest.xml angesprochen
-  @SuppressWarnings({"UnusedDeclaration"})
-  public void actionCreate(View view) {
+  @Override
+  protected List<Button> getMenuButtons() {
+    List<Button> buttons = new ArrayList<Button>();
+
+    Button b = new Button(getBaseContext());
+    b.setText("Neues Mosaik");
+    b.setOnClickListener(new View.OnClickListener(){
+      @Override
+      public void onClick(View view) {
+        actionCreate();
+      }
+    });
+    buttons.add(b);
+
+    b = new Button(getBaseContext());
+    b.setText("Gallery");
+    b.setOnClickListener(new View.OnClickListener(){
+      @Override
+      public void onClick(View view) {
+        actionGallery();
+      }
+    });
+    buttons.add(b);
+
+    b = new Button(getBaseContext());
+    b.setText("Libraray erstellen");
+    b.setOnClickListener(new View.OnClickListener(){
+      @Override
+      public void onClick(View view) {
+        createImageLib();
+      }
+    });
+    buttons.add(b);
+
+    b = new Button(getBaseContext());
+    b.setText("Einstellungen");
+    b.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        startActivity(new Intent(getBaseContext(), PreferencesActivity.class));
+      }
+    });
+    buttons.add(b);
+
+    return buttons;
+  }
+
+  public void actionCreate() {
     Intent intent = new Intent(this, CreateActivity.class);
     startActivity(intent);
   }
 
-  //wird �ber action in AndroidManifest.xml angesprochen
-  @SuppressWarnings({"UnusedDeclaration"})
-  public void actionGallery(View view) {
+  public void actionGallery() {
     Intent intent = new Intent(this, GalleryActivity.class);
     startActivity(intent);
-  }
-
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.main, menu);
-    return true;
-  }
-
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-
-    switch (item.getItemId()) {
-      case R.id.menu_photolib:
-        createImageLib();
-        break;
-
-      case R.id.menu_preferences:
-        startActivity(new Intent(getBaseContext(), PreferencesActivity.class));
-        break;
-
-      default:
-        return super.onOptionsItemSelected(item);
-    }
-
-    return  true;
   }
 
   private void createImageLib() {

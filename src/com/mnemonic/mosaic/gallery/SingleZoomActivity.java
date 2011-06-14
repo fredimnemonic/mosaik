@@ -27,40 +27,29 @@
 
 package com.mnemonic.mosaic.gallery;
 
-//import com.sonyericsson.zoom.ImageZoomView;
-//import com.sonyericsson.zoom.SimpleZoomListener;
-//import com.sonyericsson.zoom.ZoomState;
-//import com.sonyericsson.zoom.SimpleZoomListener.ControlType;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import com.mnemonic.mosaic.BaseActivity;
 import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
 import com.mnemonic.mosaic.imageutils.renderer.RendererFactory;
 import com.mnemonic.mosaic.preferences.PreferenceReader;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Activity for zoom tutorial 1
  */
 public class SingleZoomActivity extends BaseActivity {
 
-  /** Image zoom view */
   private ImageZoomView mZoomView;
-
-  /** Zoom state */
   private ZoomState mZoomState;
-
-  /** On touch listener for zoom view */
-  private SimpleZoomListener mZoomListener;
 
   private Uri mLastUri;
 
@@ -72,65 +61,22 @@ public class SingleZoomActivity extends BaseActivity {
     System.out.println("SingeZoomActivity-> with: " + tomasaic.getWidth() + "  height: " + tomasaic.getHeight());
     String renderername = PreferenceReader.getRendererClass(getBaseContext());
     final ImageRendererBase renderer = RendererFactory.createRenderer(renderername, getBaseContext(), tomasaic);
-    final Bitmap neu = renderer.setUp();
+    Bitmap neu = renderer.setUp();
     System.out.println("SingeZoomActivity-> with: " + neu.getWidth() + "  height: " + neu.getHeight());
-
-    LinearLayout layout = new LinearLayout(getBaseContext());
-    layout.setOrientation(LinearLayout.VERTICAL);
-
-    LinearLayout buttons = new LinearLayout(getBaseContext());
-    buttons.setOrientation(LinearLayout.HORIZONTAL);
 
     mZoomView = new ImageZoomView(getBaseContext(), renderer);
 
-    Button b = new Button(getBaseContext());
-    b.setWidth(200);
-    b.setText("Speichern");
-    b.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        MediaStore.Images.Media.insertImage(getContentResolver(), neu, "MOSAIK", "MOSAIK_DESC");
-      }
-    });
-    buttons.addView(b);
+    mMainPanel.addView(mZoomView);
 
-    b = new Button(getBaseContext());
-    b.setWidth(200);
-    b.setText("Senden an");
-    b.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        String url = MediaStore.Images.Media.insertImage(getContentResolver(), neu, "MOSAIK", "MOSAIK_DESC");
-        if (url != null && !url.isEmpty()) {
-          mLastUri = Uri.parse(url);
-          Intent sendIntent = new Intent(Intent.ACTION_SEND);
-          sendIntent.setType("image/jpg");
-          sendIntent.putExtra(Intent.EXTRA_STREAM, mLastUri);
-          sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Mosiak");
-          sendIntent.putExtra(Intent.EXTRA_TEXT, "Send Mosiak-Created Picture!");
-          startActivityForResult(Intent.createChooser(sendIntent, "Aktion auswählen:"), 0);
-        }
-      }
-    });
-    buttons.addView(b);
-    buttons.setHorizontalGravity(Gravity.CENTER);
-    buttons.setVerticalGravity(Gravity.CENTER);
+//    layout.setBackgroundColor(Color.parseColor("#241d67"));
 
-    layout.addView(buttons);
-
-    layout.addView(mZoomView);
-    buttons.setBackgroundColor(Color.parseColor("#241d67"));
-
-    layout.setBackgroundColor(Color.parseColor("#241d67"));
-
-
-    setContentView(layout);
 
     mZoomState = new ZoomState();
-    mZoomListener = new SimpleZoomListener();
-    mZoomListener.setZoomState(mZoomState);
 
-    mZoomView.setOnTouchListener(mZoomListener);
+    SimpleZoomListener zoomListener = new SimpleZoomListener();
+    zoomListener.setZoomState(mZoomState);
+
+    mZoomView.setOnTouchListener(zoomListener);
     mZoomView.setZoomState(mZoomState);
     mZoomView.setImage(neu);
 
@@ -168,4 +114,38 @@ public class SingleZoomActivity extends BaseActivity {
     mZoomState.notifyObservers();
   }
 
+  @Override
+  protected List<Button> getMenuButtons() {
+    List<Button> buttons = new ArrayList<Button>();
+    Button b = new Button(getBaseContext());
+    buttons.add(b);
+    b.setText("Speichern");
+    b.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        MediaStore.Images.Media.insertImage(getContentResolver(), mZoomView.mBitmap, "MOSAIK", "MOSAIK_DESC");
+      }
+    });
+
+    b = new Button(getBaseContext());
+    b.setText("Senden an");
+    buttons.add(b);
+    b.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        String url = MediaStore.Images.Media.insertImage(getContentResolver(), mZoomView.mBitmap, "MOSAIK", "MOSAIK_DESC");
+        if (url != null && !url.isEmpty()) {
+          mLastUri = Uri.parse(url);
+          Intent sendIntent = new Intent(Intent.ACTION_SEND);
+          sendIntent.setType("image/jpg");
+          sendIntent.putExtra(Intent.EXTRA_STREAM, mLastUri);
+          sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Mosiak");
+          sendIntent.putExtra(Intent.EXTRA_TEXT, "Send Mosiak-Created Picture!");
+          startActivityForResult(Intent.createChooser(sendIntent, "Aktion auswählen:"), 0);
+        }
+      }
+    });
+
+    return buttons;
+  }
 }

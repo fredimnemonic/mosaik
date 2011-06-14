@@ -9,12 +9,19 @@
 package com.mnemonic.mosaic;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
-public class BaseActivity extends Activity {
+import java.util.List;
 
+public abstract class BaseActivity extends Activity {
+  protected LinearLayout mMainPanel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,38 @@ public class BaseActivity extends Activity {
     requestWindowFeature(Window.FEATURE_NO_TITLE);
 
     System.out.println("****************** " + getClass().getSimpleName() + ".onCreate");
+
+    LinearLayout all = new LinearLayout(getBaseContext());
+    all.setOrientation(LinearLayout.HORIZONTAL);
+
+    List<Button> buttons = getMenuButtons();
+    if (buttons != null) {
+      LinearLayout menupanel = new LinearLayout(getBaseContext());
+      LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(180, ViewGroup.LayoutParams.MATCH_PARENT);
+      menupanel.setLayoutParams(params);
+      menupanel.setBackgroundColor(Color.BLACK);
+      menupanel.setOrientation(LinearLayout.VERTICAL);
+      menupanel.setPadding(10, 10, 10, 10);
+
+      for (Button b : buttons) {
+        b.setWidth(150);
+        b.setHeight(150);
+        menupanel.addView(b);
+      }
+
+      all.addView(menupanel);
+    }
+
+    mMainPanel = new LinearLayout(getBaseContext());
+
+    all.addView(mMainPanel);
+
+    int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
+    GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
+    all.setBackgroundDrawable(gradientDrawable);
+    all.setPadding(0, 0, 0, 0);
+
+    setContentView(all);
   }
 
   @Override
@@ -80,4 +119,6 @@ public class BaseActivity extends Activity {
     System.out.println("****************** " + getClass().getSimpleName() + ".onStop()");
 //    Debug.stopMethodTracing();
   }
+
+  protected abstract List<Button> getMenuButtons();
 }

@@ -33,7 +33,7 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
   private final Rect mRectDst = new Rect();
 
   /** The bitmap that we're zooming in, and drawing on the screen. */
-  private Bitmap mBitmap;
+  Bitmap mBitmap;
 
   /** Pre-calculated aspect quotient. */
   private float mAspectQuotient;

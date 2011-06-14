@@ -14,6 +14,7 @@ import java.io.File;
 import java.util.WeakHashMap;
 
 public class ImageAdapter extends BaseAdapter {
+  static final int COLCOUNT = 8;
   private CreateActivity mContext;
   GridView.LayoutParams mSize;
   private File[] mPictures;
@@ -24,7 +25,7 @@ public class ImageAdapter extends BaseAdapter {
     mContext = c;
 
     int dispwith = mContext.getWindowManager().getDefaultDisplay().getWidth();
-    int picwith = dispwith / 10;
+    int picwith = dispwith / COLCOUNT;
     mSize = new GridView.LayoutParams(picwith, picwith);
 
     mPictures = LibraryUtil.getLibraryUtil().getAvailablePictures();

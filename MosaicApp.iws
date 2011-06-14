@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" line="55" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" line="88" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" line="88" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c72882b-bc1f-46d6-b115-8899c68ed40b" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\dev\android\android-src\mosaik\res\layout\create.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\dev\android\android-src\mosaik\res\layout\main.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\dev\android\android-src\mosaik\res\menu\main.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MosaicApp.iws" afterPath="$PROJECT_DIR$/MosaicApp.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/BaseActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/BaseActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/ImageAdapter.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/ImageAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ImageZoomView.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ImageZoomView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleZoomActivity.java" afterPath="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleZoomActivity.java" />
     </list>
@@ -95,10 +102,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LibraryUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java">
+      <file leaf-file-name="SingleZoomActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleZoomActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="0" selection-start="1832" selection-end="1832" vertical-scroll-proportion="0.0">
+            <state line="108" column="5" selection-start="4070" selection-end="4070" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preferences.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="29" selection-start="529" selection-end="529" vertical-scroll-proportion="0.3709091">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageZoomView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ImageZoomView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="14" selection-start="1470" selection-end="1475" vertical-scroll-proportion="-29.423077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/BaseActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="121" column="0" selection-start="3505" selection-end="3505" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,54 +141,61 @@
       <file leaf-file-name="GalleryActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0">
+            <state line="20" column="0" selection-start="437" selection-end="758" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleZoomActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleZoomActivity.java">
+      <file leaf-file-name="PreferencesActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferencesActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="60" selection-start="5105" selection-end="5105" vertical-scroll-proportion="-9.807693">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="color.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/color.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="11" column="32" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageZoomView.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ImageZoomView.java">
+      <file leaf-file-name="CreateActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="65" selection-start="3170" selection-end="3170" vertical-scroll-proportion="0.6168033">
+            <state line="71" column="36" selection-start="2197" selection-end="2197" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/view/View.class">
+      <file leaf-file-name="ImageView.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/widget/ImageView.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="414" column="19" selection-start="18209" selection-end="18209" vertical-scroll-proportion="-6.28">
+            <state line="80" column="27" selection-start="3210" selection-end="3210" vertical-scroll-proportion="-10.36">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZoomState.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ZoomState.java">
+      <file leaf-file-name="ImageAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/create/ImageAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="16" selection-start="3766" selection-end="3766" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridView.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/widget/GridView.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="9" selection-start="486" selection-end="486" vertical-scroll-proportion="-6.84">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mosaic.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="30" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -169,28 +210,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/create.xml">
+      <file leaf-file-name="singlemosaic.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/singlemosaic.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinearLayout.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/widget/LinearLayout.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="9" selection-start="533" selection-end="533" vertical-scroll-proportion="28.92">
               <folding />
             </state>
           </provider>
@@ -199,7 +222,7 @@
       <file leaf-file-name="ViewGroup.class" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/view/ViewGroup.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="300" column="22" selection-start="14497" selection-end="14497" vertical-scroll-proportion="-7.56">
+            <state line="300" column="22" selection-start="14499" selection-end="14499" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -208,7 +231,7 @@
       <file leaf-file-name="MediaStore.class" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/provider/MediaStore.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="28" selection-start="13705" selection-end="13705" vertical-scroll-proportion="-1.88">
+            <state line="254" column="28" selection-start="13705" selection-end="13705" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -273,7 +296,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ZoomableViewLacy.java" />
         <option value="$PROJECT_DIR$/res/values/array.xml" />
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageInfo.java" />
@@ -281,19 +303,20 @@
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/internal/InternalLibraryUtil2.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/internal/InternalLibraryUtil.java" />
         <option value="$PROJECT_DIR$/res/values/color.xml" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/BaseActivity.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/ImageAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/ImageUtil.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/LazyImageView.java" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/TileThread.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ThreadedRadiusRenderRandom.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java" />
-        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleZoomActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/ImageAdapter.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/BaseActivity.java" />
         <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ImageZoomView.java" />
+        <option value="$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleZoomActivity.java" />
       </list>
     </option>
   </component>
@@ -335,7 +358,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -390,33 +412,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="imageutils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MosaicApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mosaik" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mosaic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imageutils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renderer" />
+              <option name="myItemId" value="preferences" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -477,6 +473,10 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -514,22 +514,55 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MosaicApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mosaik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-mdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MosaicApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mosaik" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Favorites" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="35" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="45" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="45" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="44" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="44" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="45" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="382" />
@@ -738,7 +771,6 @@
     <layout>
       <window_info id="Changes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32944787" sideWeight="0.70323324" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290993" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43764433" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32883435" sideWeight="0.70323324" order="2" side_tool="false" content_ui="tabs" />
@@ -747,12 +779,13 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24846625" sideWeight="0.6108545" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26503068" sideWeight="0.6374134" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3891455" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="25" y="350" width="1630" height="309" />
-      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36258662" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3891455" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="25" y="350" width="1630" height="309" />
+      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36258662" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290993" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -772,7 +805,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tag: Next&#10;-send/save image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tag: Next&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -791,6 +824,7 @@
     <MESSAGE value="Tag: Next&#10;-4 Threads&#10;-xy in Threads" />
     <MESSAGE value="Tag: Next" />
     <MESSAGE value="Tag: Next&#10;-send/save image" />
+    <MESSAGE value="Tag: Next&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -800,26 +834,42 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java">
+    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/widget/LinearLayout.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="24" selection-start="2175" selection-end="2175" vertical-scroll-proportion="0.0" />
+        <state line="14" column="9" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/TileChecker.java">
+    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/view/ViewGroup.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="24" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/LibraryUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="1832" selection-end="1832" vertical-scroll-proportion="0.0">
+        <state line="300" column="22" selection-start="14499" selection-end="14499" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/provider/MediaStore.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="28" selection-start="13705" selection-end="13705" vertical-scroll-proportion="-1.88">
+        <state line="254" column="28" selection-start="13705" selection-end="13705" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="2" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/TileThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="0" selection-start="2285" selection-end="2285" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/RadiusRenderRandom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="24" selection-start="2175" selection-end="2175" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -831,116 +881,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/renderer/ImageRendererBase.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/imageutils/TileChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="2" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.0">
+        <state line="4" column="24" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/create.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/Mosaic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="38" column="30" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/net/MailTo.class">
+    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/widget/GridView.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="2" selection-start="230" selection-end="230" vertical-scroll-proportion="-5.44">
+        <state line="13" column="9" selection-start="486" selection-end="486" vertical-scroll-proportion="-6.84">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_23/src.zip!/java/net/URL.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/create/ImageAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="19" selection-start="5140" selection-end="5140" vertical-scroll-proportion="0.0">
+        <state line="22" column="0" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/app/Activity.class">
+    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/widget/ImageView.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="14" selection-start="10413" selection-end="10413" vertical-scroll-proportion="-6.28">
+        <state line="80" column="27" selection-start="3210" selection-end="3210" vertical-scroll-proportion="-10.36">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/view/ViewGroup.class">
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/create/CreateActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="300" column="22" selection-start="14497" selection-end="14497" vertical-scroll-proportion="-7.56">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/widget/LinearLayout.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="9" selection-start="533" selection-end="533" vertical-scroll-proportion="28.92">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/content/Intent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="39" selection-start="1835" selection-end="1835" vertical-scroll-proportion="0.33333334">
+        <state line="71" column="36" selection-start="2197" selection-end="2197" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="246" selection-end="246" vertical-scroll-proportion="0.38709676">
+        <state line="121" column="0" selection-start="3505" selection-end="3505" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/color.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/GalleryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="20" column="0" selection-start="437" selection-end="758" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ZoomState.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/preferences/PreferencesActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="16" selection-start="3766" selection-end="3766" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SimpleZoomListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="28" selection-start="3230" selection-end="3230" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleZoomActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="60" selection-start="5105" selection-end="5105" vertical-scroll-proportion="-9.807693">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Android/android-sdk/platforms/android-11/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="414" column="19" selection-start="18209" selection-end="18209" vertical-scroll-proportion="-6.28">
+        <state line="11" column="32" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/ImageZoomView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="65" selection-start="3170" selection-end="3170" vertical-scroll-proportion="0.6168033">
+        <state line="52" column="14" selection-start="1470" selection-end="1475" vertical-scroll-proportion="-29.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SimpleZoomListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="28" selection-start="3230" selection-end="3230" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/singlemosaic.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mnemonic/mosaic/gallery/SingleZoomActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="5" selection-start="4070" selection-end="4070" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/xml/preferences.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="29" selection-start="529" selection-end="529" vertical-scroll-proportion="0.3709091">
           <folding />
         </state>
       </provider>
