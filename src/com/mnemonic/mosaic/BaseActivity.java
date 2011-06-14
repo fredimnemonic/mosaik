@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public abstract class BaseActivity extends Activity {
       menupanel.setLayoutParams(params);
       menupanel.setBackgroundColor(Color.BLACK);
       menupanel.setOrientation(LinearLayout.VERTICAL);
-      menupanel.setPadding(10, 10, 10, 10);
+      menupanel.setPadding(10, 10, 0, 10);
 
       for (Button b : buttons) {
         b.setWidth(150);
@@ -50,14 +51,25 @@ public abstract class BaseActivity extends Activity {
       }
 
       all.addView(menupanel);
+
+      LinearLayout shadow = new LinearLayout(getBaseContext());
+      shadow.setLayoutParams(new ViewGroup.LayoutParams(20, ViewGroup.LayoutParams.FILL_PARENT));
+      ImageView img = new ImageView(getBaseContext());
+      img.setLayoutParams(new ViewGroup.LayoutParams(20, ViewGroup.LayoutParams.FILL_PARENT));
+      img.setImageResource(R.drawable.shadow2);
+      img.setScaleType(ImageView.ScaleType.FIT_XY);
+      shadow.addView(img);
+      shadow.setBackgroundColor(Color.TRANSPARENT);
+      img.setBackgroundColor(Color.TRANSPARENT);
+      all.addView(shadow);
     }
 
     mMainPanel = new LinearLayout(getBaseContext());
 
     all.addView(mMainPanel);
 
-    int[] colors = new int[]{getResources().getColor(R.color.gradient_end), getResources().getColor(R.color.gradient_start)};
-    GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, colors);
+    int[] colors = new int[]{getResources().getColor(R.color.gradient_start), getResources().getColor(R.color.gradient_end)};
+    GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, colors);
     all.setBackgroundDrawable(gradientDrawable);
     all.setPadding(0, 0, 0, 0);
 

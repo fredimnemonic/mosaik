@@ -1,6 +1,6 @@
 <resources>
   <color name="background">#520000</color>
-  <color name="gradient_start">#0a012d</color>
-  <color name="gradient_end">#241d67</color>
+  <color name="gradient_start">#4e8cf1</color>
+  <color name="gradient_end">#f1f4f8</color>
 
 </resources>

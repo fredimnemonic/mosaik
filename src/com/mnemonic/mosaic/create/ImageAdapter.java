@@ -58,7 +58,7 @@ public class ImageAdapter extends BaseAdapter {
     if (convertView == null) {  // if it's not recycled, initialize some attributes
       panel = new LinearLayout(mContext);
       panel.setPadding(3,3,3,3);
-      panel.setBackgroundColor(Color.BLACK);
+      panel.setBackgroundColor(Color.TRANSPARENT);
 
       imageView = new LazyImageView(mContext, this);
       imageView.setLayoutParams(mSize);

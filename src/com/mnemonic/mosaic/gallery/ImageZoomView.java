@@ -50,7 +50,7 @@ public class ImageZoomView extends SurfaceView implements Observer, SurfaceHolde
     getHolder().addCallback(this);
 //    _thread = new TutorialThread(getHolder(), this);
     mRenderer = renderer;
-    mPaint.setColor(Color.parseColor("#241d67"));
+    mPaint.setColor(Color.parseColor("#4e8cf1"));
   }
 
   /**

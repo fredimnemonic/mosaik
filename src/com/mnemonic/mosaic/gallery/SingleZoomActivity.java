@@ -30,12 +30,15 @@ package com.mnemonic.mosaic.gallery;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
+import android.widget.*;
 import com.mnemonic.mosaic.BaseActivity;
+import com.mnemonic.mosaic.R;
 import com.mnemonic.mosaic.imageutils.renderer.ImageRendererBase;
 import com.mnemonic.mosaic.imageutils.renderer.RendererFactory;
 import com.mnemonic.mosaic.preferences.PreferenceReader;
@@ -124,6 +127,23 @@ public class SingleZoomActivity extends BaseActivity {
       @Override
       public void onClick(View view) {
         MediaStore.Images.Media.insertImage(getContentResolver(), mZoomView.mBitmap, "MOSAIK", "MOSAIK_DESC");
+        System.out.println("*************** Bild wurde gespeichert");
+
+        Toast t = Toast.makeText(getBaseContext(), "Bild wurde gespeichert", Toast.LENGTH_SHORT);
+        LinearLayout l = new LinearLayout(getBaseContext());
+        l.setOrientation(LinearLayout.VERTICAL);
+        l.setLayoutParams(new ViewGroup.LayoutParams(200, 200));
+        TextView v = new TextView(getBaseContext());
+        v.setPadding(10, 10, 10, 10);
+        v.setText("Bild wurde gespeichert");
+        ImageView ok = new ImageView(getBaseContext());
+        ok.setImageResource(R.drawable.ok);
+        l.addView(v);
+        l.addView(ok);
+        l.setBackgroundColor(Color.parseColor("#0000CC"));
+
+        t.setView(l);
+        t.show();
       }
     });
 
